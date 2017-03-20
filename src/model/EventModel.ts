@@ -9,6 +9,10 @@ type Event = {
   },
 }
 
+enum EventType {
+
+}
+
 class EventModel extends BaseModel {
 
 }

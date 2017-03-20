@@ -1,13 +1,13 @@
 {
-  "name": "typescript-starter",
-  "version": "1.4.0",
-  "description": "A typescript starter for building javascript libraries and projects",
+  "name": "eventstorming",
+  "version": "0.0.1",
+  "description": "A Graphics Library for Event Storming",
   "main": "build/main/index.js",
   "typings": "build/main/index.d.ts",
   "module": "build/module/index.js",
   "browser": "build/browser/index.js",
-  "repository": "https://github.com/bitjson/typescript-starter",
-  "author": "Jason Dreyzehner <jason@dreyzehner.com>",
+  "repository": "https://github.com/phodal/EventStorming.Graph",
+  "author": "Phodal Huang <h@phodal.com>",
   "license": "MIT",
   "scripts": {
     "info": "npm-scripts-info",
