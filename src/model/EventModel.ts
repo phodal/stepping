@@ -13,6 +13,6 @@ enum EventType {
 
 }
 
-class EventModel extends BaseModel {
+export class EventModel extends BaseModel {
 
 }

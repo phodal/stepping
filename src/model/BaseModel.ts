@@ -6,7 +6,6 @@ export interface Model {
 }
 
 export default class BaseModel implements Model {
-
   constructor() {
 
   }
@@ -14,7 +13,9 @@ export default class BaseModel implements Model {
   model: any = [];
 
   create(model) {
-
+    return {
+      name: 'hello'
+    }
   }
 
   update(id) {
@@ -22,7 +23,9 @@ export default class BaseModel implements Model {
   }
 
   read(id) {
-
+    return {
+      name: 'hello'
+    }
   }
 
   delete(id) {
