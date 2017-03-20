@@ -1,3 +1,5 @@
+import {sha256} from "../lib/hash";
+
 export interface Model {
   create: object,
   read: object,
@@ -5,27 +7,37 @@ export interface Model {
   delete: object,
 }
 
+export interface modelInterface {
+  id?: string;
+  name?: string;
+}
+
 export default class BaseModel implements Model {
   constructor() {
 
   }
 
-  model: any = [];
+  baseModels: any = [];
 
   create(model) {
-    return {
-      name: 'hello'
-    }
+    let id = sha256(model.name);
+    model.id = id;
+    this.baseModels.push(model);
+    return model
   }
 
   update(id) {
 
   }
 
-  read(id) {
-    return {
-      name: 'hello'
+  read(id): modelInterface {
+    let result: modelInterface = {id: '', name: ''};
+    for (let index in this.baseModels) {
+      if (this.baseModels[index]['id'] === id) {
+        result = this.baseModels[index];
+      }
     }
+    return result;
   }
 
   delete(id) {
