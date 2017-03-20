@@ -11,3 +11,7 @@ export * from './bus/EventPublisher'
 export * from './store/StoreEvent'
 
 export * from './vo/EventVO'
+
+export * from './utils/Logger'
+export * from './utils/Renderer'
+export * from './utils/Player'
