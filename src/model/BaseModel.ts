@@ -1,31 +1,31 @@
 export interface Model {
-    create: object,
-    read: object,
-    update: object,
-    delete: object,
+  create: object,
+  read: object,
+  update: object,
+  delete: object,
 }
 
 export default class BaseModel implements Model {
 
-    constructor() {
+  constructor() {
 
-    }
+  }
 
-    model: any = [];
+  model: any = [];
 
-    create(model) {
+  create(model) {
 
-    }
+  }
 
-    update(id) {
+  update(id) {
 
-    }
+  }
 
-    read(id) {
+  read(id) {
 
-    }
+  }
 
-    delete(id) {
+  delete(id) {
 
-    }
+  }
 }

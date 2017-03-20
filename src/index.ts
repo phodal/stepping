@@ -7,3 +7,7 @@ export * from './model/ExtendModel'
 
 export * from './bus/EventReceiver'
 export * from './bus/EventPublisher'
+
+export * from './store/StoreEvent'
+
+export * from './vo/EventVO'
