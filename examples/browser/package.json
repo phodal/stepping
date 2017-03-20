@@ -15,7 +15,7 @@
     "typescript": "^2.2.0"
   },
   "dependencies": {
-    "typescript-starter": "^1.2.1"
+    "eventstorming": "^0.0.1"
   },
   "private": true
 }
