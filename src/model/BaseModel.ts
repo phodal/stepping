@@ -26,8 +26,14 @@ export default class BaseModel implements Model {
     return model
   }
 
-  update(id) {
-
+  update(model: modelInterface) {
+    let result: modelInterface = {id: '', name: ''};
+    for (let index in this.baseModels) {
+      if (this.baseModels[index]['id'] === model['id']) {
+        result = model
+      }
+    }
+    return result;
   }
 
   read(id): modelInterface {
