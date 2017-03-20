@@ -1,8 +1,8 @@
-interface Model {
-    create: function,
-    read: function,
-    update: function,
-    delete: function,
+export interface Model {
+    create: object,
+    read: object,
+    update: object,
+    delete: object,
 }
 
 export default class BaseModel implements Model {
