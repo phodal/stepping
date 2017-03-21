@@ -18,3 +18,5 @@ export * from './observer/EventClient'
 export * from './utils/Logger'
 export * from './utils/Renderer'
 export * from './utils/Player'
+
+export * from './business/EventBusiness'

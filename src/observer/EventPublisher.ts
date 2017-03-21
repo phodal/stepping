@@ -5,14 +5,9 @@ export class EventPublisher extends AbstractPublisher {
     super();
   }
 
-  instance() {
-    return new EventPublisher();
-  }
-
-  public NotifyObservers() {
+  public NotifyObservers(eventName: string, obj: object) {
     for (let i = 0; i < this.observers.length; i++) {
-      this.observers[i].ReceiveNotification("A general event for demo purposes.");
+      this.observers[i].ReceiveNotification(eventName, obj);
     }
   }
-
 }

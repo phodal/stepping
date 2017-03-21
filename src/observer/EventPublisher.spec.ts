@@ -10,5 +10,5 @@ test('should enable add related child', t => {
   eventPublisher.RegisterObserver(eventClient);
   eventPublisher.RegisterObserver(eventClient2);
 
-  eventPublisher.NotifyObservers();
+  eventPublisher.NotifyObservers('hello', { test: 'test'});
 });

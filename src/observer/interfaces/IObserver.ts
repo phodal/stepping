@@ -1,5 +1,5 @@
 module EventStorming.Observer {
   export interface IObserver {
-    ReceiveNotification<T>(Message: T): void;
+    ReceiveNotification<T>(event: string, obj: object): void;
   }
 }

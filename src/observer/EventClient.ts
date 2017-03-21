@@ -6,7 +6,7 @@ export class EventClient implements EventStorming.Observer.IObserver {
     this.myId = EventClient.NextId++;
   }
 
-  public ReceiveNotification(event: string) {
-    console.log("Event Client [" + this.myId + "], Received a message:", event);
+  public ReceiveNotification(event: string, obj: object) {
+    console.log("Event Client [" + event + "], Received a message:", obj);
   }
 }

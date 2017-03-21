@@ -5,7 +5,7 @@ export abstract class AbstractPublisher implements EventStorming.Observer.IObser
     this.observers = [];
   }
 
-  public abstract NotifyObservers();
+  public abstract NotifyObservers(eventName: string, obj: object);
 
   public RegisterObserver(observer: EventStorming.Observer.IObserver): void {
     this.observers.push(observer);
