@@ -1,4 +1,4 @@
-import { EventPublisher, EventModel, BaseModel } from 'eventstorming'
+import {BaseModel, EventModel} from "eventstorming";
 
 function log (str: string) {
   console.log(str)
@@ -18,6 +18,5 @@ eventModel.create({
   relatedChild: base
 });
 
-eventModel.addRelatedChild(base);
+console.log(JSON.stringify(eventModel));
 
-console.log(JSON.stringify(eventModel.baseModels));
