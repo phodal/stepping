@@ -11,7 +11,4 @@ test('should enable add related child', t => {
   eventPublisher.RegisterObserver(eventClient2);
 
   eventPublisher.NotifyObservers();
-
-  console.log(".....................");
-  eventClient.ReceiveNotification('event.had.created');
 });
