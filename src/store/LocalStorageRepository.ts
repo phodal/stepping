@@ -1,5 +1,5 @@
 // Inspired by https://github.com/yaakaito/typescript-dddbase
-import {IRepository} from "./Repository";
+import {IRepository} from "./IRepository";
 import {Identity} from "../entity/Identity";
 import {Entity} from "../entity/Entity";
 
