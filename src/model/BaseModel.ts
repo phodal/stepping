@@ -4,6 +4,7 @@ export interface Model {
   create: object,
   read: object,
   update: object,
+  all: object,
   delete: object,
 }
 
@@ -48,5 +49,9 @@ export default class BaseModel implements Model {
 
   delete(id) {
 
+  }
+
+  all() {
+    return this.baseModels;
   }
 }

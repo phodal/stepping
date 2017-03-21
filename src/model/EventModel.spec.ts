@@ -31,3 +31,18 @@ test('should enable edit model', t => {
   let eventUpdated = eventModel.update(event);
   t.deepEqual(eventUpdated["name"], event["name"]);
 });
+
+test('should enable edit model', t => {
+  let eventModel = new EventModel;
+  eventModel.create({
+    name: "event should be created 1"
+  });
+
+  eventModel.create({
+    name: "event should be created 2"
+  });
+
+  let events = eventModel.all();
+  t.deepEqual(events[0]['name'], 'event should be created 1');
+  t.deepEqual(events[1]['name'], 'event should be created 2');
+});
