@@ -1,6 +1,6 @@
 // Inspired by https://github.com/yaakaito/typescript-dddbase
 
-import {Identity} from "../model/Identity";
+import {Identity} from "./Identity";
 
 export class Entity<ID extends Identity<any>> {
   constructor(private identity: ID) {

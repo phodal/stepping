@@ -1,6 +1,6 @@
 // Inspired by https://github.com/yaakaito/typescript-dddbase
-import {Identity} from "../model/Identity";
-import {Entity} from "../entity/entity";
+import {Identity} from "../entity/Identity";
+import {Entity} from "../entity/Entity";
 
 export interface IRepository<ID extends Identity<any>, E extends Entity<any>> {
   resolve(identity: ID): any;
