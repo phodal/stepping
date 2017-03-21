@@ -1,5 +1,5 @@
 import {sha256} from "../lib/hash";
-import {IModel, modelInterface} from "./IModel";
+import {IModel} from "./IModel";
 
 export class BaseModel implements IModel {
   constructor() {
@@ -9,30 +9,18 @@ export class BaseModel implements IModel {
   baseModels: any = [];
 
   create(model) {
-    let id = sha256(model.name);
-    model.id = id;
+    model.id = sha256(model.name);
     this.baseModels.push(model);
     return model
   }
 
-  update(model: modelInterface) {
-    let result: modelInterface = {id: '', name: ''};
-    for (let index in this.baseModels) {
-      if (this.baseModels[index]['id'] === model['id']) {
-        result = model
-      }
-    }
-    return result;
-  }
-
-  readById(id): modelInterface {
-    let result: modelInterface = {id: '', name: ''};
+  readById(id): any {
     for (let index in this.baseModels) {
       if (this.baseModels[index]['id'] === id) {
-        result = this.baseModels[index];
+        return this.baseModels[index];
       }
     }
-    return result;
+    return null;
   }
 
   deleteById(id) {

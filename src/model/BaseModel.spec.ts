@@ -1,7 +1,7 @@
 import {test} from "ava";
 import { BaseModel } from "eventstorming";
 
-test('should enable create model', t => {
+test('should enable add model', t => {
   let baseModel = new BaseModel;
   let event = baseModel.create({
     name: "event should be created"
@@ -11,7 +11,7 @@ test('should enable create model', t => {
   t.deepEqual(eventRead["name"], event["name"]);
 });
 
-test('should enable create model 2', t => {
+test('should enable add model 2', t => {
   let baseModel = new BaseModel;
   let event = baseModel.create({
     name: "event should be created 2"
@@ -19,17 +19,6 @@ test('should enable create model 2', t => {
 
   let eventRead = baseModel.readById(event.id);
   t.deepEqual(eventRead["name"], event["name"]);
-});
-
-test('should enable edit model', t => {
-  let baseModel = new BaseModel;
-  let event = baseModel.create({
-    name: "event should be created 2"
-  });
-
-  event.name = "event should be updated";
-  let eventUpdated = baseModel.update(event);
-  t.deepEqual(eventUpdated["name"], event["name"]);
 });
 
 test('should enable get all model', t => {

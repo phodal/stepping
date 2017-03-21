@@ -1,7 +1,6 @@
 export interface IModel {
   all: object,
   create: object,
-  update: object,
   readById: object,
   deleteById: object,
 }
