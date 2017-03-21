@@ -8,14 +8,14 @@ export interface IModel {
 export interface modelInterface {
   id: string;
   name: string;
-  relatedChild?: modelInterface[];
+  relatedNodes?: modelInterface[];
   nearNode?: modelInterface[];
 }
 
 export interface eventModeInterface extends modelInterface {
-  relatedChild: modelInterface[];
+  relatedNodes: modelInterface[];
   nearNode?: modelInterface[];
   addRelatedChild(model: modelInterface);
-  removeRelatedChild(id: string);
+  removeRelatedChild(model: modelInterface);
   updateRelatedChild(model: modelInterface);
 }
