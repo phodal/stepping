@@ -4,6 +4,7 @@
   "license": "MIT",
   "scripts": {
     "start": "http-server -c-1 ./build/ -o",
+    "postinstall": "npm link ../../",
     "build": "rollup -c && cpy src/index.html build/"
   },
   "devDependencies": {
@@ -15,7 +16,7 @@
     "typescript": "^2.2.0"
   },
   "dependencies": {
-    "eventstorming": "^0.0.1"
+    "eventstorming": "../../"
   },
   "private": true
 }

@@ -143,7 +143,7 @@ eventemitter3@1.x.x:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/eventemitter3/-/eventemitter3-1.2.0.tgz#1c86991d816ad1e504750e73874224ecf3bec508"
 
-eventstorming@^0.0.1:
+eventstorming@../../:
   version "0.0.1"
   resolved "https://registry.yarnpkg.com/eventstorming/-/eventstorming-0.0.1.tgz#8f0c3b51c55b500c7b1feec2e434467f24cb4d74"
   dependencies:
