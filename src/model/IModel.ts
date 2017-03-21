@@ -7,8 +7,8 @@ export interface IModel {
 }
 
 export interface modelInterface {
-  id?: string;
-  name?: string;
-  child?: string;
-  related?: string;
+  id: string;
+  name: string;
+  child?: modelInterface;
+  related?: modelInterface;
 }

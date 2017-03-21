@@ -1,5 +1,5 @@
-import BaseModel from "./BaseModel";
+import { BaseModel } from "./BaseModel";
 
-class CommandModel extends BaseModel {
+export class CommandModel extends BaseModel {
 
 }

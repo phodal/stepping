@@ -1,7 +1,7 @@
 export * from './lib/hash'
 
-export * from './model/CommandModel'
 export * from './model/BaseModel'
+export * from './model/CommandModel'
 export * from './model/EventModel'
 export * from './model/ExtendModel'
 

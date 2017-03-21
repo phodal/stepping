@@ -1,8 +1,7 @@
 import {sha256} from "../lib/hash";
-import {IModel} from "./IModel";
-import {modelInterface} from "../../build/main/model/BaseModel";
+import {IModel, modelInterface} from "./IModel";
 
-export default class BaseModel implements IModel {
+export class BaseModel implements IModel {
   constructor() {
 
   }

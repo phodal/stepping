@@ -1,4 +1,4 @@
-import BaseModel from "./BaseModel";
+import { BaseModel } from "./BaseModel";
 
 type Event = {
   id: string,
@@ -14,5 +14,7 @@ enum EventType {
 }
 
 export class EventModel extends BaseModel {
+  addRelatedChild() {
 
+  }
 }
