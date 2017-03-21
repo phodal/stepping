@@ -58,7 +58,7 @@ test('should enable deleteById model', t => {
   });
 
   eventModel.deleteById(event1["id"]);
-  let events =eventModel.all();
+  let events = eventModel.all();
   t.deepEqual(events.length, 1);
   t.deepEqual(events[0]['name'], 'event should be created 2');
 });
