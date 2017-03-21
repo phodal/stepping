@@ -2999,6 +2999,10 @@ module-deps@^4.0.8:
     through2 "^2.0.0"
     xtend "^4.0.0"
 
+monapt@^0.7.1:
+  version "0.7.1"
+  resolved "https://registry.yarnpkg.com/monapt/-/monapt-0.7.1.tgz#9907a419913d16db7f1fdb040648363e53333fa0"
+
 mount-point@^1.0.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/mount-point/-/mount-point-1.2.0.tgz#f7712295e1ecd8df2e42ecbe23e07a3660807851"
