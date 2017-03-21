@@ -1,19 +1,6 @@
 import {BaseModel} from "./BaseModel";
 import {modelInterface} from "./IModel";
 
-type Event = {
-  id: string,
-  name: string,
-  dependence: {
-    id: string,
-    type: string
-  },
-}
-
-enum EventType {
-
-}
-
 export class EventModel extends BaseModel {
   relatedChild: modelInterface[] = [];
 
