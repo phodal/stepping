@@ -99,6 +99,7 @@
   },
   "dependencies": {
     "monapt": "^0.7.1",
-    "tslib": "^1.6.0"
+    "tslib": "^1.6.0",
+    "typings": "^2.1.0"
   }
 }
