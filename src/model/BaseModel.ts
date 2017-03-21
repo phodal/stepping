@@ -1,11 +1,11 @@
 import {sha256} from "../lib/hash";
 
 export interface Model {
-  create: object,
-  read: object,
-  update: object,
   all: object,
-  delete: object,
+  create: object,
+  update: object,
+  readById: object,
+  deleteById: object,
 }
 
 export interface modelInterface {
@@ -37,7 +37,7 @@ export default class BaseModel implements Model {
     return result;
   }
 
-  read(id): modelInterface {
+  readById(id): modelInterface {
     let result: modelInterface = {id: '', name: ''};
     for (let index in this.baseModels) {
       if (this.baseModels[index]['id'] === id) {
@@ -47,7 +47,7 @@ export default class BaseModel implements Model {
     return result;
   }
 
-  delete(id) {
+  deleteById(id) {
     for (let index in this.baseModels) {
       if (this.baseModels[index]['id'] === id) {
         this.baseModels.splice(index, 1);
