@@ -13,7 +13,7 @@ export * from './entity/EventEntity'
 export * from './vo/EventVO'
 
 export * from './observer/EventPublisher'
-export * from './observer/EventClient'
+export * from './observer/EventSubscriber'
 
 export * from './utils/Logger'
 export * from './utils/Renderer'

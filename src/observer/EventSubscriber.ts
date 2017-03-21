@@ -1,9 +1,10 @@
-export class EventClient implements EventStorming.Observer.IObserver {
+export class EventSubscriber implements EventStorming.Observer.IObserver {
+  eventTypes: string[];
   private myId: number = 0;
   static NextId: number = 1;
 
   constructor() {
-    this.myId = EventClient.NextId++;
+    this.myId = EventSubscriber.NextId++;
   }
 
   public ReceiveNotification(event: string, obj: object) {
