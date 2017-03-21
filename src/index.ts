@@ -10,6 +10,9 @@ export * from './bus/EventPublisher'
 
 export * from './store/LocalStorageRepository'
 
+export * from './entity/Entity'
+export * from './entity/EventEntity'
+
 export * from './vo/EventVO'
 
 export * from './utils/Logger'

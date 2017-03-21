@@ -1,9 +1,13 @@
 // Inspired by https://github.com/yaakaito/typescript-dddbase
 
 import {Identity} from "./Identity";
+import {sha256} from "../lib/hash";
 
 export class Entity<ID extends Identity<any>> {
-  constructor(private identity: ID) {
+  private identity;
+
+  constructor(message) {
+    this.identity = new Identity(sha256(message))
   }
 
   public getIdentity(): ID {

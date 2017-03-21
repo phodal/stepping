@@ -1,14 +1,18 @@
-
 import {Entity} from "./Entity";
 import {eventModeInterface, modelInterface} from "../model/IModel";
 
-class EventEntity extends Entity<any> implements eventModeInterface {
+export class EventEntity extends Entity<any> implements eventModeInterface {
   id: string;
   name: string;
   relatedChild: modelInterface[];
-  nearNode: modelInterface;
-  constructor(identity: any) {
-    super(identity);
+  nearNode: modelInterface[];
+
+  constructor(name: any) {
+    super(name);
+    this.name = name;
+
+    this.relatedChild = [];
+    this.nearNode = [];
   }
 
   addRelatedChild(model: modelInterface) {
