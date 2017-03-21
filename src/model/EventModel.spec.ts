@@ -32,7 +32,7 @@ test('should enable edit model', t => {
   t.deepEqual(eventUpdated["name"], event["name"]);
 });
 
-test('should enable edit model', t => {
+test('should enable get all model', t => {
   let eventModel = new EventModel;
   eventModel.create({
     name: "event should be created 1"
@@ -45,4 +45,20 @@ test('should enable edit model', t => {
   let events = eventModel.all();
   t.deepEqual(events[0]['name'], 'event should be created 1');
   t.deepEqual(events[1]['name'], 'event should be created 2');
+});
+
+test('should enable delete model', t => {
+  let eventModel = new EventModel;
+  let event1 = eventModel.create({
+    name: "event should be created 1"
+  });
+
+  eventModel.create({
+    name: "event should be created 2"
+  });
+
+  eventModel.delete(event1["id"]);
+  let events =eventModel.all();
+  t.deepEqual(events.length, 1);
+  t.deepEqual(events[0]['name'], 'event should be created 2');
 });

@@ -48,7 +48,12 @@ export default class BaseModel implements Model {
   }
 
   delete(id) {
-
+    for (let index in this.baseModels) {
+      if (this.baseModels[index]['id'] === id) {
+        this.baseModels.splice(index, 1);
+      }
+    }
+    return;
   }
 
   all() {
