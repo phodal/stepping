@@ -15,4 +15,7 @@ export interface modelInterface {
 export interface eventModeInterface extends modelInterface {
   relatedChild: modelInterface[];
   nearNode?: modelInterface;
+  addRelatedChild(model: modelInterface);
+  removeRelatedChild(id: string);
+  updateRelatedChild(model: modelInterface);
 }
