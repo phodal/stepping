@@ -9,6 +9,11 @@ export interface IModel {
 export interface modelInterface {
   id: string;
   name: string;
-  child?: modelInterface;
-  related?: modelInterface;
+  relatedChild?: modelInterface[];
+  nearNode?: modelInterface;
+}
+
+export interface eventModeInterface extends modelInterface {
+  relatedChild: modelInterface[];
+  nearNode?: modelInterface;
 }
