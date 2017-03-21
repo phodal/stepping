@@ -11,6 +11,8 @@ export interface Model {
 export interface modelInterface {
   id?: string;
   name?: string;
+  child?: string;
+  related?: string;
 }
 
 export default class BaseModel implements Model {
