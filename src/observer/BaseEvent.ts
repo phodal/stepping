@@ -1,12 +1,17 @@
 export class BaseEvent implements EventStorming.Event.IEvent {
+  name: string;
+  action: object;
 
-  constructor(name: string) {
+  constructor(name: string, action: object) {
     this.name = name;
+    this.setAction(action);
   }
 
-  name: string;
+  getAction(): object {
+    return this.action;
+  }
 
-  handleEvent() {
-
+  setAction(value: object) {
+    this.action = value;
   }
 }
