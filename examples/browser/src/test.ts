@@ -25,8 +25,9 @@ let eventStore = new EventBusinessStore(eventSubscriber);
 
 let eventBusiness = new EventBusiness(eventSubscriber);
 
-eventBusiness.createEventSticky('事件贴纸已创建');
+let createdEntity = eventBusiness.createEventSticky('事件贴纸已创建');
 eventBusiness.createEventSticky('事件贴纸位置已生成');
 eventBusiness.createEventSticky('事件贴纸已渲染');
 
-
+let subEntity = eventBusiness.createEventSticky('子事件贴纸已创建');
+eventBusiness.addRelatedChild(createdEntity, subEntity);
