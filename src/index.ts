@@ -21,3 +21,5 @@ export * from './utils/Renderer'
 export * from './utils/Player'
 
 export * from './business/EventBusiness'
+
+export * from './utils/SVGGenerator'
