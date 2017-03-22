@@ -5,7 +5,7 @@
     "outDir": "build/main",
     "rootDir": "src",
     "moduleResolution": "node",
-    "module": "commonjs",
+      "module": "commonjs",
     "declaration": true,
     "importHelpers": true,
     "inlineSourceMap": true,
