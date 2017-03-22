@@ -4,32 +4,29 @@ import {Identity} from "../entity/Identity";
 import {Entity} from "../entity/Entity";
 
 export interface ILocalStorageMapper<E extends Entity<any>> {
-  parse(json: Object): E;
   stringify(entity: E): string;
 }
 
-export class LocalStorageRepository<ID extends Identity<any>, E extends Entity<any>> implements IRepository<ID ,E> {
+export class LocalStorageRepository<ID extends Identity<any>, E extends Entity<any>> implements IRepository<E> {
   constructor(mapper: ILocalStorageMapper<E>) {
-    this.parse = mapper.parse;
     this.stringify = mapper.stringify;
   }
 
-  parse: (json: Object) => E;
   stringify: (entity: E) => string;
 
-  resolve(identity: ID) {
-    let item = localStorage.getItem(identity.getValue());
+  resolve(identity: string) {
+    let item = localStorage.getItem(identity);
     if (item) {
       let json = JSON.parse(item);
       if (json) {
-        return this.parse(json);
+        return json;
       }
     }
     return ''
   }
 
   store(entity: E): E {
-    localStorage.setItem(entity.getIdentity().getValue(), this.stringify(entity));
+    localStorage.setItem(entity.id, this.stringify(entity));
     return entity;
   }
 
@@ -40,13 +37,8 @@ export class LocalStorageRepository<ID extends Identity<any>, E extends Entity<a
     return entityList;
   }
 
-  deleteByEntity(entity: E): LocalStorageRepository<ID, E> {
-    this.deleteByIdentity(entity.getIdentity());
-    return this;
-  }
-
-  deleteByIdentity(identity: ID): LocalStorageRepository<ID, E> {
-    localStorage.removeItem(identity.getValue());
+  deleteByEntityId(entity: E): LocalStorageRepository<ID, E> {
+    localStorage.removeItem(entity.id);
     return this;
   }
 }

@@ -2,6 +2,7 @@ import {EventEntity} from "../entity/EventEntity";
 import {EventPublisher} from "../observer/EventPublisher";
 import {EventSubscriber} from "../observer/EventSubscriber";
 import {BaseEvent} from "../observer/BaseEvent";
+import {LocalStorageRepository} from "../store/LocalStorageRepository";
 
 export class EventBusiness {
   eventEntities: EventEntity[];
@@ -30,5 +31,14 @@ export class EventBusinessStore {
 
   handleCreatedEvent(value) {
     this.store.push(value);
+
+    let mapper = {
+      stringify: (entity: EventEntity) => {
+        return JSON.stringify(entity);
+      }
+    };
+
+    let localStorageRepository = new LocalStorageRepository(mapper);
+    localStorageRepository.store(value);
   }
 }
