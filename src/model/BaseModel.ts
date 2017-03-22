@@ -1,4 +1,3 @@
-import {sha256} from "../lib/hash";
 import {IModel} from "./IModel";
 
 export class BaseModel implements IModel {
@@ -9,7 +8,6 @@ export class BaseModel implements IModel {
   baseModels: any = [];
 
   create(model) {
-    model.id = sha256(model.name);
     this.baseModels.push(model);
     return model
   }

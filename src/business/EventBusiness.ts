@@ -3,6 +3,7 @@ import {EventPublisher} from "../observer/EventPublisher";
 import {EventSubscriber} from "../observer/EventSubscriber";
 import {BaseEvent} from "../observer/BaseEvent";
 import {LocalStorageRepository} from "../store/LocalStorageRepository";
+import {EventModel} from "../model/EventModel";
 
 export class EventBusiness {
   private eventPublisher: EventPublisher;
@@ -33,39 +34,32 @@ export class EventBusiness {
 }
 
 export class EventBusinessStore {
+  eventModel: EventModel;
   store: EventEntity[] = [];
-  private localStorageRepository;
-  mapper = {
-    stringify: (entity: EventEntity) => {
-      return JSON.stringify(entity);
-    }
-  };
 
   constructor(eventSubscriber: EventSubscriber) {
     let createdEvent = new BaseEvent("event.created", this.handleCreatedEvent.bind(this));
     let updatedEvent = new BaseEvent("event.updated", this.handleUpdatedEvent.bind(this));
-    this.localStorageRepository = new LocalStorageRepository(this.mapper);
 
     eventSubscriber.registerEvent(createdEvent);
     eventSubscriber.registerEvent(updatedEvent);
+
+    this.eventModel = new EventModel();
   }
 
   handleCreatedEvent(entity) {
     this.store.push(entity);
-
-    this.localStorageRepository.store(entity);
-    this.localStorageRepository.storeListInGroup('event.store', this.store);
+    this.eventModel.createStore(entity, this.store);
   }
 
   handleUpdatedEvent(entity) {
-    for(let index in this.store) {
-      if(this.store[index].id === entity.id) {
+    for (let index in this.store) {
+      if (this.store[index].id === entity.id) {
         this.store[index] = entity;
       }
     }
 
-    this.localStorageRepository.store(entity);
-    this.localStorageRepository.storeListInGroup('event.store', this.store);
+    this.eventModel.updateStore(entity, this.store);
   }
 }
 
