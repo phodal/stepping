@@ -4,6 +4,7 @@ import {EventSubscriber} from "../observer/EventSubscriber";
 import {BaseEvent} from "../observer/BaseEvent";
 import {LocalStorageRepository} from "../store/LocalStorageRepository";
 import {EventModel} from "../model/EventModel";
+import Renderer from "../utils/Renderer";
 
 export class EventBusiness {
   private eventPublisher: EventPublisher;
@@ -64,19 +65,21 @@ export class EventBusinessStore {
 }
 
 export class EventStickyRender {
+  renderer: Renderer;
   constructor(eventSubscriber: EventSubscriber) {
+    this.renderer = new Renderer();
+
     let createdEvent = new BaseEvent("event.created", this.handleCreatedEvent.bind(this));
     let updatedEvent = new BaseEvent("event.updated", this.handleUpdatedEvent.bind(this));
-
     eventSubscriber.registerEvent(createdEvent);
     eventSubscriber.registerEvent(updatedEvent);
   }
 
   handleCreatedEvent(entity) {
-
+    this.renderer.createEntity(entity);
   }
 
   handleUpdatedEvent(entity) {
-
+    this.renderer.updateEntity(entity)
   }
 }
