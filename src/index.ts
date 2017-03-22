@@ -17,9 +17,9 @@ export * from './observer/EventSubscriber'
 export * from './observer/BaseEvent'
 
 export * from './utils/Logger'
-export * from './utils/Renderer'
 export * from './utils/Player'
 
 export * from './business/EventBusiness'
 
-export * from './utils/SVGGenerator'
+export * from './render/Renderer'
+export * from './render/SVGGenerator'
