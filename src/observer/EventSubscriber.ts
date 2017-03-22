@@ -1,24 +1,24 @@
 export class EventSubscriber implements EventStorming.Observer.IObserver {
-  eventTypes: string[] = [];
+  events: string[] = [];
 
   constructor() {
 
   }
 
   public ReceiveNotification(eventName: string, obj: object) {
-    let hasRegisterEvent = this.eventTypes && this.eventTypes.length > 0;
+    let hasRegisterEvent = this.events && this.events.length > 0;
     if (!hasRegisterEvent) {
       return;
     }
 
-    for(let index in this.eventTypes) {
-      if(this.eventTypes[index] === eventName) {
+    for(let index in this.events) {
+      if(this.events[index] === eventName) {
         console.log("Event Client [" + eventName + "], Received a message:", obj);
       }
     }
   }
 
-  public registerEvent(eventName) {
-    this.eventTypes.push(eventName);
+  public registerEvent(event: EventStorming.Event.IEvent) {
+    this.events.push(event.name);
   }
 }

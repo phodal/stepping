@@ -14,6 +14,7 @@ export * from './vo/EventVO'
 
 export * from './observer/EventPublisher'
 export * from './observer/EventSubscriber'
+export * from './observer/BaseEvent'
 
 export * from './utils/Logger'
 export * from './utils/Renderer'
