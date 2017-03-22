@@ -25,3 +25,9 @@ export class NumberIdentity extends Identity<number> {
     super(value);
   }
 }
+
+export class StringIdentity extends Identity<string> {
+  constructor(value: string) {
+    super(value);
+  }
+}

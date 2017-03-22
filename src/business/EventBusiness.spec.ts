@@ -11,5 +11,6 @@ test('should enable add related child', t => {
 
   t.deepEqual(eventBusiness.eventEntities[0].name, 'hello');
 
+  console.log(eventStore.store[0]);
   t.deepEqual(eventStore.store[0]['name'], 'hello');
 });
