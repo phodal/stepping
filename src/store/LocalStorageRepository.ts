@@ -38,11 +38,7 @@ export class LocalStorageRepository<ID extends Identity<any>, E extends Entity<a
   }
 
   storeListInGroup(name: string, entityList: E[]): E[] {
-    let groupString = '';
-    for(let index in entityList) {
-      groupString = groupString + this.stringify(entityList[index]);
-    }
-    localStorage.setItem(name, groupString);
+    localStorage.setItem(name, JSON.stringify(entityList));
     return entityList
   }
 
