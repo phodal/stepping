@@ -65,6 +65,7 @@ export class EventBusinessStore {
 }
 
 export class EventStickyRender {
+  nodes: EventEntity[] = [];
   renderer: Renderer;
   constructor(eventSubscriber: EventSubscriber) {
     this.renderer = new Renderer();
@@ -76,10 +77,16 @@ export class EventStickyRender {
   }
 
   handleCreatedEvent(entity) {
-    this.renderer.createEntity(entity);
+    this.nodes.push(entity);
+    this.renderer.createEntity(entity, this.nodes);
   }
 
   handleUpdatedEvent(entity) {
-    this.renderer.updateEntity(entity)
+    for (let index in this.nodes) {
+      if (this.nodes[index].id === entity.id) {
+        this.nodes[index] = entity;
+      }
+    }
+    this.renderer.updateEntity(entity, this.nodes)
   }
 }

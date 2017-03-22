@@ -1,11 +1,11 @@
 import {EventEntity} from "../entity/EventEntity";
 export default class Renderer {
 
-  createEntity(entity: EventEntity) {
-
+  createEntity(node: EventEntity, nodes: EventEntity) {
+    
   }
 
-  updateEntity(entity: EventEntity) {
+  updateEntity(node: EventEntity, nodes: EventEntity) {
 
   }
 }
