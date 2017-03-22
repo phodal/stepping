@@ -29,10 +29,10 @@ test('should enable receive event', t => {
   function simpleAction2() {
     count2++
   }
-  let baseEvent2 = new BaseEvent('hello', simpleAction2);
+  let baseEvent2 = new BaseEvent('hello 2', simpleAction2);
 
   eventClient2.registerEvent(baseEvent2);
-  eventPublisher.NotifyObservers('hello', { test: 'test'});
+  eventPublisher.NotifyObservers('hello 2', { test: 'test'});
 
   t.deepEqual(eventClient2.events.length, 1);
   t.deepEqual(count, 2);
