@@ -25,4 +25,8 @@ let eventStore = new EventBusinessStore(eventSubscriber);
 
 let eventBusiness = new EventBusiness(eventSubscriber);
 
-eventBusiness.createEventSticky('hello');
+eventBusiness.createEventSticky('事件贴纸已创建');
+eventBusiness.createEventSticky('事件贴纸位置已生成');
+eventBusiness.createEventSticky('事件贴纸已渲染');
+
+

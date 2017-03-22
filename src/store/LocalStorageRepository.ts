@@ -37,6 +37,15 @@ export class LocalStorageRepository<ID extends Identity<any>, E extends Entity<a
     return entityList;
   }
 
+  storeListInGroup(name: string, entityList: E[]): E[] {
+    let groupString = '';
+    for(let index in entityList) {
+      groupString = groupString + this.stringify(entityList[index]);
+    }
+    localStorage.setItem(name, groupString);
+    return entityList
+  }
+
   deleteByEntityId(entity: E): LocalStorageRepository<ID, E> {
     localStorage.removeItem(entity.id);
     return this;

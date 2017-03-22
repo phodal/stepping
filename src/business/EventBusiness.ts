@@ -14,23 +14,25 @@ export class EventBusiness {
     this.eventEntities = [];
   }
 
-  createEventSticky(name) {
+  createEventSticky(name): EventEntity {
     let eventEntity = new EventEntity(name);
     this.eventPublisher.NotifyObservers("event.created", eventEntity);
     this.eventEntities.push(eventEntity);
+
+    return eventEntity;
   }
 }
 
 export class EventBusinessStore {
-  store: object[] = [];
+  store: EventEntity[] = [];
 
   constructor(eventSubscriber: EventSubscriber) {
     let createdEvent = new BaseEvent("event.created", this.handleCreatedEvent.bind(this));
     eventSubscriber.registerEvent(createdEvent)
   }
 
-  handleCreatedEvent(value) {
-    this.store.push(value);
+  handleCreatedEvent(entity) {
+    this.store.push(entity);
 
     let mapper = {
       stringify: (entity: EventEntity) => {
@@ -39,6 +41,7 @@ export class EventBusinessStore {
     };
 
     let localStorageRepository = new LocalStorageRepository(mapper);
-    localStorageRepository.store(value);
+    localStorageRepository.store(entity);
+    localStorageRepository.storeListInGroup('event.store', this.store);
   }
 }
