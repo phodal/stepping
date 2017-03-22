@@ -1,4 +1,4 @@
-import {BaseModel, EventModel} from "eventstorming";
+import {BaseModel, EventModel, EventSubscriber, EventBusinessStore, EventBusiness} from "eventstorming";
 
 function log (str: string) {
   console.log(str)
@@ -20,3 +20,9 @@ eventModel.create({
 
 console.log(JSON.stringify(eventModel));
 
+let eventSubscriber = new EventSubscriber();
+let eventStore = new EventBusinessStore(eventSubscriber);
+
+let eventBusiness = new EventBusiness(eventSubscriber);
+
+eventBusiness.createEventSticky('hello');
