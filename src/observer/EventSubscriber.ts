@@ -13,7 +13,7 @@ export class EventSubscriber implements EventStorming.Observer.IObserver {
 
     for(let index in this._events) {
       if(this._events[index]["name"] === eventName && this._events[index]["action"]) {
-        this._events[index]["action"]();
+        this._events[index]["action"](obj);
       }
     }
   }

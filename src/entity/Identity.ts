@@ -19,3 +19,9 @@ export class Identity<T> {
     return this.value === that.getValue();
   }
 }
+
+export class NumberIdentity extends Identity<number> {
+  constructor(value: number) {
+    super(value);
+  }
+}
