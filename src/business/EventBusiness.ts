@@ -68,3 +68,21 @@ export class EventBusinessStore {
     this.localStorageRepository.storeListInGroup('event.store', this.store);
   }
 }
+
+export class EventStickyRender {
+  constructor(eventSubscriber: EventSubscriber) {
+    let createdEvent = new BaseEvent("event.created", this.handleCreatedEvent.bind(this));
+    let updatedEvent = new BaseEvent("event.updated", this.handleUpdatedEvent.bind(this));
+
+    eventSubscriber.registerEvent(createdEvent);
+    eventSubscriber.registerEvent(updatedEvent);
+  }
+
+  handleCreatedEvent(entity) {
+
+  }
+
+  handleUpdatedEvent(entity) {
+
+  }
+}
