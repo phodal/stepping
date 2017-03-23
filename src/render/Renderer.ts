@@ -9,7 +9,6 @@ export class Renderer {
 
   constructor(svgGenerator: SVGGenerator) {
     this._svgGenerator = svgGenerator;
-
   }
 
   createEntity(node: EventEntity, nodes: EventEntity[]) {
@@ -31,10 +30,6 @@ export class Renderer {
     return positions;
   }
 
-  build() {
-
-  }
-
   private calculatePosition(nodes: EventEntity[]): IPosition {
     let position: IPosition = {
       x: 0,
@@ -44,7 +39,8 @@ export class Renderer {
     return position
   }
 
-  render() {
-    this._svgGenerator.build(this.stickyEntities)
+  render(): string {
+    let result = this._svgGenerator.build(this.stickyEntities);
+    return result;
   }
 }
