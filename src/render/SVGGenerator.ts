@@ -14,4 +14,12 @@ export class SVGGenerator {
               </text> \
             </g>`
   }
+
+  buildChild(position: IPosition, entity: EventEntity) {
+    
+  }
+
+  buildNodeWithChild() {
+
+  }
 }
