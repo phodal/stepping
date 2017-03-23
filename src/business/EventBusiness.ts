@@ -4,6 +4,7 @@ import {EventSubscriber} from "../observer/EventSubscriber";
 import {BaseEvent} from "../observer/BaseEvent";
 import {EventModel} from "../model/EventModel";
 import {Renderer} from "../render/Renderer";
+import {SVGGenerator} from "../render/SVGGenerator";
 
 export class EventBusiness {
   private eventPublisher: EventPublisher;
@@ -64,10 +65,12 @@ export class EventBusinessStore {
 }
 
 export class EventStickyRender {
+  generator: SVGGenerator;
   nodes: EventEntity[] = [];
   renderer: Renderer;
   constructor(eventSubscriber: EventSubscriber) {
-    this.renderer = new Renderer();
+    this.generator = new SVGGenerator();
+    this.renderer = new Renderer(this.generator);
 
     let createdEvent = new BaseEvent("event.created", this.handleCreatedEvent.bind(this));
     let updatedEvent = new BaseEvent("event.updated", this.handleUpdatedEvent.bind(this));
@@ -78,6 +81,7 @@ export class EventStickyRender {
   handleCreatedEvent(entity) {
     this.nodes.push(entity);
     this.renderer.createEntity(entity, this.nodes);
+    this.render();
   }
 
   handleUpdatedEvent(entity) {
@@ -86,6 +90,11 @@ export class EventStickyRender {
         this.nodes[index] = entity;
       }
     }
-    this.renderer.updateEntity(entity, this.nodes)
+    this.renderer.updateEntity(entity, this.nodes);
+    this.render();
+  }
+
+  render(){
+    this.renderer.render();
   }
 }

@@ -1,10 +1,11 @@
 import {test} from "ava";
-import {SVGGenerator, EventEntity} from "eventstorming";
+import {SVGGenerator, EventPositionEntity, EventEntity} from "eventstorming";
 
 test('should return correctly node svg', t => {
   let svgGenerator = new SVGGenerator();
   let eventEntity = new EventEntity('sticker had created');
-  let result = svgGenerator.buildNode({x: 50, y: 50}, eventEntity);
+  let eventPositionEntity = new EventPositionEntity({x: 50, y: 50}, eventEntity);
+  let result = svgGenerator.buildNode(eventPositionEntity);
   t.deepEqual(result, `<g>
               <rect x=\"50\" y=\"50\" width=\"100\" height=\"100\" rx=\"2\" ry=\"2\" fill=\"#FFCC33\"/>
               <text x=\"50\" y=\"80\" fill=\"#000\">
@@ -16,7 +17,8 @@ test('should return correctly node svg', t => {
 test('should return correctly node svg with extend content', t => {
   let svgGenerator = new SVGGenerator();
   let eventEntity = new EventEntity('sticker had created');
-  let result = svgGenerator.buildNode({x: 50, y: 50}, eventEntity, {level: 'same', content: '<g></g>'}, {color: '#0095DD'});
+  let eventPositionEntity = new EventPositionEntity({x: 50, y: 50}, eventEntity);
+  let result = svgGenerator.buildNode(eventPositionEntity, {level: 'same', content: '<g></g>'}, {color: '#0095DD'});
   t.deepEqual(result, `<g>
               <rect x=\"50\" y=\"50\" width=\"100\" height=\"100\" rx=\"2\" ry=\"2\" fill=\"#0095DD\"/>
               <text x=\"50\" y=\"80\" fill=\"#000\">
@@ -28,7 +30,8 @@ test('should return correctly node svg with extend content', t => {
 test('should return correctly node svg with child var', t => {
   let svgGenerator = new SVGGenerator();
   let eventEntity = new EventEntity('sticker had created');
-  let result = svgGenerator.buildNode({x: 50, y: 50}, eventEntity, {level: 'child', content: '<g></g>'}, {color: '#0095DD'});
+  let eventPositionEntity = new EventPositionEntity({x: 50, y: 50}, eventEntity);
+  let result = svgGenerator.buildNode(eventPositionEntity, {level: 'child', content: '<g></g>'}, {color: '#0095DD'});
   t.deepEqual(result, `<g>
               <rect x=\"50\" y=\"50\" width=\"100\" height=\"100\" rx=\"2\" ry=\"2\" fill=\"#0095DD\"/>
               <text x=\"50\" y=\"80\" fill=\"#000\">

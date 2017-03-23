@@ -1,15 +1,22 @@
 import {EventEntity} from "../entity/EventEntity";
 import {IPosition} from "./IPosition";
 import {EventPositionEntity} from "../entity/EventPositionEntity";
+import {SVGGenerator} from "./SVGGenerator";
 
 export class Renderer {
-  constructor() {
+  stickyEntities: EventPositionEntity[] = [];
+  private _svgGenerator: SVGGenerator;
+
+  constructor(svgGenerator: SVGGenerator) {
+    this._svgGenerator = svgGenerator;
 
   }
 
   createEntity(node: EventEntity, nodes: EventEntity[]) {
     let position: IPosition = this.calculatePosition(nodes);
     let newEntity = new EventPositionEntity(position, node);
+
+    this.stickyEntities.push(newEntity);
 
     return newEntity;
   }
@@ -35,5 +42,9 @@ export class Renderer {
     };
 
     return position
+  }
+
+  render() {
+    this._svgGenerator.build(this.stickyEntities)
   }
 }
