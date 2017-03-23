@@ -1,5 +1,3 @@
-import {IPosition} from "./IPosition";
-import {EventEntity} from "../entity/EventEntity";
 import {EventPositionEntity} from "../entity/EventPositionEntity";
 
 export class SVGGenerator {
@@ -40,12 +38,14 @@ export class SVGGenerator {
   }
 
   buildNodes(stickyEntities: EventPositionEntity[]) {
+    let result: string = '';
     for (let index in stickyEntities) {
-      this.buildNode(stickyEntities[index])
+      result = result + this.buildNode(stickyEntities[index]);
     }
+    return result;
   }
 
-  build(stickyEntities: EventPositionEntity[]) {
+  build(stickyEntities: EventPositionEntity[]): string {
     let baseNodeString = this.buildNodes(stickyEntities);
     return this.buildBody(baseNodeString);
   }
