@@ -33,14 +33,24 @@ export class SVGGenerator {
             </g>${sameLevelField}`
   }
 
-  buildChild() {
-
+  buildWithChild(stickyEntity: EventPositionEntity) {
+    let result: string = '';
+    let childNodes = stickyEntity.relatedNodes;
+    for(let childIndex in childNodes) {
+      // result = this.buildNode(childNodes[childIndex]);
+    }
+    this.buildNode(stickyEntity, {level: 'child', content: result})
   }
 
   buildNodes(stickyEntities: EventPositionEntity[]) {
     let result: string = '';
     for (let index in stickyEntities) {
-      result = result + this.buildNode(stickyEntities[index]);
+      let stickyEntity = stickyEntities[index];
+      if(stickyEntity.hasRelatedChild()) {
+        result = result + this.buildWithChild(stickyEntity);
+      } else {
+        result = result + this.buildNode(stickyEntity);
+      }
     }
     return result;
   }
