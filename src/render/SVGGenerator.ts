@@ -35,11 +35,11 @@ export class SVGGenerator {
 
   buildWithChild(stickyEntity: EventPositionEntity) {
     let result: string = '';
-    let childNodes = stickyEntity.relatedNodes;
+    let childNodes = stickyEntity.subEntity;
     for(let childIndex in childNodes) {
-      // result = this.buildNode(childNodes[childIndex]);
+      result = result + this.buildNode(childNodes[childIndex], {}, {color: '#0095DD'});
     }
-    this.buildNode(stickyEntity, {level: 'child', content: result})
+    return this.buildNode(stickyEntity, {level: 'child', content: result})
   }
 
   buildNodes(stickyEntities: EventPositionEntity[]) {

@@ -2,6 +2,7 @@ import {EventEntity} from "../entity/EventEntity";
 import {IPosition} from "./IPosition";
 import {EventPositionEntity} from "../entity/EventPositionEntity";
 import {SVGGenerator} from "./SVGGenerator";
+import {modelInterface} from "../model/IModel";
 
 export class Renderer {
   stickyEntities: EventPositionEntity[] = [];
@@ -14,6 +15,15 @@ export class Renderer {
   createEntity(node: EventEntity, nodes: EventEntity[]) {
     let position: IPosition = this.calculatePosition(nodes);
     let newEntity = new EventPositionEntity(position, node);
+
+    if (node.hasRelatedChild()) {
+      for (let index in node.relatedNodes) {
+        let subPosition: IPosition = this.calculateSubPosition(position, newEntity, node.relatedNodes[index]);
+        let subEntity = new EventPositionEntity(subPosition, node.relatedNodes[index]);
+
+        newEntity.subEntity.push(subEntity);
+      }
+    }
 
     this.stickyEntities.push(newEntity);
 
@@ -28,6 +38,13 @@ export class Renderer {
     let positions: IPosition[] = [];
 
     return positions;
+  }
+
+  calculateSubPosition(parentPosition: IPosition, parentNode: EventPositionEntity, currentNode: modelInterface): IPosition {
+    return {
+      x: 50,
+      y: 50
+    }
   }
 
   private calculatePosition(nodes: EventEntity[]): IPosition {

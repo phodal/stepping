@@ -4,8 +4,8 @@ import {StringIdentity} from "./Identity";
 
 export class EventEntity extends Entity<StringIdentity> implements eventModeInterface {
   name: string;
-  relatedNodes: modelInterface[];
-  nearNode: modelInterface[];
+  relatedNodes: eventModeInterface[];
+  nearNode: eventModeInterface[];
 
   constructor(name: any) {
     super(name);
@@ -15,14 +15,14 @@ export class EventEntity extends Entity<StringIdentity> implements eventModeInte
   }
 
   hasRelatedChild() {
-    return this.relatedNodes.length > 1;
+    return this.relatedNodes && this.relatedNodes.length > 0;
   }
 
-  addRelatedChild(model: modelInterface) {
+  addRelatedChild(model: eventModeInterface) {
     this.relatedNodes.push(model);
   }
 
-  removeRelatedChild(relatedChild: modelInterface) {
+  removeRelatedChild(relatedChild: eventModeInterface) {
     for (let childIndex in this.relatedNodes) {
       if (this.relatedNodes[childIndex]['id'] === relatedChild['id']) {
         this.relatedNodes.splice(parseInt(childIndex), 1)
