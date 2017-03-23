@@ -24,3 +24,6 @@ eventBusiness.createEventSticky('事件贴纸已渲染');
 let result = eventStickyRender.render();
 
 console.log(result);
+
+let el = document.getElementById('app');
+el.innerHTML = result;
