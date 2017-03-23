@@ -5,8 +5,8 @@ import {sha256} from "../lib/hash";
 export class Entity<ID extends Identity<any>> {
   public id;
 
-  constructor(message) {
-    this.id = new Identity(sha256(message)).getValue();
+  constructor(name) {
+    this.id = new Identity(sha256(name)).getValue();
   }
 
   public getIdentity(): ID {
