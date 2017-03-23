@@ -46,6 +46,7 @@ export class SVGGenerator {
   }
 
   build(stickyEntities: EventPositionEntity[]) {
-    this.buildNodes(stickyEntities);
+    let baseNodeString = this.buildNodes(stickyEntities);
+    return this.buildBody(baseNodeString);
   }
 }
