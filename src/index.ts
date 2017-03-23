@@ -9,6 +9,7 @@ export * from './store/LocalStorageRepository'
 
 export * from './entity/Entity'
 export * from './entity/EventEntity'
+export * from './entity/EventPositionEntity'
 
 export * from './vo/EventVO'
 

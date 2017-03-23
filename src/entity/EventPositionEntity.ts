@@ -1,9 +1,12 @@
-import {IEventPositionEntity} from "./IEventPositionEntity";
 import {EventEntity} from "./EventEntity";
 import {IPosition} from "../render/IPosition";
 
-export class EventPositionEntity<pos extends IPosition, entity extends EventEntity> implements IEventPositionEntity<pos, entity> {
-  constructor() {
+export class EventPositionEntity {
+  private pos: IPosition;
+  private entity: EventEntity;
 
+  constructor(pos: IPosition, entity: EventEntity) {
+    this.pos = pos;
+    this.entity = entity;
   }
 }

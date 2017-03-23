@@ -8,8 +8,8 @@ export class Renderer {
   }
 
   createEntity(node: EventEntity, nodes: EventEntity[]) {
-    let newEntity = new EventPositionEntity();
     let position: IPosition = this.calculatePosition(nodes);
+    let newEntity = new EventPositionEntity(position, node);
 
     return newEntity;
   }
