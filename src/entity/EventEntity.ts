@@ -14,6 +14,10 @@ export class EventEntity extends Entity<StringIdentity> implements eventModeInte
     this.nearNode = [];
   }
 
+  hasRelatedChild(entity: EventEntity) {
+    return entity.relatedNodes.length > 1;
+  }
+
   addRelatedChild(model: modelInterface) {
     this.relatedNodes.push(model);
   }

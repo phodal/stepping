@@ -2,9 +2,8 @@ import {EventEntity} from "../entity/EventEntity";
 import {EventPublisher} from "../observer/EventPublisher";
 import {EventSubscriber} from "../observer/EventSubscriber";
 import {BaseEvent} from "../observer/BaseEvent";
-import {LocalStorageRepository} from "../store/LocalStorageRepository";
 import {EventModel} from "../model/EventModel";
-import Renderer from "../render/Renderer";
+import {Renderer} from "../render/Renderer";
 
 export class EventBusiness {
   private eventPublisher: EventPublisher;
