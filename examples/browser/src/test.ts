@@ -1,33 +1,26 @@
-import {BaseModel, EventModel, EventSubscriber, EventBusinessStore, EventBusiness} from "eventstorming";
-
-function log (str: string) {
-  console.log(str)
-}
-
-log('Output:');
-
-let baseModel = new BaseModel;
-let base = baseModel.create({
-  name: "event should be created"
-});
-
-let eventModel = new EventModel;
-
-eventModel.create({
-  name: "event should be created 2",
-  relatedChild: base
-});
-
-console.log(JSON.stringify(eventModel));
+import {
+  BaseEvent,
+  EventEntity,
+  EventModel,
+  EventPublisher,
+  EventSubscriber,
+  Renderer,
+  EventBusinessStore,
+  EventBusiness,
+  EventStickyRender,
+  SVGGenerator
+} from "eventstorming";
 
 let eventSubscriber = new EventSubscriber();
 let eventStore = new EventBusinessStore(eventSubscriber);
+let eventStickyRender = new EventStickyRender(eventSubscriber);
 
 let eventBusiness = new EventBusiness(eventSubscriber);
 
-let createdEntity = eventBusiness.createEventSticky('事件贴纸已创建');
+let eventEntity = eventBusiness.createEventSticky('事件贴纸已创建');
 eventBusiness.createEventSticky('事件贴纸位置已生成');
 eventBusiness.createEventSticky('事件贴纸已渲染');
 
-let subEntity = eventBusiness.createEventSticky('子事件贴纸已创建');
-eventBusiness.addRelatedChild(createdEntity, subEntity);
+let result = eventStickyRender.render();
+
+console.log(result);

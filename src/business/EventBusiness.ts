@@ -95,6 +95,6 @@ export class EventStickyRender {
   }
 
   render(){
-    this.renderer.render();
+    return this.renderer.render();
   }
 }
