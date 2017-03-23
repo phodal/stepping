@@ -7,16 +7,11 @@ export class SVGGenerator {
   }
 
   buildNode(position: IPosition, text: string): string {
-    let pos = position;
     return `<g> \
-              <rect x="${pos.x}" y="${pos.y}" width="100" height="100" rx="2" ry="2" fill="#FFCC33"/> \
-              <text x="${pos.x}" y="${pos.y + 30}" fill="#000"> \
-                <tspan x="${pos.x + 5}" dy="0">${text}</tspan> \
+              <rect x="${position.x}" y="${position.y}" width="100" height="100" rx="2" ry="2" fill="#FFCC33"/> \
+              <text x="${position.x}" y="${position.y + 30}" fill="#000"> \
+                <tspan x="${position.x + 5}" dy="0">${text}</tspan> \
               </text> \
             </g>`
-  }
-
-  buildNodes() {
-
   }
 }
