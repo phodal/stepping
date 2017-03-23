@@ -7,11 +7,11 @@ export class SVGGenerator {
   }
 
   buildNode(position: IPosition, entity: EventEntity, extend?: string): string {
-    return `<g> \
-              <rect x="${position.x}" y="${position.y}" width="100" height="100" rx="2" ry="2" fill="#FFCC33"/> \
-              <text x="${position.x}" y="${position.y + 30}" fill="#000"> \
-                <tspan x="${position.x + 5}" dy="0">${entity.name}</tspan> \
-              </text> \
+    return `<g>
+              <rect x="${position.x}" y="${position.y}" width="100" height="100" rx="2" ry="2" fill="#FFCC33"/>
+              <text x="${position.x}" y="${position.y + 30}" fill="#000">
+                <tspan x="${position.x + 5}" dy="0">${entity.name}</tspan>
+              </text>
             </g>`
   }
 
