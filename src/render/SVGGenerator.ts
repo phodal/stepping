@@ -11,11 +11,11 @@ export class SVGGenerator {
     let color = '#FFCC33';
 
     if (extend && extend['level'] === 'same') {
-      extendField = extend['content'];
+      sameLevelField = extend['content'];
     }
 
     if (extend && extend['level'] === 'child') {
-      sameLevelField = extend['content'];
+      extendField = extend['content'];
     }
 
     if (options && options['color']) {
