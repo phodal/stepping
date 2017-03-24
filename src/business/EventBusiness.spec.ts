@@ -68,8 +68,8 @@ test('should enable add update sub child', t => {
               </text>
             </g>
             </g><g>
-              <rect x=\"150\" y=\"150\" width=\"100\" height=\"100\" rx=\"2\" ry=\"2\" fill=\"#FFCC33\"/>
-              <text x=\"150\" y=\"180\" fill=\"#000\">
+              <rect x=\"150\" y=\"0\" width=\"100\" height=\"100\" rx=\"2\" ry=\"2\" fill=\"#FFCC33\"/>
+              <text x=\"150\" y=\"30\" fill=\"#000\">
                 <tspan x=\"155\" dy=\"0\">事件贴纸已更新</tspan>
               </text>
             </g> </svg>`)

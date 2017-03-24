@@ -84,7 +84,7 @@ export class Renderer {
     if(nodes.length > 1) {
       this.originPosition = {
         x: this.originPosition.x + 150,
-        y: this.originPosition.y + 150
+        y: this.originPosition.y
       };
 
       position = this.originPosition;
