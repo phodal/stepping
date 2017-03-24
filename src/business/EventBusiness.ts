@@ -5,6 +5,7 @@ import {BaseEvent} from "../observer/BaseEvent";
 import {EventModel} from "../model/EventModel";
 import {Renderer} from "../render/Renderer";
 import {SVGGenerator} from "../render/SVGGenerator";
+import {EventPositionEntity} from "../entity/EventPositionEntity";
 
 export class EventBusiness {
   private eventPublisher: EventPublisher;
@@ -84,7 +85,7 @@ export class EventStickyRender {
     this.render();
   }
 
-  handleUpdatedEvent(entity) {
+  handleUpdatedEvent(entity: EventPositionEntity) {
     for (let index in this.nodes) {
       if (this.nodes[index].id === entity.id) {
         this.nodes[index] = entity;

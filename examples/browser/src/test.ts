@@ -23,6 +23,8 @@ let eventEntity = eventBusiness.createEventSticky('event had created');
 
 eventEntity.addRelatedChild(subEntity);
 
+eventBusiness.updateEventSticky(eventEntity);
+
 eventBusiness.createEventSticky('sticky had created');
 eventBusiness.createEventSticky('sticky had rendered');
 

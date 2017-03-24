@@ -16,6 +16,13 @@ export class Renderer {
     let position: IPosition = this.calculatePosition(nodes);
     let newEntity = new EventPositionEntity(position, node);
 
+    this.handForChildNode(node, position, newEntity);
+    this.stickyEntities.push(newEntity);
+
+    return newEntity;
+  }
+
+  private handForChildNode(node: EventEntity, position: IPosition, newEntity: EventPositionEntity) {
     if (node.hasRelatedChild()) {
       for (let index in node.relatedNodes) {
         let subPosition: IPosition = this.calculateSubPosition(position, newEntity, node.relatedNodes[index]);
@@ -24,10 +31,6 @@ export class Renderer {
         newEntity.subEntity.push(subEntity);
       }
     }
-
-    this.stickyEntities.push(newEntity);
-
-    return newEntity;
   }
 
   updateEntity(node: EventEntity, nodes: EventEntity[]) {
