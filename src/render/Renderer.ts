@@ -50,7 +50,7 @@ export class Renderer {
     this.handForChildNode(node, position, newEntity);
 
     for(let stickIndex in this.stickyEntities) {
-      if(this.stickyEntities[stickIndex].id === node.id ) {
+      if(this.stickyEntities[stickIndex].entity.id === node.id ) {
         this.stickyEntities[stickIndex] = newEntity;
       }
     }

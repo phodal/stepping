@@ -34,6 +34,11 @@ test('should enable add related child', t => {
               <rect x=\"0\" y=\"0\" width=\"100\" height=\"100\" rx=\"2\" ry=\"2\" fill=\"#FFCC33\"/>
               <text x=\"0\" y=\"30\" fill=\"#000\">
                 <tspan x=\"5\" dy=\"0\">事件贴纸已创建</tspan>
+              </text><g>
+              <rect x=\"50\" y=\"50\" width=\"100\" height=\"100\" rx=\"2\" ry=\"2\" fill=\"#0095DD\"/>
+              <text x=\"50\" y=\"80\" fill=\"#000\">
+                <tspan x=\"55\" dy=\"0\">sticker had store</tspan>
               </text>
+            </g>
             </g> </svg>`)
 });
