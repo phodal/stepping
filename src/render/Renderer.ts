@@ -33,8 +33,29 @@ export class Renderer {
     }
   }
 
-  updateEntity(node: EventEntity, nodes: EventEntity[]) {
-    this.calculatePositions(nodes);
+  updateEntity(node: EventPositionEntity, nodes: EventEntity[]) {
+    let position: IPosition = {
+      x: 0,
+      y: 0
+    };
+
+    for(let stickIndex in this.stickyEntities) {
+      if(this.stickyEntities[stickIndex].id === node.id ) {
+        position = this.stickyEntities[stickIndex].pos;
+      }
+    }
+
+    let newEntity = new EventPositionEntity(position, node);
+
+    this.handForChildNode(node, position, newEntity);
+
+    for(let stickIndex in this.stickyEntities) {
+      if(this.stickyEntities[stickIndex].id === node.id ) {
+        this.stickyEntities[stickIndex] = newEntity;
+      }
+    }
+
+    return newEntity;
   }
 
   calculatePositions(nodes: EventEntity[]): IPosition[] {
