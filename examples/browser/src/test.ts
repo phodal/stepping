@@ -17,9 +17,14 @@ let eventStickyRender = new EventStickyRender(eventSubscriber);
 
 let eventBusiness = new EventBusiness(eventSubscriber);
 
-let eventEntity = eventBusiness.createEventSticky('事件贴纸已创建');
-eventBusiness.createEventSticky('事件贴纸位置已生成');
-eventBusiness.createEventSticky('事件贴纸已渲染');
+let subEntity = new EventEntity('sticker had store');
+
+let eventEntity = eventBusiness.createEventSticky('event had created');
+
+eventEntity.addRelatedChild(subEntity);
+
+eventBusiness.createEventSticky('sticky had created');
+eventBusiness.createEventSticky('sticky had rendered');
 
 let result = eventStickyRender.render();
 
