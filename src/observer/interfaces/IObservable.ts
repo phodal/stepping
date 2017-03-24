@@ -1,7 +1,7 @@
-module EventStorming.Observer {
-  export interface IObservable {
-    RegisterObserver(Observer: EventStorming.Observer.IObserver);
-    RemoveObserver(Observer: EventStorming.Observer.IObserver);
-    NotifyObservers(eventName: string, obj: object);
-  }
+import {IObserver} from "./IObserver";
+
+export interface IObservable {
+  RegisterObserver(Observer: IObserver);
+  RemoveObserver(Observer: IObserver);
+  NotifyObservers(eventName: string, obj: object);
 }

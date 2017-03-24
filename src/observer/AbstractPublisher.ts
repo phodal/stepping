@@ -1,5 +1,8 @@
-export abstract class AbstractPublisher implements EventStorming.Observer.IObservable {
-  protected observers: EventStorming.Observer.IObserver[];
+import {IObservable} from "./interfaces/IObservable";
+import {IObserver} from "./interfaces/IObserver";
+
+export abstract class AbstractPublisher implements IObservable {
+  protected observers: IObserver[];
 
   constructor() {
     this.observers = [];
@@ -7,11 +10,11 @@ export abstract class AbstractPublisher implements EventStorming.Observer.IObser
 
   public abstract NotifyObservers(eventName: string, obj: object);
 
-  public RegisterObserver(observer: EventStorming.Observer.IObserver): void {
+  public RegisterObserver(observer: IObserver): void {
     this.observers.push(observer);
   }
 
-  public RemoveObserver(observer: EventStorming.Observer.IObserver): void {
+  public RemoveObserver(observer: IObserver): void {
     for (let observerIndex in this.observers) {
       if (this.observers[observerIndex] === observer) {
         this.observers.splice(parseInt(observerIndex), 1);

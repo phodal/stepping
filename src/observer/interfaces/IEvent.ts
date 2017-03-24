@@ -1,6 +1,4 @@
-module EventStorming.Event {
-  export interface IEvent {
-    name: string;
-    action: object;
-  }
+export interface IEvent {
+  name: string;
+  action: object;
 }

@@ -1,4 +1,6 @@
-export class BaseEvent implements EventStorming.Event.IEvent {
+import {IEvent} from "./interfaces/IEvent";
+
+export class BaseEvent implements IEvent {
   name: string;
   action: object;
 

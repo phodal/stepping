@@ -1,4 +1,7 @@
-export class EventSubscriber implements EventStorming.Observer.IObserver {
+import {IEvent} from "./interfaces/IEvent";
+import {IObserver} from "./interfaces/IObserver";
+
+export class EventSubscriber implements IObserver {
   private _events: object[] = [];
 
   constructor() {
@@ -18,7 +21,7 @@ export class EventSubscriber implements EventStorming.Observer.IObserver {
     }
   }
 
-  public registerEvent(event: EventStorming.Event.IEvent) {
+  public registerEvent(event: IEvent) {
     this._events.push(event);
   }
 
