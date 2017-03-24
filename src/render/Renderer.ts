@@ -6,6 +6,10 @@ import {modelInterface} from "../model/IModel";
 
 export class Renderer {
   stickyEntities: EventPositionEntity[] = [];
+  originPosition: IPosition = {
+    x: 0,
+    y: 0
+  };
   private _svgGenerator: SVGGenerator;
 
   constructor(svgGenerator: SVGGenerator) {
@@ -66,8 +70,8 @@ export class Renderer {
 
   calculateSubPosition(parentPosition: IPosition, parentNode: EventPositionEntity, currentNode: modelInterface): IPosition {
     return {
-      x: 50,
-      y: 50
+      x: parentPosition.x + 50,
+      y: parentPosition.x + 50
     }
   }
 
@@ -76,6 +80,15 @@ export class Renderer {
       x: 0,
       y: 0
     };
+
+    if(nodes.length > 1) {
+      this.originPosition = {
+        x: this.originPosition.x + 150,
+        y: this.originPosition.y + 150
+      };
+
+      position = this.originPosition;
+    }
 
     return position
   }
