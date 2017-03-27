@@ -7,6 +7,18 @@ TODO
 
  - SVG/Canvas Render
  - DSL
+ 
+DSL in Design
+---
+
+domain: 领域
+ aggregate: 聚合
+    entity:
+      model: 模型
+        event: 事件
+        command: 命令
+      
+      
 
 License
 ---
