@@ -1,5 +1,6 @@
 import {Entity} from "./Entity";
-import {IEventModel, IModel} from "../model/IModel";
+import {IEventModel} from "../model/IEventModel";
+import {IModel} from "../model/IModel";
 import {StringIdentity} from "./Identity";
 
 export class EventEntity extends Entity<StringIdentity> implements IEventModel {

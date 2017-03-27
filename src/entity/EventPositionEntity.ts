@@ -1,6 +1,7 @@
 import {EventEntity} from "./EventEntity";
 import {IPosition} from "../render/IPosition";
-import {IEventModel, IModel} from "../model/IModel";
+import {IModel} from "../model/IModel";
+import {IEventModel} from "../model/IEventModel";
 
 
 export interface IEventPosition extends IModel {

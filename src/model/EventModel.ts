@@ -1,5 +1,6 @@
 import {BaseModel} from "./BaseModel";
-import {IEventModel, IModel} from "./IModel";
+import {IModel} from "./IModel";
+import {IEventModel} from "./IEventModel";
 import {EventEntity} from "../entity/EventEntity";
 import {LocalStorageRepository} from "../store/LocalStorageRepository";
 
