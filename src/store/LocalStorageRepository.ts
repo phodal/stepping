@@ -2,17 +2,14 @@
 import {IRepository} from "./IRepository";
 import {Identity} from "../entity/Identity";
 import {Entity} from "../entity/Entity";
-
-export interface ILocalStorageMapper<E extends Entity<any>> {
-  stringify(entity: E): string;
-}
+import {ILocalStorageMapper} from "./ILocalStorageMapper";
 
 export class LocalStorageRepository<ID extends Identity<any>, E extends Entity<any>> implements IRepository<E> {
+  stringify: (entity: E) => string;
+
   constructor(mapper: ILocalStorageMapper<E>) {
     this.stringify = mapper.stringify;
   }
-
-  stringify: (entity: E) => string;
 
   resolve(identity: string) {
     let item = localStorage.getItem(identity);

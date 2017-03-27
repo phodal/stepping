@@ -8,10 +8,11 @@ export interface IEventPosition extends modelInterface {
 }
 
 export class EventPositionEntity extends EventEntity {
-  private _pos: IPosition;
-  private _entity: IEventPosition;
   subEntity: EventPositionEntity[] = [];
   nearEntity: EventPositionEntity[] = [];
+
+  private _pos: IPosition;
+  private _entity: IEventPosition;
 
   constructor(pos: IPosition, entity: eventModeInterface) {
     super(entity.id);

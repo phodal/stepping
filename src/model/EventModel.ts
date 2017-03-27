@@ -4,14 +4,13 @@ import {EventEntity} from "../entity/EventEntity";
 import {LocalStorageRepository} from "../store/LocalStorageRepository";
 
 export class EventModel extends BaseModel {
-  private localStorageRepository;
-
   baseModels: eventModeInterface[];
   mapper = {
     stringify: (entity: EventEntity) => {
       return JSON.stringify(entity);
     }
   };
+  private localStorageRepository;
 
   constructor() {
     super();

@@ -9,10 +9,10 @@ export class Identity<T> {
   }
 
   public equals(that: Identity<T>): boolean {
-    if (that == null) {
+    if (that === null) {
       return false;
     }
-    if (this == that) {
+    if (this === that) {
       return true;
     }
 

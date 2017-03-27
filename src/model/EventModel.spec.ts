@@ -1,5 +1,5 @@
 import {test} from "ava";
-import { EventModel, BaseModel } from "eventstorming";
+import {EventModel, BaseModel} from "eventstorming";
 
 test('should enable add model', t => {
   let eventModel = new EventModel;

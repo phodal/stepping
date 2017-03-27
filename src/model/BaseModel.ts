@@ -1,11 +1,11 @@
 import {IModel} from "./IModel";
 
 export class BaseModel implements IModel {
+  baseModels: any = [];
+
   constructor() {
 
   }
-
-  baseModels: any = [];
 
   create(model) {
     this.baseModels.push(model);
