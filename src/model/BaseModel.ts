@@ -1,6 +1,6 @@
-import {IModel} from "./IModel";
+import {IBaseModel} from "./IBaseModel";
 
-export class BaseModel implements IModel {
+export class BaseModel implements IBaseModel {
   baseModels: any = [];
 
   constructor() {

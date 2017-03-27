@@ -1,10 +1,3 @@
-export interface IModel {
-  all: object,
-  create: object,
-  readById: object,
-  deleteById: object,
-}
-
 export interface modelInterface {
   id: string;
   name: string;
