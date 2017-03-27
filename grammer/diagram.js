@@ -2,9 +2,24 @@ function Diagram() {
 
 }
 
-Diagram.unescape = function (input) {
-  console.log(input);
+Diagram.store = function (input, input2) {
+  console.log(input, input2);
   return input;
+};
+
+Diagram.unescape = function (input) {
+  return input;
+};
+
+Diagram.createDomain = function (input) {
+  return {
+    domain: input,
+    aggregate: [],
+    entity: [],
+    model: [],
+    event: [],
+    command: []
+  };
 };
 
 Diagram.parse = function (input) {

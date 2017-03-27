@@ -8,7 +8,7 @@
   <script src="es-dsl.js"></script>
   <script src="diagram.js"></script>
   <script>
-    var result = Diagram.parse("domain: 订单上下文\r\n  aggregate: 聚合");
+    var result = Diagram.parse("domain: 订单子\r\n   - aggregate: 聚合 \r\n - aggregate: 聚合 \r\n");
   </script>
 </head>
 <body>

@@ -75,8 +75,8 @@ var esDsl = (function(){
 var o=function(k,v,o,l){for(o=o||{},l=k.length;l--;o[k[l]]=v);return o},$V0=[5,8,9,11],$V1=[1,10];
 var parser = {trace: function trace() { },
 yy: {},
-symbols_: {"error":2,"start":3,"document":4,"EOF":5,"line":6,"statement":7,"NL":8,"domain":9,"message":10,"aggregate":11,"MESSAGE":12,"$accept":0,"$end":1},
-terminals_: {2:"error",5:"EOF",8:"NL",9:"domain",11:"aggregate",12:"MESSAGE"},
+symbols_: {"error":2,"start":3,"document":4,"EOF":5,"line":6,"statement":7,"NL":8,"domain":9,"message":10,"array":11,"MESSAGE":12,"$accept":0,"$end":1},
+terminals_: {2:"error",5:"EOF",8:"NL",9:"domain",11:"array",12:"MESSAGE"},
 productions_: [0,[3,2],[4,0],[4,2],[6,1],[6,1],[7,2],[7,2],[10,1]],
 performAction: function anonymous(yytext, yyleng, yylineno, yy, yystate /* action[1] */, $$ /* vstack */, _$ /* lstack */) {
 /* this == yyval */
@@ -89,11 +89,14 @@ break;
 case 4:
  
 break;
-case 6: case 7:
- $$[$0]; 
+case 6:
+ Diagram.createDomain($$[$0-1]) 
+break;
+case 7:
+ Diagram.store($$[$0-1], $$[$0]) 
 break;
 case 8:
- this.$ = Diagram.unescape($$[$0].substring(1)); 
+ this.$ = Diagram.unescape(this.$); 
 break;
 }
 },
@@ -594,7 +597,7 @@ case 6:return 'INVALID';
 break;
 }
 },
-rules: [/^(?:[\r\n]+)/i,/^(?:\s+)/i,/^(?:domain\b)/i,/^(?:aggregate\b)/i,/^(?:[^\r\n]+)/i,/^(?:$)/i,/^(?:.)/i],
+rules: [/^(?:[\r\n]+)/i,/^(?:\s+)/i,/^(?:domain\b)/i,/^(?:-)/i,/^(?:[^\r\n]+)/i,/^(?:$)/i,/^(?:.)/i],
 conditions: {"INITIAL":{"rules":[0,1,2,3,4,5,6],"inclusive":true}}
 });
 return lexer;

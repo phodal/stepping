@@ -16,7 +16,7 @@ kw  (
 [\r\n]+               return 'NL';
 \s+                   /* skip whitespace */
 "domain"              return 'domain';
-"aggregate"           return 'aggregate';
+"-"                   return 'array';
 :[^\r\n]+             return 'MESSAGE';
 <<EOF>>               return 'EOF';
 .                     return 'INVALID';
@@ -42,12 +42,12 @@ line
 	;
 
 statement
-	: 'domain' message { $2; }
-	| 'aggregate' message { $2; }
+	: 'domain'     message { Diagram.createDomain($1) }
+	| 'array'      message { Diagram.store($1, $2) }
   ;
 
 message
-	: MESSAGE { $$ = Diagram.unescape($1.substring(1)); }
+	: MESSAGE { $$ = Diagram.unescape($$); }
 	;
 
 %%
