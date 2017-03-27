@@ -1,10 +1,10 @@
 import {BaseModel} from "./BaseModel";
-import {eventModeInterface, IModel} from "./IModel";
+import {IEventModel, IModel} from "./IModel";
 import {EventEntity} from "../entity/EventEntity";
 import {LocalStorageRepository} from "../store/LocalStorageRepository";
 
 export class EventModel extends BaseModel {
-  baseModels: eventModeInterface[];
+  baseModels: IEventModel[];
   mapper = {
     stringify: (entity: EventEntity) => {
       return JSON.stringify(entity);

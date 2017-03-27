@@ -5,9 +5,9 @@ export interface IModel {
   nearNode?: IModel[];
 }
 
-export interface eventModeInterface extends IModel {
-  relatedNodes: eventModeInterface[];
-  nearNode: eventModeInterface[];
+export interface IEventModel extends IModel {
+  relatedNodes: IEventModel[];
+  nearNode: IEventModel[];
   addRelatedChild(model: IModel);
   removeRelatedChild(model: IModel);
   updateRelatedChild(model: IModel);

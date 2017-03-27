@@ -1,6 +1,6 @@
 import {EventEntity} from "./EventEntity";
 import {IPosition} from "../render/IPosition";
-import {eventModeInterface, IModel} from "../model/IModel";
+import {IEventModel, IModel} from "../model/IModel";
 
 
 export interface IEventPosition extends IModel {
@@ -14,7 +14,7 @@ export class EventPositionEntity extends EventEntity {
   private _pos: IPosition;
   private _entity: IEventPosition;
 
-  constructor(pos: IPosition, entity: eventModeInterface) {
+  constructor(pos: IPosition, entity: IEventModel) {
     super(entity.id);
 
     this._entity = entity;
