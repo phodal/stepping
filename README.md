@@ -7,7 +7,7 @@ TODO
 
  - SVG/Canvas Render
  - DSL
- 
+
 DSL in Design
 ---
 
@@ -17,8 +17,19 @@ domain: 领域
       model: 模型
         event: 事件
         command: 命令
-      
-      
+
+
+Setup
+---
+
+```
+brew install yarn
+```
+
+```
+yarn global add jison
+```
+
 
 License
 ---
