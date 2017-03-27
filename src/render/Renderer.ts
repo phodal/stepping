@@ -26,25 +26,14 @@ export class Renderer {
     return newEntity;
   }
 
-  private handForChildNode(node: EventEntity, position: IPosition, newEntity: EventPositionEntity) {
-    if (node.hasRelatedChild()) {
-      for (let index in node.relatedNodes) {
-        let subPosition: IPosition = this.calculateSubPosition(position, newEntity, node.relatedNodes[index]);
-        let subEntity = new EventPositionEntity(subPosition, node.relatedNodes[index]);
-
-        newEntity.subEntity.push(subEntity);
-      }
-    }
-  }
-
   updateEntity(node: EventPositionEntity, nodes: EventEntity[]) {
     let position: IPosition = {
       x: 0,
       y: 0
     };
 
-    for(let stickIndex in this.stickyEntities) {
-      if(this.stickyEntities[stickIndex].id === node.id ) {
+    for (let stickIndex in this.stickyEntities) {
+      if (this.stickyEntities[stickIndex].id === node.id) {
         position = this.stickyEntities[stickIndex].pos;
       }
     }
@@ -53,8 +42,8 @@ export class Renderer {
 
     this.handForChildNode(node, position, newEntity);
 
-    for(let stickIndex in this.stickyEntities) {
-      if(this.stickyEntities[stickIndex].entity.id === node.id ) {
+    for (let stickIndex in this.stickyEntities) {
+      if (this.stickyEntities[stickIndex].entity.id === node.id) {
         this.stickyEntities[stickIndex] = newEntity;
       }
     }
@@ -75,13 +64,18 @@ export class Renderer {
     }
   }
 
+  render(): string {
+    let result = this._svgGenerator.build(this.stickyEntities);
+    return result;
+  }
+
   private calculatePosition(nodes: EventEntity[]): IPosition {
     let position: IPosition = {
       x: 0,
       y: 0
     };
 
-    if(nodes.length > 1) {
+    if (nodes.length > 1) {
       this.originPosition = {
         x: this.originPosition.x + 150,
         y: this.originPosition.y
@@ -93,8 +87,15 @@ export class Renderer {
     return position
   }
 
-  render(): string {
-    let result = this._svgGenerator.build(this.stickyEntities);
-    return result;
+  private handForChildNode(node: EventEntity, position: IPosition, newEntity: EventPositionEntity) {
+    if (node.hasRelatedChild()) {
+      for (let index in node.relatedNodes) {
+        let subPosition: IPosition = this.calculateSubPosition(position, newEntity, node.relatedNodes[index]);
+        let subEntity = new EventPositionEntity(subPosition, node.relatedNodes[index]);
+
+        newEntity.subEntity.push(subEntity);
+      }
+    }
   }
+
 }
