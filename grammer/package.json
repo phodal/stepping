@@ -1,0 +1,26 @@
+{
+  "name": "esdsl",
+  "version": "0.0.1",
+  "description": "EventStroming DSL for Generate EventStroming Graphics",
+  "main": "diagram.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/phodal/EventStorming.Graph.git"
+  },
+  "keywords": [
+    "DSL",
+    "EventStroming",
+    "DDD",
+    "Domain",
+    "Design"
+  ],
+  "author": "Phodal",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/phodal/EventStorming.Graph/issues"
+  },
+  "homepage": "https://github.com/phodal/EventStorming.Graph#readme"
+}
