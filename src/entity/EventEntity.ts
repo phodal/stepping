@@ -1,5 +1,5 @@
 import {Entity} from "./Entity";
-import {eventModeInterface, modelInterface} from "../model/IModel";
+import {eventModeInterface, IModel} from "../model/IModel";
 import {StringIdentity} from "./Identity";
 
 export class EventEntity extends Entity<StringIdentity> implements eventModeInterface {
@@ -30,7 +30,7 @@ export class EventEntity extends Entity<StringIdentity> implements eventModeInte
     }
   }
 
-  updateRelatedChild(model: modelInterface) {
+  updateRelatedChild(model: IModel) {
 
   }
 }

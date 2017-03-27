@@ -11,8 +11,6 @@ export * from './entity/Entity'
 export * from './entity/EventEntity'
 export * from './entity/EventPositionEntity'
 
-export * from './vo/EventVO'
-
 export * from './observer/EventPublisher'
 export * from './observer/EventSubscriber'
 export * from './observer/BaseEvent'

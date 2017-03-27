@@ -1,14 +1,14 @@
-export interface modelInterface {
+export interface IModel {
   id: string;
   name: string;
-  relatedNodes?: modelInterface[];
-  nearNode?: modelInterface[];
+  relatedNodes?: IModel[];
+  nearNode?: IModel[];
 }
 
-export interface eventModeInterface extends modelInterface {
+export interface eventModeInterface extends IModel {
   relatedNodes: eventModeInterface[];
   nearNode: eventModeInterface[];
-  addRelatedChild(model: modelInterface);
-  removeRelatedChild(model: modelInterface);
-  updateRelatedChild(model: modelInterface);
+  addRelatedChild(model: IModel);
+  removeRelatedChild(model: IModel);
+  updateRelatedChild(model: IModel);
 }

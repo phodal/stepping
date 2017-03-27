@@ -2,7 +2,7 @@ import {EventEntity} from "../entity/EventEntity";
 import {IPosition} from "./IPosition";
 import {EventPositionEntity} from "../entity/EventPositionEntity";
 import {SVGGenerator} from "./SVGGenerator";
-import {modelInterface} from "../model/IModel";
+import {IModel} from "../model/IModel";
 
 export class Renderer {
   stickyEntities: EventPositionEntity[] = [];
@@ -68,7 +68,7 @@ export class Renderer {
     return positions;
   }
 
-  calculateSubPosition(parentPosition: IPosition, parentNode: EventPositionEntity, currentNode: modelInterface): IPosition {
+  calculateSubPosition(parentPosition: IPosition, parentNode: EventPositionEntity, currentNode: IModel): IPosition {
     return {
       x: parentPosition.x + 50,
       y: parentPosition.x + 50

@@ -1,9 +1,9 @@
 import {EventEntity} from "./EventEntity";
 import {IPosition} from "../render/IPosition";
-import {eventModeInterface, modelInterface} from "../model/IModel";
+import {eventModeInterface, IModel} from "../model/IModel";
 
 
-export interface IEventPosition extends modelInterface {
+export interface IEventPosition extends IModel {
   pos?: IPosition
 }
 
