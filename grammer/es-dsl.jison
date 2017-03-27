@@ -5,12 +5,18 @@
 
 %lex
 
+kw  (
+    'domain'|'aggregate'|'entity'|'model'|'event'|'command'
+)
+
 %options case-insensitive
 
 %%
 
+[\r\n]+               return 'NL';
 \s+                   /* skip whitespace */
 "domain"              return 'domain';
+"aggregate"           return 'aggregate';
 :[^\r\n]+             return 'MESSAGE';
 <<EOF>>               return 'EOF';
 .                     return 'INVALID';
@@ -37,6 +43,7 @@ line
 
 statement
 	: 'domain' message { $2; }
+	| 'aggregate' message { $2; }
   ;
 
 message
