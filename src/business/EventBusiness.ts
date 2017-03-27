@@ -69,6 +69,7 @@ export class EventStickyRender {
   generator: SVGGenerator;
   nodes: EventEntity[] = [];
   renderer: Renderer;
+
   constructor(eventSubscriber: EventSubscriber) {
     this.generator = new SVGGenerator();
     this.renderer = new Renderer(this.generator);
@@ -95,7 +96,7 @@ export class EventStickyRender {
     this.render();
   }
 
-  render(){
+  render() {
     return this.renderer.render();
   }
 }
