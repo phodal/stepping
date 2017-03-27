@@ -17,7 +17,7 @@ export abstract class AbstractPublisher implements IObservable {
   public RemoveObserver(observer: IObserver): void {
     for (let observerIndex in this.observers) {
       if (this.observers[observerIndex] === observer) {
-        this.observers.splice(parseInt(observerIndex), 1);
+        this.observers.splice(parseInt(observerIndex, 10), 1);
       }
     }
   }
