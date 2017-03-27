@@ -31,8 +31,12 @@ yarn global add jison
 ```
 
 
-Thinking
+Resources
 ---
+
+![Event Storming Example](./graphics/event-storming.png)
+
+领域事件
 
 ![Architecture](./graphics/domain-event.png)
 
