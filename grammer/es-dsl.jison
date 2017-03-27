@@ -16,8 +16,10 @@ kw  (
 [\r\n]+               return 'NL';
 \s+                   /* skip whitespace */
 "domain"              return 'domain';
-"-"                   return 'ACTOR';
+"-"                   return 'CHILD';
+"+"                   return 'CHILD';
 :[^\r\n]+             return 'MESSAGE';
+"aggregate"           return 'aggregate';
 <<EOF>>               return 'EOF';
 .                     return 'INVALID';
 
@@ -59,7 +61,15 @@ actor
 	;
 
 signal
-	: actor MESSAGE { console.log($1, $2) }
+	: type aggregate { console.log($$) }
 	;
+
+type
+	: CHILD   { $$ = Diagram.TYPE.CHILD; }
+	;
+
+aggregate
+  : MESSAGE   { $$=$1; }
+  ;
 
 %%

@@ -2,6 +2,10 @@ function Diagram() {
 
 }
 
+Diagram.TYPE = {
+  CHILD: '',
+};
+
 Diagram.store = function (input, input2) {
   return input;
 };
