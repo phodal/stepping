@@ -9,9 +9,11 @@
 
 %%
 
-"title"               return 'title'
-<<EOF>>               return 'EOF'
-.                     return 'INVALID'
+\s+                   /* skip whitespace */
+"domain"              return 'domain';
+:[^\r\n]+             return 'MESSAGE';
+<<EOF>>               return 'EOF';
+.                     return 'INVALID';
 
 /lex
 
@@ -20,9 +22,25 @@
 %% /* language grammar */
 
 start
-    : e EOF
-        { typeof console !== 'undefined' ? console.log($1) : print($1);
-          return $1; }
-    ;
+	: document 'EOF' { return yy.parser.yy; } /* returning parser.yy is a quirk of jison >0.4.10 */
+	;
+
+document
+	: /* empty */
+	| document line
+	;
+
+line
+	: statement { }
+	| 'NL'
+	;
+
+statement
+	: 'domain' message { $2; }
+  ;
+
+message
+	: MESSAGE { $$ = Diagram.unescape($1.substring(1)); }
+	;
 
 %%
