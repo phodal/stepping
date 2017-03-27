@@ -1,5 +1,12 @@
-import {test} from "ava";
-import {EventBusiness, EventEntity, EventStickyRender, EventBusinessStore, EventSubscriber, EventPublisher} from "eventstorming";
+import {test} from 'ava';
+import {
+  EventBusiness,
+  EventBusinessStore,
+  EventEntity,
+  EventPublisher,
+  EventStickyRender,
+  EventSubscriber
+} from 'eventstorming';
 
 test('should enable add related child', t => {
   // let eventSubscriber = new EventSubscriber();

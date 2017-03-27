@@ -1,11 +1,11 @@
-import {EventEntity} from "../entity/EventEntity";
-import {EventPublisher} from "../observer/EventPublisher";
-import {EventSubscriber} from "../observer/EventSubscriber";
-import {BaseEvent} from "../observer/BaseEvent";
-import {EventModel} from "../model/EventModel";
-import {Renderer} from "../render/Renderer";
-import {SVGGenerator} from "../render/SVGGenerator";
-import {EventPositionEntity} from "../entity/EventPositionEntity";
+import {EventEntity} from '../entity/EventEntity';
+import {EventPublisher} from '../observer/EventPublisher';
+import {EventSubscriber} from '../observer/EventSubscriber';
+import {BaseEvent} from '../observer/BaseEvent';
+import {EventModel} from '../model/EventModel';
+import {Renderer} from '../render/Renderer';
+import {SVGGenerator} from '../render/SVGGenerator';
+import {EventPositionEntity} from '../entity/EventPositionEntity';
 
 export class EventBusiness {
   private eventPublisher: EventPublisher;
@@ -17,13 +17,13 @@ export class EventBusiness {
 
   createEventSticky(name): EventEntity {
     let eventEntity = new EventEntity(name);
-    this.eventPublisher.NotifyObservers("event.created", eventEntity);
+    this.eventPublisher.NotifyObservers('event.created', eventEntity);
 
     return eventEntity;
   }
 
   updateEventSticky(entity: EventEntity): EventEntity {
-    this.eventPublisher.NotifyObservers("event.updated", entity);
+    this.eventPublisher.NotifyObservers('event.updated', entity);
     return entity;
   }
 
@@ -40,8 +40,8 @@ export class EventBusinessStore {
   store: EventEntity[] = [];
 
   constructor(eventSubscriber: EventSubscriber) {
-    let createdEvent = new BaseEvent("event.created", this.handleCreatedEvent.bind(this));
-    let updatedEvent = new BaseEvent("event.updated", this.handleUpdatedEvent.bind(this));
+    let createdEvent = new BaseEvent('event.created', this.handleCreatedEvent.bind(this));
+    let updatedEvent = new BaseEvent('event.updated', this.handleUpdatedEvent.bind(this));
 
     eventSubscriber.registerEvent(createdEvent);
     eventSubscriber.registerEvent(updatedEvent);
@@ -74,8 +74,8 @@ export class EventStickyRender {
     this.generator = new SVGGenerator();
     this.renderer = new Renderer(this.generator);
 
-    let createdEvent = new BaseEvent("event.created", this.handleCreatedEvent.bind(this));
-    let updatedEvent = new BaseEvent("event.updated", this.handleUpdatedEvent.bind(this));
+    let createdEvent = new BaseEvent('event.created', this.handleCreatedEvent.bind(this));
+    let updatedEvent = new BaseEvent('event.updated', this.handleUpdatedEvent.bind(this));
     eventSubscriber.registerEvent(createdEvent);
     eventSubscriber.registerEvent(updatedEvent);
   }

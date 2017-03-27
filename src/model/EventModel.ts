@@ -1,8 +1,8 @@
-import {BaseModel} from "./BaseModel";
-import {IModel} from "./IModel";
-import {IEventModel} from "./IEventModel";
-import {EventEntity} from "../entity/EventEntity";
-import {LocalStorageRepository} from "../store/LocalStorageRepository";
+import {BaseModel} from './BaseModel';
+import {IModel} from './IModel';
+import {IEventModel} from './IEventModel';
+import {EventEntity} from '../entity/EventEntity';
+import {LocalStorageRepository} from '../store/LocalStorageRepository';
 
 export class EventModel extends BaseModel {
   baseModels: IEventModel[];

@@ -1,4 +1,4 @@
-import {IModel} from "./IModel";
+import {IModel} from './IModel';
 
 export interface IEventModel extends IModel {
   relatedNodes: IEventModel[];

@@ -1,5 +1,5 @@
-import {IEvent} from "./interfaces/IEvent";
-import {IObserver} from "./interfaces/IObserver";
+import {IEvent} from './interfaces/IEvent';
+import {IObserver} from './interfaces/IObserver';
 
 export class EventSubscriber implements IObserver {
   private _events: object[] = [];
@@ -11,8 +11,8 @@ export class EventSubscriber implements IObserver {
     }
 
     for (let index in this._events) {
-      if (this._events[index]["name"] === eventName && this._events[index]["action"]) {
-        this._events[index]["action"](obj);
+      if (this._events[index]['name'] === eventName && this._events[index]['action']) {
+        this._events[index]['action'](obj);
       }
     }
   }

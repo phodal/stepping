@@ -1,6 +1,6 @@
 // Inspired by https://github.com/yaakaito/typescript-dddbase
-import {Identity} from "./Identity";
-import {sha256} from "../lib/hash";
+import {Identity} from './Identity';
+import {sha256} from '../lib/hash';
 
 export class Entity<ID extends Identity<any>> {
   public id;

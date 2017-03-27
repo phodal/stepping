@@ -1,5 +1,5 @@
-import {IObservable} from "./interfaces/IObservable";
-import {IObserver} from "./interfaces/IObserver";
+import {IObservable} from './interfaces/IObservable';
+import {IObserver} from './interfaces/IObserver';
 
 export abstract class AbstractPublisher implements IObservable {
   protected observers: IObserver[];

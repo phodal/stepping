@@ -1,8 +1,8 @@
 // Inspired by https://github.com/yaakaito/typescript-dddbase
-import {IRepository} from "./IRepository";
-import {Identity} from "../entity/Identity";
-import {Entity} from "../entity/Entity";
-import {ILocalStorageMapper} from "./ILocalStorageMapper";
+import {IRepository} from './IRepository';
+import {Identity} from '../entity/Identity';
+import {Entity} from '../entity/Entity';
+import {ILocalStorageMapper} from './ILocalStorageMapper';
 
 export class LocalStorageRepository<ID extends Identity<any>, E extends Entity<any>> implements IRepository<E> {
   stringify: (entity: E) => string;

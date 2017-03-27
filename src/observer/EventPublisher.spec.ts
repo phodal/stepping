@@ -1,7 +1,5 @@
-import {test} from "ava";
-import {EventPublisher} from "eventstorming";
-import {EventSubscriber} from "eventstorming";
-import {BaseEvent} from "eventstorming";
+import {test} from 'ava';
+import {BaseEvent, EventPublisher, EventSubscriber} from 'eventstorming';
 
 test('should enable receive event', t => {
   let eventPublisher = new EventPublisher();

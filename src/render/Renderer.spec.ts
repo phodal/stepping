@@ -1,5 +1,5 @@
-import {test} from "ava";
-import {EventEntity, SVGGenerator, EventPositionEntity, IGenerator, Renderer} from "eventstorming";
+import {test} from 'ava';
+import {EventEntity, EventPositionEntity, IGenerator, Renderer, SVGGenerator} from 'eventstorming';
 
 test('should return correctly node svg', t => {
   let svgGenerator = new SVGGenerator();

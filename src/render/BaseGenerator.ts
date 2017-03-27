@@ -1,5 +1,5 @@
-import {IGenerator} from "./IGenerator";
-import {EventPositionEntity} from "../entity/EventPositionEntity";
+import {IGenerator} from './IGenerator';
+import {EventPositionEntity} from '../entity/EventPositionEntity';
 
 export class BaseGenerator implements IGenerator {
 

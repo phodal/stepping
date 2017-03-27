@@ -1,4 +1,4 @@
-import {AbstractPublisher} from "./AbstractPublisher";
+import {AbstractPublisher} from './AbstractPublisher';
 
 export class EventPublisher extends AbstractPublisher {
   constructor() {

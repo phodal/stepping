@@ -1,8 +1,8 @@
-import {EventEntity} from "../entity/EventEntity";
-import {IPosition} from "./IPosition";
-import {EventPositionEntity} from "../entity/EventPositionEntity";
-import {SVGGenerator} from "./SVGGenerator";
-import {IModel} from "../model/IModel";
+import {EventEntity} from '../entity/EventEntity';
+import {IPosition} from './IPosition';
+import {EventPositionEntity} from '../entity/EventPositionEntity';
+import {SVGGenerator} from './SVGGenerator';
+import {IModel} from '../model/IModel';
 
 export class Renderer {
   stickyEntities: EventPositionEntity[] = [];

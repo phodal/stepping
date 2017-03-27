@@ -1,4 +1,4 @@
-import {IDomainEvent} from "./IDomainEvent";
+import {IDomainEvent} from './IDomainEvent';
 export class EventOperationEvent implements IDomainEvent {
   private _eventId: any;
   private _occurredOnValue: Date;

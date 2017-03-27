@@ -1,4 +1,4 @@
-import {IEvent} from "./interfaces/IEvent";
+import {IEvent} from './interfaces/IEvent';
 
 export class BaseEvent implements IEvent {
   name: string;
