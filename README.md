@@ -31,6 +31,13 @@ yarn global add jison
 ```
 
 
+Thinking
+---
+
+![Architecture](./graphics/domain-event.png)
+
+From: "Implementing Domain-Driven Design"
+
 License
 ---
 
