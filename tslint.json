@@ -2,6 +2,6 @@
   "extends": "tslint-config-standard",
   "rules": {
     "semicolon": false,
-    "new-parens": false
+    "space-before-function-paren": false
   }
 }
