@@ -3,10 +3,6 @@ import {IBaseModel} from "./IBaseModel";
 export class BaseModel implements IBaseModel {
   baseModels: any = [];
 
-  constructor() {
-
-  }
-
   create(model) {
     this.baseModels.push(model);
     return model

@@ -14,10 +14,10 @@ export class Entity<ID extends Identity<any>> {
   }
 
   public equals(that: Entity<ID>): boolean {
-    if (that == null) {
+    if (that === null) {
       return false;
     }
-    if (this == that) {
+    if (this === that) {
       return true;
     }
     return this.id.equals(that.getIdentity());

@@ -1,8 +1,8 @@
 import {test} from "ava";
-import { BaseModel } from "eventstorming";
+import {BaseModel} from "eventstorming";
 
 test('should enable add model', t => {
-  let baseModel = new BaseModel;
+  let baseModel = new BaseModel();
   let event = baseModel.create({
     name: "event should be created"
   });
@@ -12,7 +12,7 @@ test('should enable add model', t => {
 });
 
 test('should enable add model 2', t => {
-  let baseModel = new BaseModel;
+  let baseModel = new BaseModel();
   let event = baseModel.create({
     name: "event should be created 2"
   });
@@ -22,7 +22,7 @@ test('should enable add model 2', t => {
 });
 
 test('should enable get all model', t => {
-  let baseModel = new BaseModel;
+  let baseModel = new BaseModel();
   baseModel.create({
     name: "event should be created 1"
   });
@@ -37,7 +37,7 @@ test('should enable get all model', t => {
 });
 
 test('should enable deleteById model', t => {
-  let baseModel = new BaseModel;
+  let baseModel = new BaseModel();
   let event1 = baseModel.create({
     name: "event should be created 1"
   });

@@ -26,12 +26,12 @@ export class EventEntity extends Entity<StringIdentity> implements IEventModel {
   removeRelatedChild(relatedChild: IEventModel) {
     for (let childIndex in this.relatedNodes) {
       if (this.relatedNodes[childIndex]['id'] === relatedChild['id']) {
-        this.relatedNodes.splice(parseInt(childIndex), 1)
+        this.relatedNodes.splice(parseInt(childIndex), 1);
       }
     }
   }
 
   updateRelatedChild(model: IModel) {
-
+    return;
   }
 }
