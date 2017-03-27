@@ -16,7 +16,7 @@ kw  (
 [\r\n]+               return 'NL';
 \s+                   /* skip whitespace */
 "domain"              return 'domain';
-"-"                   return 'array';
+"-"                   return 'ACTOR';
 :[^\r\n]+             return 'MESSAGE';
 <<EOF>>               return 'EOF';
 .                     return 'INVALID';
@@ -43,11 +43,23 @@ line
 
 statement
 	: 'domain'     message { Diagram.createDomain($1) }
-	| 'array'      message { Diagram.store($1, $2) }
+  | signal               { Diagram.signal($1) }
   ;
 
 message
-	: MESSAGE { $$ = Diagram.unescape($$); }
+	: MESSAGE { $$ = Diagram.unescape($1.substring(1)); }
+	;
+
+actor_pair
+	: actor             { $$ = $1; }
+  ;
+
+actor
+	: ACTOR { console.log('ACTOR') }
+	;
+
+signal
+	: actor MESSAGE { console.log($1, $2) }
 	;
 
 %%

@@ -11,8 +11,8 @@ TODO
 DSL in Design
 ---
 
-domain: 领域
- aggregate: 聚合
+domain: 订单子域
+  - aggregate: 聚合
     entity:
       model: 模型
         event: 事件

@@ -72,12 +72,12 @@
   }
 */
 var esDsl = (function(){
-var o=function(k,v,o,l){for(o=o||{},l=k.length;l--;o[k[l]]=v);return o},$V0=[5,8,9,11],$V1=[1,10];
+var o=function(k,v,o,l){for(o=o||{},l=k.length;l--;o[k[l]]=v);return o},$V0=[5,8,9,15];
 var parser = {trace: function trace() { },
 yy: {},
-symbols_: {"error":2,"start":3,"document":4,"EOF":5,"line":6,"statement":7,"NL":8,"domain":9,"message":10,"array":11,"MESSAGE":12,"$accept":0,"$end":1},
-terminals_: {2:"error",5:"EOF",8:"NL",9:"domain",11:"array",12:"MESSAGE"},
-productions_: [0,[3,2],[4,0],[4,2],[6,1],[6,1],[7,2],[7,2],[10,1]],
+symbols_: {"error":2,"start":3,"document":4,"EOF":5,"line":6,"statement":7,"NL":8,"domain":9,"message":10,"signal":11,"MESSAGE":12,"actor_pair":13,"actor":14,"ACTOR":15,"$accept":0,"$end":1},
+terminals_: {2:"error",5:"EOF",8:"NL",9:"domain",12:"MESSAGE",15:"ACTOR"},
+productions_: [0,[3,2],[4,0],[4,2],[6,1],[6,1],[7,2],[7,1],[10,1],[13,1],[14,1],[11,2]],
 performAction: function anonymous(yytext, yyleng, yylineno, yy, yystate /* action[1] */, $$ /* vstack */, _$ /* lstack */) {
 /* this == yyval */
 
@@ -93,15 +93,24 @@ case 6:
  Diagram.createDomain($$[$0-1]) 
 break;
 case 7:
- Diagram.store($$[$0-1], $$[$0]) 
+ Diagram.signal($$[$0]) 
 break;
 case 8:
- this.$ = Diagram.unescape(this.$); 
+ this.$ = Diagram.unescape($$[$0].substring(1)); 
+break;
+case 9:
+ this.$ = $$[$0]; 
+break;
+case 10:
+ console.log('ACTOR') 
+break;
+case 11:
+ console.log($$[$0-1], $$[$0]) 
 break;
 }
 },
-table: [o($V0,[2,2],{3:1,4:2}),{1:[3]},{5:[1,3],6:4,7:5,8:[1,6],9:[1,7],11:[1,8]},{1:[2,1]},o($V0,[2,3]),o($V0,[2,4]),o($V0,[2,5]),{10:9,12:$V1},{10:11,12:$V1},o($V0,[2,6]),o($V0,[2,8]),o($V0,[2,7])],
-defaultActions: {3:[2,1]},
+table: [o($V0,[2,2],{3:1,4:2}),{1:[3]},{5:[1,3],6:4,7:5,8:[1,6],9:[1,7],11:8,14:9,15:[1,10]},{1:[2,1]},o($V0,[2,3]),o($V0,[2,4]),o($V0,[2,5]),{10:11,12:[1,12]},o($V0,[2,7]),{12:[1,13]},{12:[2,10]},o($V0,[2,6]),o($V0,[2,8]),o($V0,[2,11])],
+defaultActions: {3:[2,1],10:[2,10]},
 parseError: function parseError(str, hash) {
     if (hash.recoverable) {
         this.trace(str);
@@ -587,7 +596,7 @@ case 1:/* skip whitespace */
 break;
 case 2:return 9;
 break;
-case 3:return 11;
+case 3:return 15;
 break;
 case 4:return 12;
 break;

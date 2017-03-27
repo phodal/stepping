@@ -3,11 +3,16 @@ function Diagram() {
 }
 
 Diagram.store = function (input, input2) {
-  console.log(input, input2);
   return input;
 };
 
 Diagram.unescape = function (input) {
+  return input;
+};
+
+Diagram.signal = function (input, $2) {
+  console.log("singal:-----------------------");
+  console.log(input, $2);
   return input;
 };
 
