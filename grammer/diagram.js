@@ -47,13 +47,14 @@ Diagram.store = function (actor, type, value) {
   let items = {};
   items[type + ''] = value;
 
-  let subLevel = Diagram.isSubLevel(Diagram.lastType['key'], type);
+  let isSubLevel = Diagram.isSubLevel(Diagram.lastType['key'], type);
   let parentLevel = Diagram.getParentLevel(type);
 
-  Diagram.lastType['key'] = type;
-  Diagram.lastType['value'].push(items);
+  if(!isSubLevel) {
+    Diagram.lastType['key'] = type;
+    Diagram.lastType['value'].push(items);
+  }
 
-  Diagram.currentDomain[type + ''] = Diagram.lastType;
   return [actor, type, value];
 };
 
