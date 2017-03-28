@@ -10,13 +10,11 @@
   <script>
     Diagram.parse("domain: 库存子域\r\n  aggregate: 库存聚合\r\n   event: 库存已增加\r\n   event:库存已恢复 \r\n" +
     "aggregate: 商品聚合\r\n   event: 商品已创建\r\n   command:添加商品");
-    let result = Diagram.getResult();
-    console.log(result);
+    console.log(Diagram.getResult());
 
     Diagram.parse("domain: 库存子域\r\n  aggregate: 库存聚合\r\n   event: 库存已增加\r\n   event:库存已恢复 \r\n" +
     "domain: 支付子域\r\n aggregate: 商品聚合\r\n   event: 商品已创建\r\n   command:添加商品");
-    let result = Diagram.getResult();
-    console.log(JSON.stringify(result));
+    console.log(JSON.stringify(Diagram.getResult()));
   </script>
 </head>
 <body>
