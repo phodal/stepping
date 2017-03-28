@@ -58,9 +58,9 @@ Diagram.store = function (actor, type, value) {
 
   console.log(type, value, isSubLevel);
 
-  if(Diagram.currentLevel === undefined) {
+  if (Diagram.currentLevel === undefined) {
     Diagram.currentLevel = 2;
-  } else if(isSubLevel) {
+  } else if (isSubLevel) {
     Diagram.currentLevel++;
   }
 
@@ -82,7 +82,7 @@ Diagram.unescape = function (input) {
   return input;
 };
 
-Diagram.signal = function (input, $2) {
+Diagram.signal = function (input) {
   return input;
 };
 
