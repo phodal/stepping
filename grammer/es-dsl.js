@@ -90,7 +90,7 @@ case 4:
  
 break;
 case 6:
- Diagram.createDomain($$[$0-1]) 
+ Diagram.createDomain($$[$0]) 
 break;
 case 7:
  this.$ = Diagram.signal(this.$, $$[$0]) 
@@ -102,7 +102,7 @@ case 9:
  this.$ = Diagram.store(this.$, $$[$0-1], $$[$0]) 
 break;
 case 10:
- this.$ = Diagram.unescape(this.$.substring(1)); 
+ this.$ = Diagram.unescape($$[$0].substring(1)); 
 break;
 case 11:
  this.$=$$[$0]; 

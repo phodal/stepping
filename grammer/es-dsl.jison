@@ -49,7 +49,7 @@ line
 	;
 
 statement
-	: 'domain'     message { Diagram.createDomain($1) }
+	: 'domain'     message { Diagram.createDomain($2) }
   | signal               { $$ = Diagram.signal($$, $1) }
   ;
 
