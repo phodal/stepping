@@ -116,7 +116,7 @@ Diagram.getResult = function () {
 %% /* language grammar */
 
 start
-	: document 'EOF' { Diagram.getResult(); } /* returning parser.yy is a quirk of jison >0.4.10 */
+	: document 'EOF' { Diagram.getResult(); return yy.parser.yy; } /* returning parser.yy is a quirk of jison >0.4.10 */
 	;
 
 document
