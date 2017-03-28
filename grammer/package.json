@@ -1,8 +1,8 @@
 {
   "name": "esdsl",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "EventStroming DSL for Generate EventStroming Graphics",
-  "main": "diagram.js",
+  "main": "es-dsl.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
