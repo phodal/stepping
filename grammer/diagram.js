@@ -60,7 +60,7 @@ Diagram.createDomain = function (input) {
 };
 
 Diagram.parse = function (input) {
-  let parser = new esDsl.Parser();
+  var parser = new esDsl.Parser();
   parser.yy = new Diagram();
   return parser.parse(input);
 };
