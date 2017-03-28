@@ -4,7 +4,6 @@ function Diagram() {
 
 Diagram.data = [];
 Diagram.currentDomain = {};
-Diagram.aggregateIndex = -1;
 
 Diagram.TYPE = {
   CHILD: 'ADD',
@@ -46,14 +45,12 @@ Diagram.signal = function (input) {
   return input;
 };
 
-Diagram.storeLastDomain = function () {
+Diagram.createDomain = function (input) {
   if (Diagram.currentDomain.domain !== undefined) {
     this.data.push(Diagram.currentDomain);
   }
-};
 
-Diagram.createDomain = function (input) {
-  this.storeLastDomain();
+  Diagram.aggregateIndex = -1;
 
   Diagram.currentDomain = {
     name: input,
