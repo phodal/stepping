@@ -1,4 +1,20 @@
+domain: 库存子域
+  aggregate: 库存
+    event: 库存已增加
+    event: 库存已恢复
+    event: 库存已扣减
+    event: 库存已锁定
+    command: 编辑库存
+
+  aggregate: 商品
+    event: 商品已创建
+    command: 添加商品
+
 domain: 订单子域
-  aggregate: 聚合
-    event: 事件
-      command: 命令
+  aggregate: 订单
+    event: 订单已创建
+    event: 订单已支付
+    event: 订单已撤销
+    event: 订单已投拆
+    command: 提交订单
+    command: 提交投诉
