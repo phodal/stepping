@@ -8,7 +8,11 @@ import {
   EventSubscriber
 } from 'eventstorming';
 
+import {Parser, Diagram} from 'esDsl'
+
 test('should enable add related child', t => {
+  let parser = new Parser();
+  console.log(parser);
   // let eventSubscriber = new EventSubscriber();
   // let eventStore = new EventBusinessStore(eventSubscriber);
   //
