@@ -17,18 +17,14 @@ Diagram.TYPE = {
 Diagram.TYPE_TO_LEVEL = {
   'domain': 1,
   'aggregate': 2,
-  'entity': 3,
-  'model': 4,
-  'event': 5,
-  'command': 6,
+  'event': 3,
+  'command': 3,
 };
 
 Diagram.LEVEL_MAP = [
   '',
   'domain',
   'aggregate',
-  'entity',
-  'model',
   'event',
   'command',
 ];
