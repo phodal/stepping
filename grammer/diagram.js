@@ -4,72 +4,36 @@ function Diagram() {
 
 Diagram.data = [];
 Diagram.currentDomain = {};
-Diagram.currentLevel = undefined;
-Diagram.lastType = {
-  key: '',
-  value: []
-};
+Diagram.aggregateIndex = -1;
 
 Diagram.TYPE = {
   CHILD: 'ADD',
 };
 
-Diagram.TYPE_TO_LEVEL = {
-  'domain': 1,
-  'aggregate': 2,
-  'event': 3,
-  'command': 3,
-};
-
-Diagram.LEVEL_MAP = [
-  '',
-  'domain',
-  'aggregate',
-  'event',
-  'command',
-];
-
-Diagram.getLevelByType = function (type) {
-  return Diagram.TYPE_TO_LEVEL[type];
-};
-
-Diagram.isSubLevel = function (type1, type2) {
-  return Diagram.TYPE_TO_LEVEL[type1] < Diagram.TYPE_TO_LEVEL[type2];
-};
-
-Diagram.isSameLevel = function (type1, type2) {
-  return Diagram.TYPE_TO_LEVEL[type1] === Diagram.TYPE_TO_LEVEL[type2];
-};
-
-Diagram.getParentLevel = function (type1) {
-  return Diagram.LEVEL_MAP[Diagram.TYPE_TO_LEVEL[type1] - 1];
-};
-
 Diagram.store = function (actor, type, value) {
-  let result = {};
-
-  let isSubLevel = Diagram.isSubLevel(Diagram.lastType, type);
-  let isSameLevel = Diagram.isSameLevel(Diagram.lastType, type);
-  let parentLevel = Diagram.getParentLevel(type);
-
-  console.log(type, value, isSubLevel);
-
-  if (Diagram.currentLevel === undefined) {
-    Diagram.currentLevel = 2;
-  } else if (isSubLevel) {
-    Diagram.currentLevel++;
+  if (type === 'aggregate') {
+    Diagram.currentDomain.aggregates.push({
+      name: value,
+      type: type,
+      events: [],
+      commands: []
+    });
+    Diagram.aggregateIndex++;
   }
 
-  Diagram.currentType = Diagram.LEVEL_MAP[Diagram.currentLevel];
+  if (type === 'event') {
+    Diagram.currentDomain.aggregates[Diagram.aggregateIndex].events.push({
+      name: value,
+      type: type
+    });
+  }
 
-  result = {
-    name: value,
-    type: Diagram.currentType,
-    childs: []
-  };
-
-  Diagram.lastType = Diagram.currentType;
-  Diagram.currentDomain.childs.push(result);
+  if (type === 'command') {
+    Diagram.currentDomain.aggregates[Diagram.aggregateIndex].commands.push({
+      name: value,
+      type: type
+    });
+  }
 
   return [actor, type, value];
 };
@@ -91,14 +55,11 @@ Diagram.storeLastDomain = function () {
 Diagram.createDomain = function (input) {
   this.storeLastDomain();
 
-  let currentDomain = {
+  Diagram.currentDomain = {
     name: input,
     type: 'domain',
-    childs: []
+    aggregates: []
   };
-
-  Diagram.lastType = 'domain';
-  Diagram.currentDomain = currentDomain;
 };
 
 Diagram.parse = function (input) {
