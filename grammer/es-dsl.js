@@ -72,12 +72,12 @@
   }
 */
 var esDsl = (function(){
-var o=function(k,v,o,l){for(o=o||{},l=k.length;l--;o[k[l]]=v);return o},$V0=[5,8,9,16],$V1=[1,12];
+var o=function(k,v,o,l){for(o=o||{},l=k.length;l--;o[k[l]]=v);return o},$V0=[5,8,9,15,16],$V1=[1,12],$V2=[1,14];
 var parser = {trace: function trace() { },
 yy: {},
 symbols_: {"error":2,"start":3,"document":4,"EOF":5,"line":6,"statement":7,"NL":8,"domain":9,"message":10,"signal":11,"type":12,"actor":13,"MESSAGE":14,"ACTOR":15,"CHILD":16,"ddd_type":17,"DDD_TYPE":18,"$accept":0,"$end":1},
 terminals_: {2:"error",5:"EOF",8:"NL",9:"domain",14:"MESSAGE",15:"ACTOR",16:"CHILD",18:"DDD_TYPE"},
-productions_: [0,[3,2],[4,0],[4,2],[6,1],[6,1],[7,2],[7,1],[11,3],[10,1],[13,1],[12,1],[17,1]],
+productions_: [0,[3,2],[4,0],[4,2],[6,1],[6,1],[7,2],[7,1],[11,3],[11,2],[10,1],[13,1],[12,1],[17,1]],
 performAction: function anonymous(yytext, yyleng, yylineno, yy, yystate /* action[1] */, $$ /* vstack */, _$ /* lstack */) {
 /* this == yyval */
 
@@ -99,21 +99,24 @@ case 8:
  this.$ = Diagram.store($$[$0-2], $$[$0-1], $$[$0]) 
 break;
 case 9:
- console.log("message:", this.$.substring(1) ); this.$ = Diagram.unescape($$[$0].substring(1)); 
+ this.$ = Diagram.store(this.$, $$[$0-1], $$[$0]) 
 break;
 case 10:
- this.$=$$[$0]; console.log('ACTOR', this.$) 
+ console.log("message:", this.$.substring(1) ); this.$ = Diagram.unescape($$[$0].substring(1)); 
 break;
 case 11:
- this.$ = Diagram.TYPE.CHILD; 
+ this.$=$$[$0]; console.log('ACTOR', this.$) 
 break;
 case 12:
+ this.$ = Diagram.TYPE.CHILD; 
+break;
+case 13:
  this.$=$$[$0] 
 break;
 }
 },
-table: [o($V0,[2,2],{3:1,4:2}),{1:[3]},{5:[1,3],6:4,7:5,8:[1,6],9:[1,7],11:8,12:9,16:[1,10]},{1:[2,1]},o($V0,[2,3]),o($V0,[2,4]),o($V0,[2,5]),{10:11,14:$V1},o($V0,[2,7]),{13:13,15:[1,14]},{15:[2,11]},o($V0,[2,6]),o($V0,[2,9]),{10:15,14:$V1},{14:[2,10]},o($V0,[2,8])],
-defaultActions: {3:[2,1],10:[2,11],14:[2,10]},
+table: [o($V0,[2,2],{3:1,4:2}),{1:[3]},{5:[1,3],6:4,7:5,8:[1,6],9:[1,7],11:8,12:9,13:10,15:$V1,16:[1,11]},{1:[2,1]},o($V0,[2,3]),o($V0,[2,4]),o($V0,[2,5]),{10:13,14:$V2},o($V0,[2,7]),{13:15,15:$V1},{10:16,14:$V2},{15:[2,12]},{14:[2,11]},o($V0,[2,6]),o($V0,[2,10]),{10:17,14:$V2},o($V0,[2,9]),o($V0,[2,8])],
+defaultActions: {3:[2,1],11:[2,12],12:[2,11]},
 parseError: function parseError(str, hash) {
     if (hash.recoverable) {
         this.trace(str);

@@ -121,6 +121,7 @@ statement
 
 signal
 	: type actor message { $$ = Diagram.store($1, $2, $3) }
+	| actor message      { $$ = Diagram.store($$, $1, $2) }
 	;
 
 message
