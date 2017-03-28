@@ -45,23 +45,19 @@ line
 
 statement
 	: 'domain'     message { Diagram.createDomain($1) }
-  | signal               { Diagram.signal($1) }
+  | signal               { $$ = Diagram.signal($$, $1) }
   ;
+
+signal
+	: type aggregate message { console.log($$, $1); Diagram.store($$) }
+	;
 
 message
 	: MESSAGE { $$ = Diagram.unescape($1.substring(1)); }
 	;
 
-actor_pair
-	: actor             { $$ = $1; }
-  ;
-
 actor
 	: ACTOR { console.log('ACTOR') }
-	;
-
-signal
-	: type aggregate { console.log($$) }
 	;
 
 type
@@ -69,7 +65,7 @@ type
 	;
 
 aggregate
-  : MESSAGE   { $$=$1; }
+  : { $$; console.log($1); }
   ;
 
 %%
