@@ -13,7 +13,7 @@ Diagram.TYPE = {
   CHILD: 'ADD',
 };
 
-Diagram.LEVEL = {
+Diagram.TYPE_TO_LEVEL = {
   'domain': 0,
   'aggregate': 1,
   'entity': 2,
@@ -22,12 +22,25 @@ Diagram.LEVEL = {
   'command': 5,
 };
 
+Diagram.LEVEL_MAP = [
+  'domain',
+  'aggregate',
+  'entity',
+  'model',
+  'event',
+  'command',
+];
+
 Diagram.currentLevel = function (type) {
-  return Diagram.LEVEL[type];
+  return Diagram.TYPE_TO_LEVEL[type];
 };
 
 Diagram.isSubLevel = function (type1, type2) {
-  return Diagram.LEVEL[type1] < Diagram.LEVEL[type2];
+  return Diagram.TYPE_TO_LEVEL[type1] < Diagram.TYPE_TO_LEVEL[type2];
+};
+
+Diagram.getParentLevel = function (type1) {
+  return Diagram.LEVEL_MAP[Diagram.TYPE_TO_LEVEL[type1] - 1];
 };
 
 Diagram.store = function (actor, type, value) {
@@ -35,6 +48,7 @@ Diagram.store = function (actor, type, value) {
   items[type + ''] = value;
 
   let subLevel = Diagram.isSubLevel(Diagram.lastType['key'], type);
+  let parentLevel = Diagram.getParentLevel(type);
 
   Diagram.lastType['key'] = type;
   Diagram.lastType['value'].push(items);
