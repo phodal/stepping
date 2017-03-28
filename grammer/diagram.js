@@ -2,13 +2,15 @@ function Diagram() {
 
 }
 
+Diagram.data = [];
+
 Diagram.TYPE = {
   CHILD: 'ADD',
 };
 
-Diagram.store = function ($1, $2, $3) {
-  console.log($1, $2, $3);
-  return [$1, $2, $3];
+Diagram.store = function (actor, type, value) {
+  this.data[0][type].push({$2: value});
+  return [actor, type, value];
 };
 
 Diagram.unescape = function (input) {
@@ -20,18 +22,22 @@ Diagram.signal = function (input, $2) {
 };
 
 Diagram.createDomain = function (input) {
-  return {
+  this.data.push({
     domain: input,
     aggregate: [],
     entity: [],
     model: [],
     event: [],
     command: []
-  };
+  });
 };
 
 Diagram.parse = function (input) {
   let parser = new esDsl.Parser();
   parser.yy = new Diagram();
   return parser.parse(input);
+};
+
+Diagram.getResult = function () {
+  return this.data;
 };

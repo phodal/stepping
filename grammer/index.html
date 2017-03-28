@@ -8,7 +8,8 @@
   <script src="es-dsl.js"></script>
   <script src="diagram.js"></script>
   <script>
-    var result = Diagram.parse("domain: 订单子域\r\n   - aggregate: 聚合\r\n   - entity:实体\r\n   - entity:实体");
+    Diagram.parse("domain: 订单子域\r\n   - aggregate: 聚合\r\n   - entity:实体\r\n   - entity:实体");
+    console.log(Diagram.getResult());
   </script>
 </head>
 <body>
