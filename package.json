@@ -98,6 +98,7 @@
     ]
   },
   "dependencies": {
+    "esdsl": "file:./grammer",
     "monapt": "^0.7.1",
     "react": "^15.4.2",
     "react-art": "^0.15.1",
