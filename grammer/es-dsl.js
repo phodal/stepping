@@ -84,7 +84,7 @@ performAction: function anonymous(yytext, yyleng, yylineno, yy, yystate /* actio
 var $0 = $$.length - 1;
 switch (yystate) {
 case 1:
- return yy.parser.yy; 
+ Diagram.getResult(); 
 break;
 case 4:
  
@@ -338,6 +338,7 @@ Diagram.parse = function (input) {
 
 Diagram.getResult = function () {
   this.data.push(Diagram.currentDomain);
+  console.log(JSON.stringify(this.data));
   return this.data;
 };
 

@@ -106,6 +106,7 @@ Diagram.parse = function (input) {
 
 Diagram.getResult = function () {
   this.data.push(Diagram.currentDomain);
+  console.log(JSON.stringify(this.data));
   return this.data;
 };
 
@@ -115,7 +116,7 @@ Diagram.getResult = function () {
 %% /* language grammar */
 
 start
-	: document 'EOF' { return yy.parser.yy; } /* returning parser.yy is a quirk of jison >0.4.10 */
+	: document 'EOF' { Diagram.getResult(); } /* returning parser.yy is a quirk of jison >0.4.10 */
 	;
 
 document
