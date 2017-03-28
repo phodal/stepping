@@ -13,10 +13,8 @@ DSL in Design
 
 ```
 domain: 订单子域
-  - aggregate: 聚合
-    entity:
-      model: 模型
-        event: 事件
+  aggregate: 聚合
+      event: 事件
         command: 命令
 ```
 
