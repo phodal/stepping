@@ -69,3 +69,7 @@ Diagram.getResult = function () {
   this.data.push(Diagram.currentDomain);
   return this.data;
 };
+
+if (typeof require !== 'undefined' && typeof exports !== 'undefined') {
+  exports.Diagram = Diagram;
+}
