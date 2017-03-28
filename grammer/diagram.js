@@ -46,7 +46,7 @@ Diagram.signal = function (input) {
 };
 
 Diagram.createDomain = function (input) {
-  if (Diagram.currentDomain.domain !== undefined) {
+  if (Diagram.currentDomain.name !== undefined) {
     this.data.push(Diagram.currentDomain);
   }
 
