@@ -18,6 +18,7 @@ kw  (
 "domain"              return 'domain';
 "-"                   return 'CHILD';
 "+"                   return 'CHILD';
+[^-:]+                return 'ACTOR';
 :[^\r\n]+             return 'MESSAGE';
 "aggregate"           return 'aggregate';
 <<EOF>>               return 'EOF';
@@ -49,15 +50,15 @@ statement
   ;
 
 signal
-	: type aggregate message { console.log($$, $1); Diagram.store($$) }
+	: type actor message { Diagram.store($$) }
 	;
 
 message
-	: MESSAGE { $$ = Diagram.unescape($1.substring(1)); }
+	: MESSAGE { console.log("message:", $$.substring(1) ); $$ = Diagram.unescape($1.substring(1)); }
 	;
 
 actor
-	: ACTOR { console.log('ACTOR') }
+	: ACTOR {console.log('ACTOR', $$) }
 	;
 
 type
