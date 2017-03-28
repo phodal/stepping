@@ -3,13 +3,16 @@ function Diagram() {
 }
 
 Diagram.data = [];
+Diagram.currentDomain = {};
 
 Diagram.TYPE = {
   CHILD: 'ADD',
 };
 
 Diagram.store = function (actor, type, value) {
-  this.data[0][type].push({$2: value});
+  let items = {};
+  items[type + ''] = value;
+  Diagram.currentDomain[type].push(items);
   return [actor, type, value];
 };
 
@@ -21,15 +24,25 @@ Diagram.signal = function (input, $2) {
   return input;
 };
 
+Diagram.storeLastDomain = function () {
+  if (Diagram.currentDomain.domain !== undefined) {
+    this.data.push(Diagram.currentDomain);
+  }
+};
+
 Diagram.createDomain = function (input) {
-  this.data.push({
+  this.storeLastDomain();
+
+  let currentDomain = {
     domain: input,
     aggregate: [],
     entity: [],
     model: [],
     event: [],
     command: []
-  });
+  };
+
+  Diagram.currentDomain = currentDomain;
 };
 
 Diagram.parse = function (input) {
@@ -39,5 +52,6 @@ Diagram.parse = function (input) {
 };
 
 Diagram.getResult = function () {
+  this.data.push(Diagram.currentDomain);
   return this.data;
 };

@@ -9,7 +9,9 @@
   <script src="diagram.js"></script>
   <script>
     Diagram.parse("domain: 订单子域\r\n   - aggregate: 聚合\r\n   - entity:实体\r\n   - entity:实体");
-    console.log(Diagram.getResult());
+    let result = Diagram.getResult();
+    console.log(result);
+    console.log(JSON.stringify(result));
   </script>
 </head>
 <body>
