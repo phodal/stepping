@@ -3,11 +3,12 @@ function Diagram() {
 }
 
 Diagram.TYPE = {
-  CHILD: '',
+  CHILD: 'ADD',
 };
 
-Diagram.store = function (input, input2) {
-  return input;
+Diagram.store = function ($1, $2, $3, $4) {
+  console.log($1, $2, $3, $4);
+  return [$1, $2, $3, $4];
 };
 
 Diagram.unescape = function (input) {

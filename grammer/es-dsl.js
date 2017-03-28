@@ -72,12 +72,12 @@
   }
 */
 var esDsl = (function(){
-var o=function(k,v,o,l){for(o=o||{},l=k.length;l--;o[k[l]]=v);return o},$V0=[5,8,9,16],$V1=[1,12];
+var o=function(k,v,o,l){for(o=o||{},l=k.length;l--;o[k[l]]=v);return o},$V0=[5,8,9,17],$V1=[1,12];
 var parser = {trace: function trace() { },
 yy: {},
-symbols_: {"error":2,"start":3,"document":4,"EOF":5,"line":6,"statement":7,"NL":8,"domain":9,"message":10,"signal":11,"type":12,"actor":13,"MESSAGE":14,"ACTOR":15,"CHILD":16,"aggregate":17,"$accept":0,"$end":1},
-terminals_: {2:"error",5:"EOF",8:"NL",9:"domain",14:"MESSAGE",15:"ACTOR",16:"CHILD"},
-productions_: [0,[3,2],[4,0],[4,2],[6,1],[6,1],[7,2],[7,1],[11,3],[10,1],[13,1],[12,1],[17,0]],
+symbols_: {"error":2,"start":3,"document":4,"EOF":5,"line":6,"statement":7,"NL":8,"domain":9,"message":10,"signal":11,"type":12,"aggregate":13,"actor":14,"MESSAGE":15,"ACTOR":16,"CHILD":17,"$accept":0,"$end":1},
+terminals_: {2:"error",5:"EOF",8:"NL",9:"domain",15:"MESSAGE",16:"ACTOR",17:"CHILD"},
+productions_: [0,[3,2],[4,0],[4,2],[6,1],[6,1],[7,2],[7,1],[11,4],[10,1],[14,1],[12,1],[13,0]],
 performAction: function anonymous(yytext, yyleng, yylineno, yy, yystate /* action[1] */, $$ /* vstack */, _$ /* lstack */) {
 /* this == yyval */
 
@@ -86,7 +86,7 @@ switch (yystate) {
 case 1:
  return yy.parser.yy; 
 break;
-case 4:
+case 4: case 11:
  
 break;
 case 6:
@@ -96,24 +96,21 @@ case 7:
  this.$ = Diagram.signal(this.$, $$[$0]) 
 break;
 case 8:
- Diagram.store(this.$) 
+ this.$ = Diagram.store($$[$0-3], $$[$0-2], $$[$0-1], $$[$0]) 
 break;
 case 9:
  console.log("message:", this.$.substring(1) ); this.$ = Diagram.unescape($$[$0].substring(1)); 
 break;
 case 10:
-console.log('ACTOR', this.$) 
-break;
-case 11:
- this.$ = Diagram.TYPE.CHILD; 
+ this.$=$$[$0]; console.log('ACTOR', this.$) 
 break;
 case 12:
- this.$; console.log($$[$0]); 
+ this.$=$$[$0] 
 break;
 }
 },
-table: [o($V0,[2,2],{3:1,4:2}),{1:[3]},{5:[1,3],6:4,7:5,8:[1,6],9:[1,7],11:8,12:9,16:[1,10]},{1:[2,1]},o($V0,[2,3]),o($V0,[2,4]),o($V0,[2,5]),{10:11,14:$V1},o($V0,[2,7]),{13:13,15:[1,14]},{15:[2,11]},o($V0,[2,6]),o($V0,[2,9]),{10:15,14:$V1},{14:[2,10]},o($V0,[2,8])],
-defaultActions: {3:[2,1],10:[2,11],14:[2,10]},
+table: [o($V0,[2,2],{3:1,4:2}),{1:[3]},{5:[1,3],6:4,7:5,8:[1,6],9:[1,7],11:8,12:9,17:[1,10]},{1:[2,1]},o($V0,[2,3]),o($V0,[2,4]),o($V0,[2,5]),{10:11,15:$V1},o($V0,[2,7]),{13:13,16:[2,12]},{16:[2,11]},o($V0,[2,6]),o($V0,[2,9]),{14:14,16:[1,15]},{10:16,15:$V1},{15:[2,10]},o($V0,[2,8])],
+defaultActions: {3:[2,1],10:[2,11],15:[2,10]},
 parseError: function parseError(str, hash) {
     if (hash.recoverable) {
         this.trace(str);
@@ -599,13 +596,13 @@ case 1:/* skip whitespace */
 break;
 case 2:return 9;
 break;
-case 3:return 16;
+case 3:return 17;
 break;
-case 4:return 16;
+case 4:return 17;
 break;
-case 5:return 15;
+case 5:return 16;
 break;
-case 6:return 14;
+case 6:return 15;
 break;
 case 7:return 'aggregate';
 break;

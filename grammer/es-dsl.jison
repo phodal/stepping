@@ -50,7 +50,7 @@ statement
   ;
 
 signal
-	: type actor message { Diagram.store($$) }
+	: type aggregate actor message { $$ = Diagram.store($1, $2, $3, $4) }
 	;
 
 message
@@ -58,7 +58,7 @@ message
 	;
 
 actor
-	: ACTOR {console.log('ACTOR', $$) }
+	: ACTOR { $$=$1; console.log('ACTOR', $$) }
 	;
 
 type
@@ -66,7 +66,7 @@ type
 	;
 
 aggregate
-  : { $$; console.log($1); }
+  : { $$=$1 }
   ;
 
 %%
