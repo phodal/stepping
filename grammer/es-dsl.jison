@@ -22,6 +22,9 @@ kw  (
 :[^\r\n]+             return 'MESSAGE';
 "aggregate"           return 'DDD_TYPE';
 "entity"              return 'DDD_TYPE';
+"model"               return 'DDD_TYPE';
+"event"               return 'DDD_TYPE';
+"command"             return 'DDD_TYPE';
 <<EOF>>               return 'EOF';
 .                     return 'INVALID';
 

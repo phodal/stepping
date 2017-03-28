@@ -611,14 +611,20 @@ case 7:return 18;
 break;
 case 8:return 18;
 break;
-case 9:return 5;
+case 9:return 18;
 break;
-case 10:return 'INVALID';
+case 10:return 18;
+break;
+case 11:return 18;
+break;
+case 12:return 5;
+break;
+case 13:return 'INVALID';
 break;
 }
 },
-rules: [/^(?:[\r\n]+)/i,/^(?:\s+)/i,/^(?:domain\b)/i,/^(?:-)/i,/^(?:\+)/i,/^(?:[^-:]+)/i,/^(?:[^\r\n]+)/i,/^(?:aggregate\b)/i,/^(?:entity\b)/i,/^(?:$)/i,/^(?:.)/i],
-conditions: {"INITIAL":{"rules":[0,1,2,3,4,5,6,7,8,9,10],"inclusive":true}}
+rules: [/^(?:[\r\n]+)/i,/^(?:\s+)/i,/^(?:domain\b)/i,/^(?:-)/i,/^(?:\+)/i,/^(?:[^-:]+)/i,/^(?:[^\r\n]+)/i,/^(?:aggregate\b)/i,/^(?:entity\b)/i,/^(?:model\b)/i,/^(?:event\b)/i,/^(?:command\b)/i,/^(?:$)/i,/^(?:.)/i],
+conditions: {"INITIAL":{"rules":[0,1,2,3,4,5,6,7,8,9,10,11,12,13],"inclusive":true}}
 });
 return lexer;
 })();
