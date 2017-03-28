@@ -20,7 +20,8 @@ kw  (
 "+"                   return 'CHILD';
 [^-:]+                return 'ACTOR';
 :[^\r\n]+             return 'MESSAGE';
-"aggregate"           return 'aggregate';
+"aggregate"           return 'DDD_TYPE';
+"entity"              return 'DDD_TYPE';
 <<EOF>>               return 'EOF';
 .                     return 'INVALID';
 
@@ -50,7 +51,7 @@ statement
   ;
 
 signal
-	: type aggregate actor message { $$ = Diagram.store($1, $2, $3, $4) }
+	: type actor message { $$ = Diagram.store($1, $2, $3) }
 	;
 
 message
@@ -65,8 +66,8 @@ type
 	: CHILD   { $$ = Diagram.TYPE.CHILD; }
 	;
 
-aggregate
-  : { $$=$1 }
+ddd_type
+  : DDD_TYPE { $$=$1 }
   ;
 
 %%

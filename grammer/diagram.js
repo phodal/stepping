@@ -6,9 +6,9 @@ Diagram.TYPE = {
   CHILD: 'ADD',
 };
 
-Diagram.store = function ($1, $2, $3, $4) {
-  console.log($1, $2, $3, $4);
-  return [$1, $2, $3, $4];
+Diagram.store = function ($1, $2, $3) {
+  console.log($1, $2, $3);
+  return [$1, $2, $3];
 };
 
 Diagram.unescape = function (input) {
@@ -16,8 +16,6 @@ Diagram.unescape = function (input) {
 };
 
 Diagram.signal = function (input, $2) {
-  console.log("singal:-----------------------");
-  console.log(input, $2);
   return input;
 };
 
