@@ -67,8 +67,8 @@ Diagram.store = function (actor, type, value) {
   Diagram.currentType = Diagram.LEVEL_MAP[Diagram.currentLevel];
 
   result = {
-    type: value,
-    name: Diagram.currentType,
+    name: value,
+    type: Diagram.currentType,
     childs: []
   };
 
