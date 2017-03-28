@@ -33,7 +33,7 @@ Diagram.LEVEL_MAP = [
   'command',
 ];
 
-Diagram.currentLevel = function (type) {
+Diagram.getLevelByType = function (type) {
   return Diagram.TYPE_TO_LEVEL[type];
 };
 
@@ -50,37 +50,30 @@ Diagram.getParentLevel = function (type1) {
 };
 
 Diagram.store = function (actor, type, value) {
-  let items = {};
-  items[type + ''] = value;
+  let result = {};
 
-  let isSubLevel = Diagram.isSubLevel(Diagram.lastType['key'], type);
-  let isSameLevel = Diagram.isSameLevel(Diagram.lastType['key'], type);
+  let isSubLevel = Diagram.isSubLevel(Diagram.lastType, type);
+  let isSameLevel = Diagram.isSameLevel(Diagram.lastType, type);
   let parentLevel = Diagram.getParentLevel(type);
 
+  console.log(type, value, isSubLevel);
+
   if(Diagram.currentLevel === undefined) {
-    
+    Diagram.currentLevel = 2;
+  } else if(isSubLevel) {
+    Diagram.currentLevel++;
   }
 
-  console.log(Diagram.lastType['key'], type);
-  console.log(isSubLevel, isSameLevel);
+  Diagram.currentType = Diagram.LEVEL_MAP[Diagram.currentLevel];
 
-  if (isSubLevel) {
-    Diagram.lastType[type + ''] = {
-      key: '',
-      value: []
-    };
-    Diagram.lastType[type + '']['value'].push(items);
-  } else if (isSameLevel) {
-    Diagram.lastType['key'] = type;
-    Diagram.lastType['value'].push(items);
-  } else {
-    console.log(isSubLevel);
-    console.log(isSameLevel);
-    console.log(type)
-  }
+  result = {
+    type: value,
+    name: Diagram.currentType,
+    childs: []
+  };
 
-  Diagram.currentDomain[type + ''] = items;
-  Diagram.lastType['key'] = type;
+  Diagram.lastType = Diagram.currentType;
+  Diagram.currentDomain.childs.push(result);
 
   return [actor, type, value];
 };
@@ -103,12 +96,12 @@ Diagram.createDomain = function (input) {
   this.storeLastDomain();
 
   let currentDomain = {
-    domain: {
-
-    }
+    name: input,
+    type: 'domain',
+    childs: []
   };
 
-  Diagram.lastType['key'] = 'domain';
+  Diagram.lastType = 'domain';
   Diagram.currentDomain = currentDomain;
 };
 
