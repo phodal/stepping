@@ -49,8 +49,9 @@ Diagram.store = function (actor, type, value) {
 
   let isSubLevel = Diagram.isSubLevel(Diagram.lastType['key'], type);
   let parentLevel = Diagram.getParentLevel(type);
+  console.log(parentLevel);
 
-  if(!isSubLevel) {
+  if(isSubLevel) {
     Diagram.lastType['key'] = type;
     Diagram.lastType['value'].push(items);
   }
