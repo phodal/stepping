@@ -4,15 +4,42 @@ function Diagram() {
 
 Diagram.data = [];
 Diagram.currentDomain = {};
+Diagram.lastType = {
+  key: '',
+  value: []
+};
 
 Diagram.TYPE = {
   CHILD: 'ADD',
 };
 
+Diagram.LEVEL = {
+  'domain': 0,
+  'aggregate': 1,
+  'entity': 2,
+  'model': 3,
+  'event': 4,
+  'command': 5,
+};
+
+Diagram.currentLevel = function (type) {
+  return Diagram.LEVEL[type];
+};
+
+Diagram.isSubLevel = function (type1, type2) {
+  return Diagram.LEVEL[type1] < Diagram.LEVEL[type2];
+};
+
 Diagram.store = function (actor, type, value) {
   let items = {};
   items[type + ''] = value;
-  Diagram.currentDomain[type].push(items);
+
+  let subLevel = Diagram.isSubLevel(Diagram.lastType['key'], type);
+
+  Diagram.lastType['key'] = type;
+  Diagram.lastType['value'].push(items);
+
+  Diagram.currentDomain[type + ''] = Diagram.lastType;
   return [actor, type, value];
 };
 
@@ -34,12 +61,10 @@ Diagram.createDomain = function (input) {
   this.storeLastDomain();
 
   let currentDomain = {
-    domain: input,
-    aggregate: [],
-    entity: [],
-    model: [],
-    event: [],
-    command: []
+    domain: {
+      key: input,
+      aggregate: []
+    }
   };
 
   Diagram.currentDomain = currentDomain;
