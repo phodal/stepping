@@ -1,6 +1,6 @@
 import {esDsl} from 'esDsl'
 
-export class DSL {
+export class DSLAdapter {
   constructor() {
 
   }

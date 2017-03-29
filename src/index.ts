@@ -25,4 +25,4 @@ export * from './render/IGenerator'
 export * from './render/SVGGenerator'
 export * from './render/BaseGenerator'
 
-export * from './business/DSL'
+export * from './dsl/DSLAdapter'
