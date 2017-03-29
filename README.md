@@ -41,6 +41,10 @@ Resources
 
 From: "Implementing Domain-Driven Design"
 
+Book: [Handbook of Graph Drawing and Visualization](https://cs.brown.edu/~rt/gdhandbook/)
+
+Drawing algorithms: Force-directed drawing algorithms
+
 License
 ---
 
