@@ -27,4 +27,16 @@ export class SVGConvert {
     let eventPositionEntity = new EventPositionEntity(iPosition, eventEntity);
     return this.svgGenerator.buildNode(eventPositionEntity);
   }
+
+  private buildAggregate(node: any) {
+
+  }
+
+  private buildEvent(node: any) {
+
+  }
+
+  private buildCommand(node: any) {
+
+  }
 }
