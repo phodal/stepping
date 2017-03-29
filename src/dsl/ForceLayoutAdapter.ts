@@ -1,21 +1,21 @@
-import {Springy, Graph, Renderer} from 'springy'
+import {Layout, Graph, Renderer} from 'springy'
 
 export class ForceLayoutAdapter {
   renderer: any;
-  private graph: Springy.Graph;
-  private layout: Springy.Layout.ForceDirected;
+  private graph: Graph;
+  private layout: Layout.ForceDirected;
 
   constructor() {
 
   }
 
   draw(jsonNode) {
-    this.graph = new Springy.Graph();
+    this.graph = new Graph();
     this.graph.loadJSON(jsonNode);
-    this.layout = new Springy.Layout.ForceDirected(this.graph, 400.0, 400.0, 0.5);
+    this.layout = new Layout.ForceDirected(this.graph, 400.0, 400.0, 0.5);
     let that = this;
 
-    this.renderer = new Springy.Renderer(this.layout,
+    this.renderer = new Renderer(this.layout,
       function clear() {
         that.clear();
       },
@@ -35,10 +35,10 @@ export class ForceLayoutAdapter {
   }
 
   drawEdge(edge: any, p1: any, p2: any) {
-
+    console.log(edge, p1, p2);
   }
 
   drawNode(node: any, p: any) {
-
+    console.log(node, p);
   }
 }
