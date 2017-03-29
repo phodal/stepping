@@ -59,4 +59,16 @@ export class SVGGenerator {
     let baseNodeString = this.buildNodes(stickyEntities);
     return this.buildBody(baseNodeString);
   }
+
+  buildAggregate(node: any) {
+    return `<g id="ProcessOnG1005" transform="matrix(1.0,0.0,0.0,1.0,173.0,133.0)" opacity="1.0">
+        <path id="ProcessOnPath1006" d="M0.0 0.0L184.0 0.0L184.0 117.0L0.0 117.0Z" stroke="#ffffff" stroke-width="1.0"
+              stroke-dasharray="none" opacity="1.0" fill="#ffff00"/>
+        <g id="ProcessOnG1007" transform="matrix(1.0,0.0,0.0,1.0,10.0,48.5)">
+          <text id="ProcessOnText1008" fill="#000000" font-weight="normal" font-style="normal" text-decoration="blink"
+                font-family="微软雅黑" text-anchor="middle" font-size="16" x="82.0" y="16.4"> ${node.name}
+          </text>
+        </g>
+      </g>`
+  }
 }
