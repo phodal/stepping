@@ -2,7 +2,7 @@ var fs = require('fs');
 var Parser = require("jison").Parser;
 
 var diagram = require("./diagram");
-var bnf = fs.readFileSync('./es-dsl.jison', 'utf8');
+var bnf = fs.readFileSync(__dirname + '/es-dsl.jison', 'utf8');
 
 function parseDSL(input) {
   parser = new Parser(bnf);
