@@ -26,3 +26,4 @@ export * from './render/SVGGenerator'
 export * from './render/BaseGenerator'
 
 export * from './dsl/DSLAdapter'
+export * from './dsl/DSLConverter'
