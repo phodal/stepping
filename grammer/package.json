@@ -22,5 +22,8 @@
   "bugs": {
     "url": "https://github.com/phodal/EventStorming.Graph/issues"
   },
-  "homepage": "https://github.com/phodal/EventStorming.Graph#readme"
+  "homepage": "https://github.com/phodal/EventStorming.Graph#readme",
+  "dependencies": {
+    "jison": "^0.4.17"
+  }
 }

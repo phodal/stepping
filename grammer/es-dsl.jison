@@ -33,20 +33,10 @@ kw  (
 %start start
 
 
-/* declarations */
-
-%{
-
-  var DiagramLib = require('./Diagram');
-  var Diagram = DiagramLib.Diagram;
-
-%}
-
-
 %% /* language grammar */
 
 start
-	: document 'EOF' { Diagram.getResult(); return yy.parser.yy; } /* returning parser.yy is a quirk of jison >0.4.10 */
+	: document 'EOF' { yy.parser.yy.getResult(); return yy.parser.yy; } /* returning parser.yy is a quirk of jison >0.4.10 */
 	;
 
 document
@@ -60,17 +50,17 @@ line
 	;
 
 statement
-	: 'domain'     message { Diagram.createDomain($2) }
-  | signal               { $$ = Diagram.signal($$, $1) }
+	: 'domain'     message { yy.parser.yy.createDomain($2) }
+  | signal               { $$ = yy.parser.yy.signal($$, $1) }
   ;
 
 signal
-	: type actor message { $$ = Diagram.store($1, $2, $3) }
-	| actor message      { $$ = Diagram.store($$, $1, $2) }
+	: type actor message { $$ = yy.parser.yy.store($1, $2, $3) }
+	| actor message      { $$ = yy.parser.yy.store($$, $1, $2) }
 	;
 
 message
-	: MESSAGE { $$ = Diagram.unescape($1.substring(1)); }
+	: MESSAGE { $$ = yy.parser.yy.unescape($1.substring(1)); }
 	;
 
 actor
@@ -78,7 +68,7 @@ actor
 	;
 
 type
-	: CHILD   { $$ = Diagram.TYPE.CHILD; }
+	: CHILD   { $$ = yy.parser.yy.TYPE.CHILD; }
 	;
 
 ddd_type
