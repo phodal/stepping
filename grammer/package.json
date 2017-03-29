@@ -1,6 +1,6 @@
 {
   "name": "esdsl",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "EventStroming DSL for Generate EventStroming Graphics",
   "main": "entry.js",
   "scripts": {
