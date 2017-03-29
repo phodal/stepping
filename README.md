@@ -45,6 +45,17 @@ Book: [Handbook of Graph Drawing and Visualization](https://cs.brown.edu/~rt/gdh
 
 Drawing algorithms: Force-directed drawing algorithms
 
+Thanks
+---
+
+TypeScript DDD Base: [https://github.com/yaakaito/typescript-dddbase](https://github.com/yaakaito/typescript-dddbase)
+
+Springy: [https://github.com/dhotson/springy](https://github.com/dhotson/springy)
+
+Jison: [https://github.com/zaach/jison](https://github.com/zaach/jison)
+
+js-sequence-diagrams: [https://bramp.github.io/js-sequence-diagrams/](https://bramp.github.io/js-sequence-diagrams/)
+
 License
 ---
 
