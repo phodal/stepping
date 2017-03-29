@@ -8,11 +8,10 @@ import {
   EventSubscriber
 } from 'eventstorming';
 
-import {Parser, Diagram} from 'esDsl'
+import {esDsl} from 'esDsl'
 
 test('should enable add related child', t => {
-  let parser = new Parser();
-  console.log(parser);
+  let data = esDsl.parse("domain: bbfa").data;
   // let eventSubscriber = new EventSubscriber();
   // let eventStore = new EventBusinessStore(eventSubscriber);
   //
