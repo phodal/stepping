@@ -3,9 +3,16 @@ import {
   DSLAdapter
 } from 'eventstorming';
 
-test('should enable add related child', t => {
+test('should return current domain', t => {
   let dsl = new DSLAdapter();
-  let result = dsl.parseDSL('domain:订单子域')[0];
+  let result = dsl.parseDSL('domain:订单子域');
 
-  t.deepEqual('订单子域', result.name);
+  t.deepEqual(JSON.stringify(result), '[{\"name\":\"订单子域\",\"type\":\"domain\",\"aggregates\":[]}]');
 });
+
+// test('should return current domain with aggregate', t => {
+//   let dsl = new DSLAdapter();
+//   let result = dsl.parseDSL(`domain:订单子域 \r\n aggregate:订单`);
+//
+//   t.deepEqual(JSON.stringify(result), '');
+// });
