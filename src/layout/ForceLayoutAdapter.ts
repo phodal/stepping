@@ -24,8 +24,7 @@ export class ForceLayoutAdapter {
       });
 
       that.layout.eachNode(function (node, point) {
-        let result = that.drawNode(node, point.p);
-        console.log(result);
+        that.drawNode(node, point.p);
       });
     }, that.onRenderStop, that.onRenderStart);
 

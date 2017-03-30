@@ -57,8 +57,9 @@ export class ESGraph {
     // accepts variable number of arguments, where each argument
     // is a string that becomes both node identifier and label
     for (let i = 0; i < arguments.length; i++) {
-      let name = arguments[i];
-      let node = new ESNode(name, {label: name});
+      let id = arguments[i].id;
+      let name = arguments[i].name;
+      let node = new ESNode(id, {label: name});
       this.addNode(node);
     }
   };
@@ -257,7 +258,7 @@ export class ESGraph {
   loadJSON = function(json: any) {
     if ('nodes' in json || 'edges' in json) {
       this.addNodes.apply(this, json['nodes']);
-      this.addEdges.apply(this, json['edges']);
+      // this.addEdges.apply(this, json['edges']);
     }
   }
 
