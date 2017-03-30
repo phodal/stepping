@@ -2,6 +2,7 @@ import {Layout, Graph, Renderer} from 'springy'
 
 export class ForceLayoutAdapter {
   renderer: any;
+  results: string[] = [];
   private graph: Graph;
   private layout: Layout.ForceDirected;
 
@@ -12,7 +13,7 @@ export class ForceLayoutAdapter {
   draw(jsonNode) {
     this.graph = new Graph();
     this.graph.loadJSON(jsonNode);
-    this.layout = new Layout.ForceDirected(this.graph, 400.0, 400.0, 0.5);
+    this.layout = new Layout.ForceDirected(this.graph, 200.0, 200.0, 0.5);
     let that = this;
     let results: string[] = [];
 
@@ -27,15 +28,16 @@ export class ForceLayoutAdapter {
 
       function drawNode(node, p) {
         let result = that.drawNode(node, p);
-        results.push(result)
+        console.log(result);
+        that.results.push(result)
       }
     );
 
-    this.renderer.start(function(){
-      console.log(".........");
-      console.log(results)
+    this.renderer.start(function () {
+      console.log('.........');
+      console.log(that.results)
     });
-    
+
   }
 
   clear() {
@@ -47,13 +49,13 @@ export class ForceLayoutAdapter {
   }
 
   drawNode(node: any, p: any) {
-    let x = p.x * 500;
-    let y = p.y * 500;
+    let x = p.x * 50;
+    let y = p.y * 50;
 
     return `<g>
               <rect x="${x}" y="${y}" width="100" height="100" rx="2" ry="2" fill="#FFCC33"/>
-              <text x="${x}" y="${y}" fill="#000">
-                <tspan x="${x}" dy="0">node.id</tspan>
+              <text x="${x}" y="${y + 30}" fill="#000">
+                <tspan x="${x + 5}" dy="0">${node.id}</tspan>
               </text>
             </g>`
   }
