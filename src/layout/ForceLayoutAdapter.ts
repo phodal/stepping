@@ -1,5 +1,5 @@
 import {Layout} from 'springy';
-import {ESGraph} from '../layout/ESGraph';
+import {ESGraph} from './ESGraph';
 
 export class ForceLayoutAdapter {
   renderer: any;
