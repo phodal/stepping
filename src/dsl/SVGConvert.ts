@@ -39,7 +39,7 @@ export class SVGConvert {
 
     let eventResult = '';
     for(let index in node.events) {
-      eventResult = this.buildEvent(node.events[index]);
+      eventResult += this.buildEvent(node.events[index]);
     }
 
     aggregate = aggregate + eventResult;

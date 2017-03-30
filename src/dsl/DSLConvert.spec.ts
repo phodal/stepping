@@ -22,7 +22,7 @@ test('should enable add related child', t => {
   let converter = new DSLConverter();
   let result = converter.convertToSvg(testF);
 
-  t.deepEqual(`<svg width=\"1024\" height=\"1024\" viewBox=\"0 0 1024 1024\" xmlns=\"http://www.w3.org/2000/svg\"> <g id=\"ProcessOnG1005\" transform=\"matrix(1.0,0.0,0.0,1.0,173.0,133.0)\" opacity=\"1.0\">
+  t.deepEqual(result, `<svg width=\"1024\" height=\"1024\" viewBox=\"0 0 1024 1024\" xmlns=\"http://www.w3.org/2000/svg\"> <g id=\"ProcessOnG1005\" transform=\"matrix(1.0,0.0,0.0,1.0,173.0,133.0)\" opacity=\"1.0\">
         <path id=\"ProcessOnPath1006\" d=\"M0.0 0.0L184.0 0.0L184.0 117.0L0.0 117.0Z\" stroke=\"#ffffff\" stroke-width=\"1.0\"
               stroke-dasharray=\"none\" opacity=\"1.0\" fill=\"#ffff00\"/>
         <g id=\"ProcessOnG1007\" transform=\"matrix(1.0,0.0,0.0,1.0,10.0,48.5)\">
@@ -31,6 +31,11 @@ test('should enable add related child', t => {
           </text>
         </g>
       </g><g>
+              <rect x=\"0\" y=\"0\" width=\"100\" height=\"100\" rx=\"2\" ry=\"2\" fill=\"#FFCC33\"/>
+              <text x=\"0\" y=\"30\" fill=\"#000\">
+                <tspan x=\"5\" dy=\"0\"> 库存已增加</tspan>
+              </text>
+            </g><g>
               <rect x=\"0\" y=\"0\" width=\"100\" height=\"100\" rx=\"2\" ry=\"2\" fill=\"#FFCC33\"/>
               <text x=\"0\" y=\"30\" fill=\"#000\">
                 <tspan x=\"5\" dy=\"0\">库存已恢复 </tspan>
@@ -48,5 +53,5 @@ test('should enable add related child', t => {
               <text x=\"0\" y=\"30\" fill=\"#000\">
                 <tspan x=\"5\" dy=\"0\"> 商品已创建</tspan>
               </text>
-            </g> </svg>`, result);
+            </g> </svg>`);
 });
