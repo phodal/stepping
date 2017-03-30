@@ -21,7 +21,7 @@ export * from './utils/Player'
 export * from './business/EventBusiness'
 
 export * from './render/Renderer'
-export * from './render/IGenerator'
+export * from './render/interface/IGenerator'
 export * from './render/SVGGenerator'
 export * from './render/BaseGenerator'
 

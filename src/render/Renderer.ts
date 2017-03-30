@@ -1,5 +1,5 @@
 import {EventEntity} from '../entity/EventEntity';
-import {IPosition} from './IPosition';
+import {IPosition} from './interface/IPosition';
 import {EventPositionEntity} from '../entity/EventPositionEntity';
 import {SVGGenerator} from './SVGGenerator';
 import {IModel} from '../model/IModel';

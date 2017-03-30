@@ -1,5 +1,5 @@
 import {EventEntity} from './EventEntity';
-import {IPosition} from '../render/IPosition';
+import {IPosition} from '../render/interface/IPosition';
 import {IModel} from '../model/IModel';
 import {IEventModel} from '../model/IEventModel';
 

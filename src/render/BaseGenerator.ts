@@ -1,4 +1,4 @@
-import {IGenerator} from './IGenerator';
+import {IGenerator} from './interface/IGenerator';
 import {EventPositionEntity} from '../entity/EventPositionEntity';
 
 export class BaseGenerator implements IGenerator {
