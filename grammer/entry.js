@@ -8,6 +8,10 @@ var esDsl = {
   parse: function(input) {
     parser = new Parser(bnf);
     parser.yy = diagram.Diagram;
+    
+    parser.yy.currentDomain = [];
+    parser.yy.data = [];
+
     return parser.parse(input);
   }
 };
