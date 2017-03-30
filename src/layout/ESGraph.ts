@@ -103,11 +103,11 @@ export class ESGraph {
     // is a triple [nodeid1, nodeid2, attributes]
     for (let i = 0; i < arguments.length; i++) {
       let e = arguments[i];
-      let node1 = this.nodeSet[e[0]];
+      let node1 = this.nodeSet[e[0].id];
       if (node1 == undefined) {
         throw new TypeError('invalid node name: ' + e[0]);
       }
-      let node2 = this.nodeSet[e[1]];
+      let node2 = this.nodeSet[e[1].id];
       if (node2 == undefined) {
         throw new TypeError('invalid node name: ' + e[1]);
       }
@@ -258,7 +258,7 @@ export class ESGraph {
   loadJSON = function(json: any) {
     if ('nodes' in json || 'edges' in json) {
       this.addNodes.apply(this, json['nodes']);
-      // this.addEdges.apply(this, json['edges']);
+      this.addEdges.apply(this, json['edges']);
     }
   }
 
