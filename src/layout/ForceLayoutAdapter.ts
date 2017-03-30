@@ -53,7 +53,7 @@ export class ForceLayoutAdapter {
     return `<g>
               <rect x="${x}" y="${y}" width="400" height="240" rx="2" ry="2" fill="#FFCC33"/>
               <text x="${x}" y="${y}" fill="#000" text-anchor="middle">
-                <tspan dx="200" dy="120">${node.id}</tspan>
+                <tspan dx="200" dy="120">${node.data.label}</tspan>
               </text>
             </g>`
   }
