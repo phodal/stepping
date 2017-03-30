@@ -1,10 +1,9 @@
 import {IESEdge} from './interface/IESEdge';
 export class ESEdge implements IESEdge {
-  private id: any;
-  private source: any;
-  private target: any;
-  private data: {};
-
+  id: any;
+  source: any;
+  target: any;
+  data: {};
 
   constructor(id, source, target, data) {
     this.id = id;
