@@ -6,9 +6,9 @@ var bnf = fs.readFileSync(__dirname + '/es-dsl.jison', 'utf8');
 
 var esDsl = {
   parse: function(input) {
-    parser = new Parser(bnf);
+    var parser = new Parser(bnf);
     parser.yy = diagram.Diagram;
-    
+
     parser.yy.currentDomain = [];
     parser.yy.data = [];
 

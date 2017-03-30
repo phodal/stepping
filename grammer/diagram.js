@@ -59,12 +59,6 @@ Diagram.createDomain = function (input) {
   };
 };
 
-Diagram.parse = function (input) {
-  var parser = new esDsl.Parser();
-  parser.yy = new Diagram();
-  return parser.parse(input);
-};
-
 Diagram.getResult = function () {
   this.data.push(Diagram.currentDomain);
   return this.data;
