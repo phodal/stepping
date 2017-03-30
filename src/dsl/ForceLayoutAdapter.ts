@@ -15,24 +15,18 @@ export class ForceLayoutAdapter {
     this.graph.loadJSON(jsonNode);
     this.layout = new Layout.ForceDirected(this.graph, 200.0, 200.0, 0.5);
     let that = this;
-    let results: string[] = [];
 
-    this.renderer = new Renderer(this.layout,
-      function clear() {
-        that.clear();
-      },
+    this.layout.start(function render() {
+      that.clear();
 
-      function drawEdge(edge, p1, p2) {
-        that.drawEdge(edge, p1, p2)
-      },
+      that.layout.eachEdge(function (edge, spring) {
+        that.drawEdge(edge, spring.point1.p, spring.point2.p);
+      });
 
-      function drawNode(node, p) {
-        let result = that.drawNode(node, p);
-        that.results.push(result)
-      }
-    );
-
-    this.renderer.start();
+      that.layout.eachNode(function (node, point) {
+        that.drawNode(node, point.p);
+      });
+    }, that.onRenderStop, that.onRenderStart);
 
   }
 
@@ -40,8 +34,16 @@ export class ForceLayoutAdapter {
 
   }
 
-  drawEdge(edge: any, p1: any, p2: any) {
+  onRenderStop() {
+    console.log("stop");
+  }
 
+  onRenderStart() {
+
+  }
+
+  drawEdge(edge: any, p1: any, p2: any) {
+    // console.log(edge, p1, p2)
   }
 
   drawNode(node: any, p: any) {
