@@ -28,15 +28,11 @@ export class ForceLayoutAdapter {
 
       function drawNode(node, p) {
         let result = that.drawNode(node, p);
-        console.log(result);
         that.results.push(result)
       }
     );
 
-    this.renderer.start(function () {
-      console.log('.........');
-      console.log(that.results)
-    });
+    this.renderer.start();
 
   }
 
