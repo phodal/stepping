@@ -48,11 +48,11 @@ export class ForceLayoutAdapter {
   }
 
   drawNode(node: any, p: any) {
-    let x = p.x * 50;
-    let y = p.y * 50;
+    let x = p.x * 150;
+    let y = p.y * 100;
 
     return `<g>
-              <rect x="${x}" y="${y}" width="100" height="100" rx="2" ry="2" fill="#FFCC33"/>
+              <rect x="${x}" y="${y}" width="200" height="120" rx="2" ry="2" fill="#FFCC33"/>
               <text x="${x}" y="${y + 30}" fill="#000">
                 <tspan x="${x + 5}" dy="0">${node.id}</tspan>
               </text>
