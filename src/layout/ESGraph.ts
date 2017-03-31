@@ -27,6 +27,7 @@
 
 import {ESNode} from './ESNode';
 import {ESEdge} from './ESEdge';
+import {ESRenderer} from 'src/layout/ESRenderer';
 export class ESGraph {
   nodeSet = {};
   nodes: any[] = [];
@@ -245,17 +246,17 @@ export class ESGraph {
     return true;
   }
 
-  addGraphListener(obj) {
-    this.eventListeners.push(obj);
+  addGraphListener(esRenderer: ESRenderer) {
+    this.eventListeners.push(esRenderer);
   };
 
   notify() {
-    this.eventListeners.forEach(function (obj) {
-      obj.graphChanged();
+    this.eventListeners.forEach(function (esRenderer: ESRenderer) {
+      esRenderer.graphChanged();
     });
   }
 
-  loadJSON = function(json: any) {
+  loadJSON = function (json: any) {
     if ('nodes' in json || 'edges' in json) {
       this.addNodes.apply(this, json['nodes']);
       this.addEdges.apply(this, json['edges']);
