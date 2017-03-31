@@ -17,7 +17,7 @@ test('should enable add related child', t => {
       [{id: 0, name: "domain"}, {id: 2, name: "商品"}],
       [{id: 0, name: "domain"}, {id: 3, name: "订单"}],
     ]
-  })
+  }, ()=>{})
 });
 
 test('should convert DSL to node format', t => {
