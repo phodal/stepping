@@ -2,7 +2,6 @@
 
 import {DSLAdapter} from "./dsl/DSLAdapter";
 import {ForceLayoutAdapter} from "./layout/ForceLayoutAdapter";
-import {SVGGenerator} from "./render/SVGGenerator";
 
 let program = require('commander');
 let version = require('../../package.json').version;
@@ -13,11 +12,23 @@ function parseInput(file) {
   "use strict";
   function processGrammar(raw, callback) {
     let dslAdapter = new DSLAdapter();
-    let dslResult = dslAdapter.parseDSL(raw);
+    let dslResults = dslAdapter.parseDSL(raw);
+    let nodes:object[] = [];
 
     let forceLayoutAdapter = new ForceLayoutAdapter();
-    let forResult = forceLayoutAdapter.dslToNodes(dslResult[0]);
-    forceLayoutAdapter.draw(forResult[0], function (res) {
+
+    for(let index in dslResults) {
+      let node = forceLayoutAdapter.dslToNodes(dslResults[index], "domain");
+      nodes.push(node);
+    }
+
+    if(JSON.stringify(nodes) === '{}'){
+      console.log("Not Results");
+      return callback('<svg width="1024" height="1024" viewBox="-1024 -1024 2048 2048" xmlns="http://www.w3.org/2000/svg"></svg>');
+    }
+
+    // console.log(nodes[0]);
+    forceLayoutAdapter.draw(nodes[0], function (res) {
       let result = `<svg width="1024" height="1024" viewBox="-1024 -1024 2048 2048" xmlns="http://www.w3.org/2000/svg"> ${res} </svg>`;
       callback(result);
     });

@@ -40,20 +40,59 @@ export class ForceLayoutAdapter {
 
   }
 
-  dslToNodes(dsl): object {
-    if (!dsl["aggregates"]) {
+  dslToNodes(dsl, nodeType): object {
+    if (dsl.type !== nodeType) {
       return {};
     }
 
     let result: object[] = [];
-    for (let index in dsl["aggregates"]) {
-      result.push(this.dslToNode(dsl["aggregates"][index]));
+
+    if(nodeType === 'domain') {
+      let type = 'aggregates';
+      let rootNodeName = dsl.name;
+      // for(let index in dsl[type]) {
+        result.push(this.domainChildToNode(rootNodeName, dsl[type]));
+      // }
+    } else if(nodeType === 'aggregate') {
+      let type = 'events';
+      console.log(dsl[type]);
+      for (let index in dsl[type]) {
+        result.push(this.aggregateChildToNode(dsl[type][index]));
+      }
+    } else {
+      result = [{
+        "nodes": [],
+        "edges": []
+      }];
     }
 
     return result;
   }
 
-  dslToNode(node) {
+  domainChildToNode(rootNodeName, aggregate) {
+    let result = {
+      "nodes": [{}],
+      "edges": [{}]
+    };
+
+    let nodes: object[] = [];
+    let edges: object[] = [];
+
+    let rootNode = {id: 0, name: rootNodeName};
+    nodes.push(rootNode);
+
+    for (let index in aggregate) {
+      let currentNode = {id: parseInt(index) + 1, name: aggregate[index].name};
+      nodes.push(currentNode);
+      edges.push([rootNode, currentNode]);
+    }
+
+    result.nodes = nodes;
+    result.edges = edges;
+    return result;
+  }
+
+  aggregateChildToNode(node) {
     let result = {
       "nodes": [{}],
       "edges": [{}]
