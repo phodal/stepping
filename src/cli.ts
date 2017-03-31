@@ -18,7 +18,16 @@ function parseInput(file) {
     let forceLayoutAdapter = new ForceLayoutAdapter();
 
     for(let index in dslResults) {
-      let node = forceLayoutAdapter.dslToNodes(dslResults[index], "domain");
+      let domain = dslResults[index];
+
+      let node = forceLayoutAdapter.dslToNodes(domain, "domain");
+
+      let aggregates = domain["aggregates"];
+      for(let index in aggregates) {
+        let node = forceLayoutAdapter.dslToNodes(aggregates[index], "aggregate");
+        nodes.push(node);
+      }
+
       nodes.push(node);
     }
 
@@ -28,10 +37,11 @@ function parseInput(file) {
     }
 
     // console.log(nodes[0]);
-    forceLayoutAdapter.draw(nodes[0], function (res) {
-      let result = `<svg width="1024" height="1024" viewBox="-1024 -1024 2048 2048" xmlns="http://www.w3.org/2000/svg"> ${res} </svg>`;
-      callback(result);
-    });
+    // forceLayoutAdapter.draw(nodes[0], function (res) {
+    //   let result = `<svg width="1024" height="1024" viewBox="-1024 -1024 2048 2048" xmlns="http://www.w3.org/2000/svg"> ${res} </svg>`;
+    //   callback(result);
+    // });
+    callback();
   }
 
   function processInputFile() {

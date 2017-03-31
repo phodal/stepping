@@ -47,18 +47,16 @@ export class ForceLayoutAdapter {
 
     let result: object[] = [];
 
-    if(nodeType === 'domain') {
+    if (nodeType === 'domain') {
       let type = 'aggregates';
       let rootNodeName = dsl.name;
-      // for(let index in dsl[type]) {
-        result.push(this.domainChildToNode(rootNodeName, dsl[type]));
-      // }
-    } else if(nodeType === 'aggregate') {
+      result.push(this.domainChildToNode(rootNodeName, dsl[type]));
+    } else if (nodeType === 'aggregate') {
       let type = 'events';
-      console.log(dsl[type]);
-      for (let index in dsl[type]) {
-        result.push(this.aggregateChildToNode(dsl[type][index]));
-      }
+      let rootNodeName = dsl.name;
+      result.push(this.aggregateChildToNode(rootNodeName, dsl[type]));
+      console.log("///////////");
+      console.log(JSON.stringify(result));
     } else {
       result = [{
         "nodes": [],
@@ -92,7 +90,7 @@ export class ForceLayoutAdapter {
     return result;
   }
 
-  aggregateChildToNode(node) {
+  aggregateChildToNode(rootNodeName, node) {
     let result = {
       "nodes": [{}],
       "edges": [{}]
@@ -101,13 +99,11 @@ export class ForceLayoutAdapter {
     let nodes: object[] = [];
     let edges: object[] = [];
 
-    let rootNodeName = node.name;
-    let events = node["events"];
     let rootNode = {id: 0, name: rootNodeName};
     nodes.push(rootNode);
 
-    for (let index in events) {
-      let currentNode = {id: parseInt(index) + 1, name: events[index].name};
+    for (let index in node) {
+      let currentNode = {id: parseInt(index) + 1, name: node[index].name};
       nodes.push(currentNode);
       edges.push([rootNode, currentNode]);
     }
