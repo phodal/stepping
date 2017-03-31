@@ -4,6 +4,7 @@ import {ESRenderer} from './ESRenderer';
 
 export class ForceLayoutAdapter {
   renderer: any;
+  results: string = "";
   private graph: ESGraph;
   private layout: Layout.ForceDirected;
 
@@ -11,7 +12,7 @@ export class ForceLayoutAdapter {
 
   }
 
-  draw(jsonNode) {
+  draw(jsonNode, callback) {
     this.graph = new ESGraph();
     this.graph.loadJSON(jsonNode);
     this.layout = new Layout.ForceDirected(this.graph, 1000.0, 200.0, 0.5);
@@ -19,17 +20,16 @@ export class ForceLayoutAdapter {
 
     let renderer = new ESRenderer(this.layout,
       function clear() {
-        // code to clear screen
+        that.results = "";
       },
       function drawEdge(edge, p1, p2) {
         that.drawEdge(edge, p1, p2);
       },
       function drawNode(node, p) {
-        let result = that.drawNode(node, p);
-        console.log(result);
+        that.results += that.drawNode(node, p).toString();
       },
       function done() {
-        console.log("done")
+        callback(that.results);
       }
     );
 
@@ -59,8 +59,8 @@ export class ForceLayoutAdapter {
       "edges": [{}]
     };
 
-    let nodes:object[] = [];
-    let edges:object[] = [];
+    let nodes: object[] = [];
+    let edges: object[] = [];
 
     let rootNodeName = node.name;
     let events = node["events"];

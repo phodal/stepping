@@ -62,7 +62,7 @@ export class ESRenderer {
       that.layout.eachNode(function (node, point) {
         that.drawNode(node, point.p);
       });
-    }, this.onRenderStop, this.onRenderStart);
+    }, this.onRenderStop.bind(this), this.onRenderStart);
   };
 
   stop() {
