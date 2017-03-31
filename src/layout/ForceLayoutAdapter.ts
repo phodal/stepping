@@ -52,11 +52,8 @@ export class ForceLayoutAdapter {
       let rootNodeName = dsl.name;
       result.push(this.domainChildToNode(rootNodeName, dsl[type]));
     } else if (nodeType === 'aggregate') {
-      let type = 'events';
       let rootNodeName = dsl.name;
-      result.push(this.aggregateChildToNode(rootNodeName, dsl[type]));
-      console.log("///////////");
-      console.log(JSON.stringify(result));
+      result.push(this.aggregateChildToNode(rootNodeName, dsl));
     } else {
       result = [{
         "nodes": [],
@@ -102,8 +99,14 @@ export class ForceLayoutAdapter {
     let rootNode = {id: 0, name: rootNodeName};
     nodes.push(rootNode);
 
-    for (let index in node) {
-      let currentNode = {id: parseInt(index) + 1, name: node[index].name};
+    for (let index in node['events']) {
+      let currentNode = {id: parseInt(index) + 1, name: node['events'][index].name};
+      nodes.push(currentNode);
+      edges.push([rootNode, currentNode]);
+    }
+
+    for (let index in node['commands']) {
+      let currentNode = {id: parseInt(index) + 1, name: node['commands'][index].name};
       nodes.push(currentNode);
       edges.push([rootNode, currentNode]);
     }
