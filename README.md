@@ -1,6 +1,5 @@
 # Stepping - a tools for code design, event storming, domain model generate.
 
-![Example](./graphics/rect.svg)
 
 
 Usage
