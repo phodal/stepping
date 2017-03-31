@@ -59,7 +59,7 @@ export class ESGraph {
     for (let i = 0; i < arguments.length; i++) {
       let id = arguments[i].id;
       let name = arguments[i].name;
-      let node = new ESNode(id, {label: name});
+      let node = new ESNode(id, {name: name});
       this.addNode(node);
     }
   };
