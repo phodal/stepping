@@ -1,34 +1,53 @@
-# EventStorming.js - A Graphics Tools for Event Storming
+# Stepping - a tools for code design, event storming, domain model generate.
 
 ![Example](./graphics/rect.svg)
 
-TODO
+
+Usage
 ---
 
- - SVG/Canvas Render
- - DSL
-
-DSL in Design
----
+1.Install
 
 ```
+yarn global add stepping
+```
+
+or 
+
+```
+npm install -g 
+```
+
+2.Run
+
+```
+stepping FILE_NAME
+```
+
+example ``stepping`` file: ``ddd.ing``
+
+```
+domain: 库存子域
+  aggregate: 库存
+    event: 库存已增加
+    event: 库存已恢复
+    event: 库存已扣减
+    event: 库存已锁定
+    command: 编辑库存
+
+  aggregate: 商品
+    event: 商品已创建
+    command: 添加商品
+
 domain: 订单子域
-  aggregate: 聚合
-      event: 事件
-        command: 命令
+  aggregate: 订单
+    event: 订单已创建
+    event: 订单已支付
+    event: 订单已撤销
+    event: 订单已投拆
+    command: 提交订单
+    command: 提交投诉
 ```
-
-Setup
----
-
-```
-brew install yarn
-```
-
-```
-yarn global add jison
-```
-
 
 Resources
 ---
