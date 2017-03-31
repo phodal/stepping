@@ -57,7 +57,7 @@ domain: 订单子域
 
 Result:
 
-![DDD Result](./graphics/example.png)
+![DDD Example](./graphics/example.png)
 
 create demo app with Django & Angular 2 
 

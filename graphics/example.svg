@@ -1,0 +1,170 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="processonSvg1000"
+     viewBox="75.5 87.0 919.5 457.0" width="919.5" height="457.0">
+  <g>
+    <path d="M75.5 87.0H995.0V544.0H75.5V87.0Z" fill="none"/>
+    <g>
+      <g transform="matrix(1.0,0.0,0.0,1.0,173.0,133.0)" opacity="1.0">
+        <path d="M0.0 0.0L184.0 0.0L184.0 117.0L0.0 117.0Z" stroke="#ffffff" stroke-width="1.0"
+              stroke-dasharray="none" opacity="1.0" fill="#ffff00"/>
+        <g transform="matrix(1.0,0.0,0.0,1.0,10.0,48.5)">
+          <text id="ProcessOnText1008" fill="#000000" font-weight="normal" font-style="normal" text-decoration="blink"
+                font-family="微软雅黑" text-anchor="middle" font-size="16" x="82.0" y="16.4">商品
+          </text>
+        </g>
+      </g>
+      <g transform="matrix(1.0,0.0,0.0,1.0,101.0,107.0)" opacity="1.0">
+        <path d="M0.0 0.0L100.0 0.0L100.0 70.0L0.0 70.0Z" stroke="#ffffff" stroke-width="1.0"
+              stroke-dasharray="none" opacity="1.0" fill="#66b2ff"/>
+        <g transform="matrix(1.0,0.0,0.0,1.0,10.0,25.0)">
+          <text id="ProcessOnText1012" fill="#000000" font-weight="normal" font-style="normal" text-decoration="blink"
+                font-family="微软雅黑" text-anchor="middle" font-size="16" x="40.0" y="16.4">添加商品
+          </text>
+        </g>
+      </g>
+      <g transform="matrix(1.0,0.0,0.0,1.0,318.0,107.0)" opacity="1.0">
+        <path d="M0.0 0.0L100.0 0.0L100.0 70.0L0.0 70.0Z" stroke="#ffffff" stroke-width="1.0"
+              stroke-dasharray="none" opacity="1.0" fill="#ff8000"/>
+        <g transform="matrix(1.0,0.0,0.0,1.0,10.0,25.0)">
+          <text id="ProcessOnText1016" fill="#000000" font-weight="normal" font-style="normal" text-decoration="blink"
+                font-family="微软雅黑" text-anchor="middle" font-size="16" x="40.0" y="16.4">商品已创建
+          </text>
+        </g>
+      </g>
+      <g transform="matrix(1.0,0.0,0.0,1.0,167.5,312.0)" opacity="1.0">
+        <path d="M0.0 0.0L184.0 0.0L184.0 117.0L0.0 117.0Z" stroke="#ffffff" stroke-width="1.0"
+              stroke-dasharray="none" opacity="1.0" fill="#ffff00"/>
+        <g transform="matrix(1.0,0.0,0.0,1.0,10.0,48.5)">
+          <text id="ProcessOnText1020" fill="#000000" font-weight="normal" font-style="normal" text-decoration="blink"
+                font-family="微软雅黑" text-anchor="middle" font-size="16" x="82.0" y="16.4">库存
+          </text>
+        </g>
+      </g>
+      <g transform="matrix(1.0,0.0,0.0,1.0,95.5,286.0)" opacity="1.0">
+        <path d="M0.0 0.0L100.0 0.0L100.0 70.0L0.0 70.0Z" stroke="#ffffff" stroke-width="1.0"
+              stroke-dasharray="none" opacity="1.0" fill="#66b2ff"/>
+        <g transform="matrix(1.0,0.0,0.0,1.0,10.0,25.0)">
+          <text id="ProcessOnText1024" fill="#000000" font-weight="normal" font-style="normal" text-decoration="blink"
+                font-family="微软雅黑" text-anchor="middle" font-size="16" x="40.0" y="16.4">编辑库存
+          </text>
+        </g>
+      </g>
+      <g transform="matrix(1.0,0.0,0.0,1.0,312.5,286.0)" opacity="1.0">
+        <path d="M0.0 0.0L100.0 0.0L100.0 70.0L0.0 70.0Z" stroke="#ffffff" stroke-width="1.0"
+              stroke-dasharray="none" opacity="1.0" fill="#ff8000"/>
+        <g transform="matrix(1.0,0.0,0.0,1.0,10.0,25.0)">
+          <text id="ProcessOnText1028" fill="#000000" font-weight="normal" font-style="normal" text-decoration="blink"
+                font-family="微软雅黑" text-anchor="middle" font-size="16" x="40.0" y="16.4">库存已增加
+          </text>
+        </g>
+      </g>
+      <g transform="matrix(1.0,0.0,0.0,1.0,404.5,312.0)" opacity="1.0">
+        <path d="M0.0 0.0L100.0 0.0L100.0 70.0L0.0 70.0Z" stroke="#ffffff" stroke-width="1.0"
+              stroke-dasharray="none" opacity="1.0" fill="#ff8000"/>
+        <g transform="matrix(1.0,0.0,0.0,1.0,10.0,25.0)">
+          <text id="ProcessOnText1032" fill="#000000" font-weight="normal" font-style="normal" text-decoration="blink"
+                font-family="微软雅黑" text-anchor="middle" font-size="16" x="40.0" y="16.4">库存已扣减
+          </text>
+        </g>
+      </g>
+      <g transform="matrix(1.0,0.0,0.0,1.0,320.5,388.0)" opacity="1.0">
+        <path d="M0.0 0.0L100.0 0.0L100.0 70.0L0.0 70.0Z" stroke="#ffffff" stroke-width="1.0"
+              stroke-dasharray="none" opacity="1.0" fill="#ff8000"/>
+        <g transform="matrix(1.0,0.0,0.0,1.0,10.0,25.0)">
+          <text id="ProcessOnText1036" fill="#000000" font-weight="normal" font-style="normal" text-decoration="blink"
+                font-family="微软雅黑" text-anchor="middle" font-size="16" x="40.0" y="16.4">库存已恢复
+          </text>
+        </g>
+      </g>
+      <g transform="matrix(1.0,0.0,0.0,1.0,412.5,421.0)" opacity="1.0">
+        <path d="M0.0 0.0L100.0 0.0L100.0 70.0L0.0 70.0Z" stroke="#ffffff" stroke-width="1.0"
+              stroke-dasharray="none" opacity="1.0" fill="#ff8000"/>
+        <g transform="matrix(1.0,0.0,0.0,1.0,10.0,25.0)">
+          <text id="ProcessOnText1040" fill="#000000" font-weight="normal" font-style="normal" text-decoration="blink"
+                font-family="微软雅黑" text-anchor="middle" font-size="16" x="40.0" y="16.4">库存已锁定
+          </text>
+        </g>
+      </g>
+      <g transform="matrix(1.0,0.0,0.0,1.0,662.0,169.0)" opacity="1.0">
+        <path d="M0.0 0.0L184.0 0.0L184.0 117.0L0.0 117.0Z" stroke="#ffffff" stroke-width="1.0"
+              stroke-dasharray="none" opacity="1.0" fill="#ffff00"/>
+        <g transform="matrix(1.0,0.0,0.0,1.0,10.0,48.5)">
+          <text id="ProcessOnText1044" fill="#000000" font-weight="normal" font-style="normal" text-decoration="blink"
+                font-family="微软雅黑" text-anchor="middle" font-size="16" x="82.0" y="16.4">订单
+          </text>
+        </g>
+      </g>
+      <g transform="matrix(1.0,0.0,0.0,1.0,582.0,133.0)" opacity="1.0">
+        <path d="M0.0 0.0L100.0 0.0L100.0 70.0L0.0 70.0Z" stroke="#ffffff" stroke-width="1.0"
+              stroke-dasharray="none" opacity="1.0" fill="#66b2ff"/>
+        <g transform="matrix(1.0,0.0,0.0,1.0,10.0,25.0)">
+          <text id="ProcessOnText1048" fill="#000000" font-weight="normal" font-style="normal" text-decoration="blink"
+                font-family="微软雅黑" text-anchor="middle" font-size="16" x="40.0" y="16.4">提交订单
+          </text>
+        </g>
+      </g>
+      <g transform="matrix(1.0,0.0,0.0,1.0,819.0,127.5)" opacity="1.0">
+        <path d="M0.0 0.0L100.0 0.0L100.0 70.0L0.0 70.0Z" stroke="#ffffff" stroke-width="1.0"
+              stroke-dasharray="none" opacity="1.0" fill="#ff8000"/>
+        <g transform="matrix(1.0,0.0,0.0,1.0,10.0,25.0)">
+          <text id="ProcessOnText1052" fill="#000000" font-weight="normal" font-style="normal" text-decoration="blink"
+                font-family="微软雅黑" text-anchor="middle" font-size="16" x="40.0" y="16.4">订单已创建
+          </text>
+        </g>
+      </g>
+      <g transform="matrix(1.0,0.0,0.0,1.0,582.0,258.0)" opacity="1.0">
+        <path d="M0.0 0.0L100.0 0.0L100.0 70.0L0.0 70.0Z" stroke="#ffffff" stroke-width="1.0"
+              stroke-dasharray="none" opacity="1.0" fill="#66b2ff"/>
+        <g transform="matrix(1.0,0.0,0.0,1.0,10.0,25.0)">
+          <text id="ProcessOnText1056" fill="#000000" font-weight="normal" font-style="normal" text-decoration="blink"
+                font-family="微软雅黑" text-anchor="middle" font-size="16" x="40.0" y="16.4">提交投诉
+          </text>
+        </g>
+      </g>
+      <g transform="matrix(1.0,0.0,0.0,1.0,875.0,178.5)" opacity="1.0">
+        <path d="M0.0 0.0L100.0 0.0L100.0 70.0L0.0 70.0Z" stroke="#ffffff" stroke-width="1.0"
+              stroke-dasharray="none" opacity="1.0" fill="#ff8000"/>
+        <g transform="matrix(1.0,0.0,0.0,1.0,10.0,25.0)">
+          <text id="ProcessOnText1060" fill="#000000" font-weight="normal" font-style="normal" text-decoration="blink"
+                font-family="微软雅黑" text-anchor="middle" font-size="16" x="40.0" y="16.4">订单已支付
+          </text>
+        </g>
+      </g>
+      <g transform="matrix(1.0,0.0,0.0,1.0,795.0,258.0)" opacity="1.0">
+        <path d="M0.0 0.0L100.0 0.0L100.0 70.0L0.0 70.0Z" stroke="#ffffff" stroke-width="1.0"
+              stroke-dasharray="none" opacity="1.0" fill="#ff8000"/>
+        <g transform="matrix(1.0,0.0,0.0,1.0,10.0,25.0)">
+          <text id="ProcessOnText1064" fill="#000000" font-weight="normal" font-style="normal" text-decoration="blink"
+                font-family="微软雅黑" text-anchor="middle" font-size="16" x="40.0" y="16.4">订单已撤销
+          </text>
+        </g>
+      </g>
+      <g transform="matrix(1.0,0.0,0.0,1.0,866.0,310.0)" opacity="1.0">
+        <path d="M0.0 0.0L100.0 0.0L100.0 70.0L0.0 70.0Z" stroke="#ffffff" stroke-width="1.0"
+              stroke-dasharray="none" opacity="1.0" fill="#ff8000"/>
+        <g transform="matrix(1.0,0.0,0.0,1.0,10.0,25.0)">
+          <text id="ProcessOnText1068" fill="#000000" font-weight="normal" font-style="normal" text-decoration="blink"
+                font-family="微软雅黑" text-anchor="middle" font-size="16" x="40.0" y="16.4">订单已投诉
+          </text>
+        </g>
+      </g>
+      <g transform="matrix(1.0,0.0,0.0,1.0,674.0,484.0)" opacity="1.0">
+        <path d="M0.0 0.0L160.0 0.0L160.0 40.0L0.0 40.0Z" stroke="#323232" stroke-width="0.0"
+              stroke-dasharray="none" opacity="1.0" fill="none"/>
+        <g transform="matrix(1.0,0.0,0.0,1.0,0.0,10.0)">
+          <text id="ProcessOnText1072" fill="#000000" font-weight="normal" font-style="normal" text-decoration="blink"
+                font-family="微软雅黑" text-anchor="middle" font-size="16" x="80.0" y="16.4">销售子域
+          </text>
+        </g>
+      </g>
+      <g transform="matrix(1.0,0.0,0.0,1.0,179.5,484.0)" opacity="1.0">
+        <path d="M0.0 0.0L160.0 0.0L160.0 40.0L0.0 40.0Z" stroke="#323232" stroke-width="0.0"
+              stroke-dasharray="none" opacity="1.0" fill="none"/>
+        <g transform="matrix(1.0,0.0,0.0,1.0,0.0,10.0)">
+          <text id="ProcessOnText1076" fill="#000000" font-weight="normal" font-style="normal" text-decoration="blink"
+                font-family="微软雅黑" text-anchor="middle" font-size="16" x="80.0" y="16.4">库存子域
+          </text>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>
