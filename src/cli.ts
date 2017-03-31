@@ -36,11 +36,10 @@ function parseInput(file) {
       return callback('<svg width="1024" height="1024" viewBox="-1024 -1024 2048 2048" xmlns="http://www.w3.org/2000/svg"></svg>');
     }
 
-    // console.log(nodes[0]);
-    // forceLayoutAdapter.draw(nodes[0], function (res) {
-    //   let result = `<svg width="1024" height="1024" viewBox="-1024 -1024 2048 2048" xmlns="http://www.w3.org/2000/svg"> ${res} </svg>`;
-    //   callback(result);
-    // });
+    forceLayoutAdapter.draw(nodes[0][0], function (res) {
+      let result = `<svg width="1024" height="1024" viewBox="-1024 -1024 2048 2048" xmlns="http://www.w3.org/2000/svg"> ${res} </svg>`;
+      callback(result);
+    });
     callback();
   }
 
