@@ -18,3 +18,11 @@ domain: 订单子域
     event: 订单已投拆
     command: 提交订单
     command: 提交投诉
+
+aggregate-detail: 商品
+  model: product
+    field:
+      id: int
+      name: string
+      number: string
+      manufacturers: string
