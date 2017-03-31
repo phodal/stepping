@@ -101,8 +101,6 @@
   "dependencies": {
     "esdsl": "^0.1.1",
     "monapt": "^0.7.1",
-    "react": "^15.4.2",
-    "react-art": "^0.15.1",
     "springy": "^2.7.1",
     "tslib": "^1.6.0",
     "typings": "^2.1.0"
