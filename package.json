@@ -1,6 +1,6 @@
 {
   "name": "stepping",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "Stepping - a tools for code design, event storming, domain model generate.",
   "main": "build/main/index.js",
   "typings": "build/main/index.d.ts",
@@ -99,7 +99,7 @@
     ]
   },
   "dependencies": {
-    "esdsl": "file:./grammer",
+    "esdsl": "^0.1.1",
     "monapt": "^0.7.1",
     "react": "^15.4.2",
     "react-art": "^0.15.1",
