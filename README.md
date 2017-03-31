@@ -27,7 +27,7 @@ npm install -g
 2.Run
 
 ```
-stepping FILE_NAME
+stepping -i FILE_NAME
 ```
 
 example ``stepping`` file: ``ddd.ing``
