@@ -6,7 +6,7 @@ import {
   EventPublisher,
   EventStickyRender,
   EventSubscriber
-} from 'eventstorming';
+} from 'stepping';
 
 test('should enable add related child', t => {
   // let eventSubscriber = new EventSubscriber();

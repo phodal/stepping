@@ -1,5 +1,5 @@
 import {test} from 'ava';
-import {BaseEvent, EventPublisher, EventSubscriber} from 'eventstorming';
+import {BaseEvent, EventPublisher, EventSubscriber} from 'stepping';
 
 test('should enable receive event', t => {
   let eventPublisher = new EventPublisher();

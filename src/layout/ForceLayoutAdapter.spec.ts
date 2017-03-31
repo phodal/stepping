@@ -1,7 +1,7 @@
 import {test} from 'ava';
 import {
   ForceLayoutAdapter
-} from 'eventstorming';
+} from 'stepping';
 
 test('should enable add related child', t => {
   let forceLayoutAdapter = new ForceLayoutAdapter();

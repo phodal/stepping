@@ -26,7 +26,7 @@ export class ForceLayoutAdapter {
       },
       function drawNode(node, p) {
         let result = that.drawNode(node, p);
-        // console.log(result);
+        console.log(result);
       },
       function done() {
         console.log("done")

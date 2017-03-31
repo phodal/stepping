@@ -1,7 +1,7 @@
 import {test} from 'ava';
 import {
   DSLAdapter
-} from 'eventstorming';
+} from 'stepping';
 
 test('should return current domain', t => {
   let dsl = new DSLAdapter();

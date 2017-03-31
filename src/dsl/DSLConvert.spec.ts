@@ -1,7 +1,7 @@
 import {test} from 'ava';
 import {
   DSLConverter
-} from 'eventstorming';
+} from 'stepping';
 
 test('should enable add related child', t => {
   var testF = [{

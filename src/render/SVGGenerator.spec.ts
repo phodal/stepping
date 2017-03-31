@@ -1,5 +1,5 @@
 import {test} from 'ava';
-import {EventEntity, EventPositionEntity, SVGGenerator} from 'eventstorming';
+import {EventEntity, EventPositionEntity, SVGGenerator} from 'stepping';
 
 test('should return correctly node svg', t => {
   let svgGenerator = new SVGGenerator();

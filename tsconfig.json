@@ -21,7 +21,7 @@
     ],
     "baseUrl": ".", // required for "paths"
     "paths": {
-      "eventstorming": ["src/index.ts"] // write tests without relative paths
+      "stepping": ["src/index.ts"] // write tests without relative paths
     }
   },
   "include": [

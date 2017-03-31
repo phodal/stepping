@@ -1,5 +1,5 @@
 import {test} from 'ava';
-import {EventEntity} from 'eventstorming';
+import {EventEntity} from 'stepping';
 
 test('should enable add related child', t => {
   let mainEntity = new EventEntity('should create message');
