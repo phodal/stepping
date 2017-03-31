@@ -2,6 +2,8 @@
 
 import {DSLAdapter} from "./dsl/DSLAdapter";
 import {DSLConverter} from "./dsl/DSLConverter";
+import {ForceLayoutAdapter} from "./layout/ForceLayoutAdapter";
+
 let program = require('commander');
 let version = require('../../package.json').version;
 let fs = require('fs');
@@ -12,7 +14,13 @@ function parseInput(file) {
   function processGrammar(raw) {
     let dslAdapter = new DSLAdapter();
     let dslResult = dslAdapter.parseDSL(raw);
-    console.log(JSON.stringify(dslResult));
+
+    let forceLayoutAdapter = new ForceLayoutAdapter();
+    let forResult = forceLayoutAdapter.dslToNodes(dslResult[0]);
+    console.log(JSON.stringify(forResult[0]));
+    let draw = forceLayoutAdapter.draw(forResult[0]);
+    console.log(draw);
+
     let converter = new DSLConverter();
     let result = converter.convertToSvg(dslResult);
 
