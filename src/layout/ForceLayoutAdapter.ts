@@ -1,4 +1,4 @@
-import {Layout} from 'springy';
+import {Layout, Renderer} from 'springy';
 import {ESGraph} from './ESGraph';
 
 export class ForceLayoutAdapter {
@@ -16,18 +16,20 @@ export class ForceLayoutAdapter {
     this.layout = new Layout.ForceDirected(this.graph, 1000.0, 200.0, 0.5);
     let that = this;
 
-    this.layout.start(function render() {
-      that.clear();
+    let renderer = new Renderer(this.layout,
+      function clear() {
+        // code to clear screen
+      },
+      function drawEdge(edge, p1, p2) {
+        that.drawEdge(edge, p1, p2);
+      },
+      function drawNode(node, p) {
+        let result = that.drawNode(node, p);
+        console.log(result);
+      }
+    );
 
-      that.layout.eachEdge(function (edge, spring) {
-        that.drawEdge(edge, spring.point1.p, spring.point2.p);
-      });
-
-      that.layout.eachNode(function (node, point) {
-        that.drawNode(node, point.p);
-      });
-    }, that.onRenderStop, that.onRenderStart);
-
+    renderer.start();
   }
 
   clear() {
