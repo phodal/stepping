@@ -35,7 +35,7 @@ export class ESRenderer {
   onRenderStart: any;
   onRenderStop: any;
 
-  constructor(layout, clear, drawEdge, drawNode, onRenderStop, onRenderStart) {
+  constructor(layout, clear, drawEdge, drawNode, onRenderStop?, onRenderStart?) {
     this.layout = layout;
     this.clear = clear;
     this.drawEdge = drawEdge;

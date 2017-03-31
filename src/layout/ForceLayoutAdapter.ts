@@ -1,5 +1,6 @@
 import {Layout, Renderer} from 'springy';
 import {ESGraph} from './ESGraph';
+import {ESRenderer} from './ESRenderer';
 
 export class ForceLayoutAdapter {
   renderer: any;
@@ -16,7 +17,7 @@ export class ForceLayoutAdapter {
     this.layout = new Layout.ForceDirected(this.graph, 1000.0, 200.0, 0.5);
     let that = this;
 
-    let renderer = new Renderer(this.layout,
+    let renderer = new ESRenderer(this.layout,
       function clear() {
         // code to clear screen
       },
@@ -26,6 +27,9 @@ export class ForceLayoutAdapter {
       function drawNode(node, p) {
         let result = that.drawNode(node, p);
         console.log(result);
+      },
+      function done() {
+        console.log("done")
       }
     );
 
