@@ -3,6 +3,7 @@
   "version": "0.1.5",
   "description": "Stepping - a tools for code design, event storming, domain model generate.",
   "main": "build/main/index.js",
+  "bin": "build/main/cli.js",
   "typings": "build/main/index.d.ts",
   "module": "build/module/index.js",
   "browser": "build/browser/index.js",
@@ -99,6 +100,7 @@
     ]
   },
   "dependencies": {
+    "commander": "^2.9.0",
     "esdsl": "^0.1.1",
     "monapt": "^0.7.1",
     "springy": "^2.7.1",
