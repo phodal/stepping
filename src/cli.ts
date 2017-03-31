@@ -12,7 +12,7 @@ function parseInput(file) {
   function processGrammar(raw) {
     let dslAdapter = new DSLAdapter();
     let dslResult = dslAdapter.parseDSL(raw);
-    console.log(dslResult);
+    console.log(JSON.stringify(dslResult));
     let converter = new DSLConverter();
     let result = converter.convertToSvg(dslResult);
 

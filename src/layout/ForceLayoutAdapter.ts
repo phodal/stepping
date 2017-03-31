@@ -26,7 +26,7 @@ export class ForceLayoutAdapter {
       },
       function drawNode(node, p) {
         let result = that.drawNode(node, p);
-        console.log(result);
+        // console.log(result);
       },
       function done() {
         console.log("done")
@@ -38,6 +38,44 @@ export class ForceLayoutAdapter {
 
   clear() {
 
+  }
+
+  dslToNodes(dsl): object {
+    if (!dsl["aggregates"]) {
+      return {};
+    }
+
+    let result: object[] = [];
+    for (let index in dsl["aggregates"]) {
+      result.push(this.dslToNode(dsl["aggregates"][index]));
+    }
+
+    return result;
+  }
+
+  dslToNode(node) {
+    let result = {
+      "nodes": [{}],
+      "edges": [{}]
+    };
+
+    let nodes:object[] = [];
+    let edges:object[] = [];
+
+    let rootNodeName = node.name;
+    let events = node["events"];
+    let rootNode = {id: 0, name: rootNodeName};
+    nodes.push(rootNode);
+
+    for (let index in events) {
+      let currentNode = {id: parseInt(index) + 1, name: events[index].name};
+      nodes.push(currentNode);
+      edges.push([rootNode, currentNode]);
+    }
+
+    result.nodes = nodes;
+    result.edges = edges;
+    return result;
   }
 
   onRenderStop() {
