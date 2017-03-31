@@ -1,6 +1,13 @@
-# Stepping - a tools for code design, event storming, domain model generate.
+# Stepping - write a dsl, run on any framework.
 
+Stepping a tools for code design, event storming, domain model generate. 
+ 
+Features:
 
+ - create ``architecture`` image by a DSL
+ - create Event Storming model by DSL
+ - generate Django & Angular 2 code by DSL
+ - create API & mock API by DSL
 
 Usage
 ---
@@ -46,6 +53,37 @@ domain: 订单子域
     event: 订单已投拆
     command: 提交订单
     command: 提交投诉
+```
+
+Result:
+
+![DDD Result](./graphics/example.png)
+
+create demo app with Django & Angular 2 
+
+```
+...
+
+aggregate-detail: 商品
+  model: product
+    field: 
+      id: int
+      name: string
+      number: string
+      manufacturers: string
+    getter:
+      name
+    setter:
+      name
+    method:                  
+      - get_name_by_id
+      - get_manufacturer_by_id
+
+  display:
+    router: id
+    field:
+      name: string
+      number: string                
 ```
 
 Resources
