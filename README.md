@@ -86,20 +86,23 @@ aggregate-detail: 商品
       number: string                
 ```
 
-Resources
+Todo
 ---
+
+DSL Design
 
 ![Event Storming Example](./graphics/event-storming.png)
 
-领域事件
+DSL to aggregate event
 
 ![Architecture](./graphics/domain-event.png)
 
-From: "Implementing Domain-Driven Design"
+Tasks:
 
-Book: [Handbook of Graph Drawing and Visualization](https://cs.brown.edu/~rt/gdhandbook/)
-
-Drawing algorithms: Force-directed drawing algorithms
+ - support to 3rd interface
+ - auto layout with sub-domain
+ - generate Django model
+ - generate Angular Code
 
 Thanks
 ---
@@ -111,6 +114,8 @@ Springy: [https://github.com/dhotson/springy](https://github.com/dhotson/springy
 Jison: [https://github.com/zaach/jison](https://github.com/zaach/jison)
 
 js-sequence-diagrams: [https://bramp.github.io/js-sequence-diagrams/](https://bramp.github.io/js-sequence-diagrams/)
+
+[Handbook of Graph Drawing and Visualization](https://cs.brown.edu/~rt/gdhandbook/)
 
 License
 ---
