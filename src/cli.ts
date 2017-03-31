@@ -18,9 +18,8 @@ function parseInput(file) {
     let forceLayoutAdapter = new ForceLayoutAdapter();
     let forResult = forceLayoutAdapter.dslToNodes(dslResult[0]);
     forceLayoutAdapter.draw(forResult[0], function (res) {
-      let svgGenerator = new SVGGenerator();
-      res = svgGenerator.buildBody(res);
-      callback(res);
+      let result = `<svg width="1024" height="1024" viewBox="-1024 -1024 2048 2048" xmlns="http://www.w3.org/2000/svg"> ${res} </svg>`;
+      callback(result);
     });
   }
 
