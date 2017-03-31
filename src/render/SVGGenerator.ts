@@ -2,7 +2,7 @@ import {EventPositionEntity} from '../entity/EventPositionEntity';
 
 export class SVGGenerator {
   buildBody(node): string {
-    return `<svg width="1024" height="1024" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"> ${node} </svg>`
+    return `<svg width="1024" height="1024" viewBox="-1024 -1024 2048 2048" xmlns="http://www.w3.org/2000/svg"> ${node} </svg>`
   }
 
   buildNode(stickyEntities: EventPositionEntity, extend?: object, options?: object): string {

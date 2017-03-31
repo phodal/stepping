@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 
 import {DSLAdapter} from "./dsl/DSLAdapter";
-import {DSLConverter} from "./dsl/DSLConverter";
 import {ForceLayoutAdapter} from "./layout/ForceLayoutAdapter";
+import {SVGGenerator} from "./render/SVGGenerator";
 
 let program = require('commander');
 let version = require('../../package.json').version;
@@ -11,27 +11,26 @@ let path = require('path');
 
 function parseInput(file) {
   "use strict";
-  function processGrammar(raw) {
+  function processGrammar(raw, callback) {
     let dslAdapter = new DSLAdapter();
     let dslResult = dslAdapter.parseDSL(raw);
 
     let forceLayoutAdapter = new ForceLayoutAdapter();
     let forResult = forceLayoutAdapter.dslToNodes(dslResult[0]);
-    console.log(JSON.stringify(forResult[0]));
-    let draw = forceLayoutAdapter.draw(forResult[0]);
-    console.log(draw);
-
-    let converter = new DSLConverter();
-    let result = converter.convertToSvg(dslResult);
-
-    return result
+    forceLayoutAdapter.draw(forResult[0], function (res) {
+      let svgGenerator = new SVGGenerator();
+      res = svgGenerator.buildBody(res);
+      callback(res);
+    });
   }
 
   function processInputFile() {
     let raw = fs.readFileSync(path.normalize(file), 'utf8');
 
-    let parser = processGrammar(raw);
-    fs.writeFileSync('stepping.svg', parser);
+    processGrammar(raw, parser => {
+      fs.writeFileSync('stepping.svg', parser);
+    });
+
   }
 
   processInputFile();
