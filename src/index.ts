@@ -32,3 +32,4 @@ export * from './layout/ForceLayoutAdapter'
 export * from './layout/ESGraph'
 
 export * from './layout/GraphUtils'
+export * from './layout/AttachLayout'
