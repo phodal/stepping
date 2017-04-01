@@ -2,6 +2,7 @@
 
 import {DSLAdapter} from "./dsl/DSLAdapter";
 import {ForceLayoutAdapter} from "./layout/ForceLayoutAdapter";
+import {GraphUtils} from './layout/GraphUtils';
 
 let program = require('commander');
 let version = require('../../package.json').version;
@@ -20,11 +21,11 @@ function parseInput(file) {
     for(let index in dslResults) {
       let domain = dslResults[index];
 
-      let node = forceLayoutAdapter.dslToNodes(domain, "domain");
+      let node = GraphUtils.dslToNodes(domain, "domain");
 
       let aggregates = domain["aggregates"];
       for(let index in aggregates) {
-        let node = forceLayoutAdapter.dslToNodes(aggregates[index], "aggregate");
+        let node = GraphUtils.dslToNodes(aggregates[index], "aggregate");
         nodes.push(node);
       }
 

@@ -19,26 +19,3 @@ test('should enable add related child', t => {
     ]
   }, ()=>{})
 });
-
-test('should convert DSL to node format', t => {
-  let forceLayoutAdapter = new ForceLayoutAdapter();
-  let dslExample = {
-    "name": " 库存子域",
-    "type": "domain",
-    "aggregates": [{
-      "name": " 库存",
-      "type": "aggregate",
-      "events": [
-        {"name": " 库存已增加", "type": "event"},
-        {"name": " 库存已恢复", "type": "event"},
-        {"name": " 库存已扣减", "type": "event"},
-        {"name": " 库存已锁定", "type": "event"}
-      ],
-      "commands": [
-        {"name": " 编辑库存", "type": "command"}
-      ]
-    }]
-  };
-  let result = forceLayoutAdapter.dslToNodes(dslExample, "domain");
-  // t.deepEqual(JSON.stringify(result), '[]{}')
-});

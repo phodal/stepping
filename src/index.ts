@@ -30,3 +30,5 @@ export * from './dsl/DSLConverter'
 export * from './dsl/SVGConvert'
 export * from './layout/ForceLayoutAdapter'
 export * from './layout/ESGraph'
+
+export * from './layout/GraphUtils'
