@@ -20,5 +20,5 @@ test('should convert DSL to node format', t => {
     }]
   };
   let result = GraphUtils.dslToNodes(dslExample, "domain");
-  // t.deepEqual(JSON.stringify(result), '[]{}')
+  t.deepEqual(JSON.stringify(result), '[{\"nodes\":[{\"id\":0,\"name\":\" 库存子域\"},{\"id\":1,\"name\":\" 库存\"}],\"edges\":[[{\"id\":0,\"name\":\" 库存子域\"},{\"id\":1,\"name\":\" 库存\"}]]}]')
 });
