@@ -36,18 +36,6 @@ export class ForceLayoutAdapter {
     renderer.start();
   }
 
-  clear() {
-
-  }
-
-  onRenderStop() {
-    console.log("stop");
-  }
-
-  onRenderStart() {
-
-  }
-
   drawEdge(edge: any, p1: any, p2: any) {
     // console.log(edge, p1, p2)
   }
