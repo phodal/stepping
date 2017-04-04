@@ -3,15 +3,49 @@ export class AttachLayout {
 
   }
 
-  calculateNodes(parentNode, nodes) {
+  calculateNodes(originParentNode, nodes) {
     let newNodes: any[] = [];
-    for (let index in nodes) {
-      let originNode = this.calculateNode(parentNode, nodes[index], index);
 
+    for (let index in nodes) {
+      let originNode: any;
+      if (parseInt(index) <= 1) {
+        originNode = this.calculateNode(originParentNode, nodes[index], index);
+      } else {
+        let parentNode = newNodes[parseInt(index) - 2];
+        originNode = this.calculateClosedNode(parentNode, nodes[index], index);
+      }
       newNodes.push(originNode);
     }
 
     return newNodes
+  }
+
+
+  calculateClosedNode(parentNode: any, node: any, index: string) {
+    let width = 100;
+    let height = 100;
+
+    let parentX = parentNode.position.x;
+    let parentY = parentNode.position.y;
+
+    let originNode = node;
+    let position = {
+      x: 0,
+      y: 0
+    };
+
+    let isEven = (parseInt(index) + 1) % 2 === 0;
+
+    if (!isEven) {
+      position.x = parentX + width * 0.8;
+      position.y = parentY - height * 0.8;
+    } else {
+      position.x = parentX + width * 0.8;
+      position.y = parentY - height * 0.8;
+    }
+
+    originNode.position = position;
+    return originNode;
   }
 
   calculateNode(parentNode, node, index) {

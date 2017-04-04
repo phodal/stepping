@@ -21,6 +21,17 @@ test('should enable get two node position', t => {
     {id: 1, name: '库存已删除', position: {x: 280, y: 60}}])
 });
 
+test('should enable get three node position', t => {
+  let layout = new AttachLayout();
+  let parentNode = {x: 0, y: 0, width: 400, height: 300};
+  let nodes = layout.calculateNodes(parentNode, [{id: 0, name: '库存已增加'}, {id: 1, name: '库存已删除'}, {id: 2, name: '库存已修改'}]);
+
+  t.deepEqual(nodes, [
+    {id: 0, name: '库存已增加', position: {x: 280, y: 360}},
+    {id: 1, name: '库存已删除', position: {x: 280, y: 60}},
+    {id: 2, name: '库存已修改', position: {x: 360 , y: 280}}])
+});
+
 test('should enable to render nodes', t => {
   let layout = new AttachLayout();
   let parentNode = {x: 0, y: 0, width: 400, height: 300};
