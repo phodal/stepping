@@ -94,7 +94,7 @@ export class AttachLayout {
     return `<g>
               <rect x="${x}" y="${y}" width="100" height="100" rx="2" ry="2" fill="#FFCC33"/>
               <text x="${x}" y="${y}" fill="#000" text-anchor="middle">
-                <tspan dx="${x + 5}" dy="0">${node.name}</tspan>
+                <tspan dx="50" dy="50">${node.name}</tspan>
               </text>
             </g>`
   }

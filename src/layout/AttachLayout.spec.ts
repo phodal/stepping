@@ -53,12 +53,12 @@ test('should enable to render nodes', t => {
   t.deepEqual(results, `<g>
               <rect x=\"280\" y=\"360\" width=\"100\" height=\"100\" rx=\"2\" ry=\"2\" fill=\"#FFCC33\"/>
               <text x=\"280\" y=\"360\" fill=\"#000\" text-anchor=\"middle\">
-                <tspan dx=\"285\" dy=\"0\">库存已增加</tspan>
+                <tspan dx=\"50\" dy=\"50\">库存已增加</tspan>
               </text>
             </g><g>
               <rect x=\"280\" y=\"60\" width=\"100\" height=\"100\" rx=\"2\" ry=\"2\" fill=\"#FFCC33\"/>
               <text x=\"280\" y=\"60\" fill=\"#000\" text-anchor=\"middle\">
-                <tspan dx=\"285\" dy=\"0\">库存已删除</tspan>
+                <tspan dx=\"50\" dy=\"50\">库存已删除</tspan>
               </text>
             </g>`)
 });
