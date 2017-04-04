@@ -38,10 +38,10 @@ export class AttachLayout {
 
     if (!isEven) {
       position.x = parentX + width * 0.8;
-      position.y = parentY - height * 0.8;
+      position.y = parentY + height * 0.8;
     } else {
       position.x = parentX + width * 0.8;
-      position.y = parentY - height * 0.8;
+      position.y = parentY + height * 0.8;
     }
 
     originNode.position = position;
@@ -68,11 +68,11 @@ export class AttachLayout {
     let isEven = (parseInt(index) + 1) % 2 === 0;
 
     if (!isEven) {
-      position.x = rightTopPos.x - parentNode.width * 0.3;
-      position.y = rightTopPos.y + parentNode.height * 0.2;
+      position.x = rightTopPos.x - 20;
+      position.y = rightTopPos.y - 20;
     } else {
-      position.x = rightBottomPos.x - parentNode.width * 0.3;
-      position.y = rightBottomPos.y + parentNode.height * 0.2;
+      position.x = rightBottomPos.x - 20;
+      position.y = rightBottomPos.y - 20;
     }
 
     originNode.position = position;
