@@ -13,8 +13,8 @@
     </text>
   </g>
   <g>
-    <rect x="-341.98108284567576" y="441.83762426289223" width="400" height="240" rx="2" ry="2" fill="#FFCC33"/>
-    <text x="-341.98108284567576" y="441.83762426289223" fill="#000" text-anchor="middle">
+    <rect x="0" y="0" width="400" height="300" rx="2" ry="2" fill="#FFCC33"/>
+    <text x="0" y="0" fill="#000" text-anchor="middle">
       <tspan dx="200" dy="120">订单</tspan>
     </text>
   </g>
