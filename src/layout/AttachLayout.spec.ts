@@ -20,3 +20,22 @@ test('should enable get two node position', t => {
     {id: 0, name: '库存已增加', position: {x: 280, y: 360}},
     {id: 1, name: '库存已删除', position: {x: 280, y: 60}}])
 });
+
+test('should enable to render nodes', t => {
+  let layout = new AttachLayout();
+  let parentNode = {x: 0, y: 0, width: 400, height: 300};
+  let nodes = layout.calculateNodes(parentNode, [{id: 0, name: '库存已增加'}, {id: 1, name: '库存已删除'}]);
+  let results = layout.draw(nodes);
+
+  t.deepEqual(results, `<g>
+              <rect x=\"280\" y=\"360\" width=\"100\" height=\"100\" rx=\"2\" ry=\"2\" fill=\"#FFCC33\"/>
+              <text x=\"280\" y=\"360\" fill=\"#000\" text-anchor=\"middle\">
+                <tspan dx=\"285\" dy=\"0\">库存已增加</tspan>
+              </text>
+            </g><g>
+              <rect x=\"280\" y=\"60\" width=\"100\" height=\"100\" rx=\"2\" ry=\"2\" fill=\"#FFCC33\"/>
+              <text x=\"280\" y=\"60\" fill=\"#000\" text-anchor=\"middle\">
+                <tspan dx=\"285\" dy=\"0\">库存已删除</tspan>
+              </text>
+            </g>`)
+});

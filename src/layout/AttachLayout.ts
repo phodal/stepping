@@ -40,4 +40,24 @@ export class AttachLayout {
 
     return newNodes
   }
+
+  draw(nodes) {
+    let results = "";
+    for (let index in nodes) {
+      results += this.drawNode(nodes[index]);
+    }
+    return results;
+  }
+
+  drawNode(node: any) {
+    let x = node.position.x;
+    let y = node.position.y;
+
+    return `<g>
+              <rect x="${x}" y="${y}" width="100" height="100" rx="2" ry="2" fill="#FFCC33"/>
+              <text x="${x}" y="${y}" fill="#000" text-anchor="middle">
+                <tspan dx="${x + 5}" dy="0">${node.name}</tspan>
+              </text>
+            </g>`
+  }
 }
