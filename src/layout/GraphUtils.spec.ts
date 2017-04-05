@@ -20,7 +20,7 @@ test('should convert domain DSL to node format', t => {
     }]
   };
   let result = GraphUtils.dslToNodes(dslExample, 'domain');
-  t.deepEqual(JSON.stringify(result), '[{\"nodes\":[{\"id\":0,\"name\":\" 库存子域\"},{\"id\":1,\"name\":\" 库存\"}],\"edges\":[[{\"id\":0,\"name\":\" 库存子域\"},{\"id\":1,\"name\":\" 库存\"}]]}]')
+  t.deepEqual(JSON.stringify(result), '{\"nodes\":[{\"id\":0,\"name\":\" 库存子域\"},{\"id\":1,\"name\":\" 库存\"}],\"edges\":[[{\"id\":0,\"name\":\" 库存子域\"},{\"id\":1,\"name\":\" 库存\"}]]}')
 });
 
 test('should convert aggregate DSL to node format', t => {
@@ -38,5 +38,5 @@ test('should convert aggregate DSL to node format', t => {
     ]
   };
   let result = GraphUtils.dslToNodes(dslExample, 'aggregate');
-  t.deepEqual(JSON.stringify(result), '[{\"nodes\":[{\"id\":0,\"name\":\" 库存\"},{\"id\":1,\"name\":\" 库存已增加\"},{\"id\":2,\"name\":\" 库存已恢复\"},{\"id\":3,\"name\":\" 库存已扣减\"},{\"id\":4,\"name\":\" 库存已锁定\"},{\"id\":1,\"name\":\" 编辑库存\"}],\"edges\":[[{\"id\":0,\"name\":\" 库存\"},{\"id\":1,\"name\":\" 库存已增加\"}],[{\"id\":0,\"name\":\" 库存\"},{\"id\":2,\"name\":\" 库存已恢复\"}],[{\"id\":0,\"name\":\" 库存\"},{\"id\":3,\"name\":\" 库存已扣减\"}],[{\"id\":0,\"name\":\" 库存\"},{\"id\":4,\"name\":\" 库存已锁定\"}],[{\"id\":0,\"name\":\" 库存\"},{\"id\":1,\"name\":\" 编辑库存\"}]]}]')
+  t.deepEqual(JSON.stringify(result), '{\"nodes\":[{\"id\":0,\"name\":\" 库存\"},{\"id\":1,\"name\":\" 库存已增加\"},{\"id\":2,\"name\":\" 库存已恢复\"},{\"id\":3,\"name\":\" 库存已扣减\"},{\"id\":4,\"name\":\" 库存已锁定\"},{\"id\":1,\"name\":\" 编辑库存\"}],\"edges\":[[{\"id\":0,\"name\":\" 库存\"},{\"id\":1,\"name\":\" 库存已增加\"}],[{\"id\":0,\"name\":\" 库存\"},{\"id\":2,\"name\":\" 库存已恢复\"}],[{\"id\":0,\"name\":\" 库存\"},{\"id\":3,\"name\":\" 库存已扣减\"}],[{\"id\":0,\"name\":\" 库存\"},{\"id\":4,\"name\":\" 库存已锁定\"}],[{\"id\":0,\"name\":\" 库存\"},{\"id\":1,\"name\":\" 编辑库存\"}]]}')
 });

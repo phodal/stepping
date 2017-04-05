@@ -4,20 +4,20 @@ export let GraphUtils = {
       return {};
     }
 
-    let result: object[] = [];
+    let result: object = {};
 
     if (nodeType === 'domain') {
       let type = 'aggregates';
       let rootNodeName = dsl.name;
-      result.push(this.domainChildToNode(rootNodeName, dsl[type]));
+      result = this.domainChildToNode(rootNodeName, dsl[type]);
     } else if (nodeType === 'aggregate') {
       let rootNodeName = dsl.name;
-      result.push(this.aggregateChildToNode(rootNodeName, dsl));
+      result = this.aggregateChildToNode(rootNodeName, dsl);
     } else {
-      result = [{
+      result = {
         "nodes": [],
         "edges": []
-      }];
+      };
     }
 
     return result;
