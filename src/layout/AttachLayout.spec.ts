@@ -74,7 +74,7 @@ test('should enable get first command node position', t => {
   let parentNode = {position: {x: 0, y: 0}, width: 400, height: 300};
   let nodes = layout.calculateCommandNodes(parentNode, [{id: 0, name: '库存已增加'}]);
 
-  t.deepEqual(nodes, [{id: 0, name: '库存已增加', position: {x: -80, y: 380}}])
+  t.deepEqual(nodes, [{id: 0, name: '库存已增加', position: {x: -80, y: 280}}])
 });
 
 
@@ -85,9 +85,9 @@ test('should enable to render nodes', t => {
   let results = layout.draw(nodes);
 
   t.deepEqual(results, `<g>
-                <rect x=\"-80\" y=\"320\" width=\"100\" height=\"100\" rx=\"2\" ry=\"2\" fill=\"#ff8000\" stroke=\"#ffffff\" stroke-defaultWidth=\"1.0\"/>
-                <text x=\"-80\" y=\"320\" fill=\"#000\" text-anchor=\"middle\">
-                  <tspan dx=\"50\" dy=\"50\">库存已增加</tspan>
-                </text>
-              </g>`)
+              <rect x=\"-80\" y=\"280\" width=\"100\" height=\"100\" rx=\"2\" ry=\"2\" fill=\"#ff8000\" stroke=\"#ffffff\" stroke-width=\"1.0\"/>
+              <text x=\"-80\" y=\"280\" fill=\"#000\" text-anchor=\"middle\">
+                <tspan dx=\"50\" dy=\"50\">库存已增加</tspan>
+              </text>
+            </g>`)
 });

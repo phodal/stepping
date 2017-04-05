@@ -97,7 +97,7 @@ export class AttachLayout {
     }
 
     return `<g>
-              <rect x="${x}" y="${y}" width="100" height="100" rx="2" ry="2" fill="${color}" stroke="#ffffff" stroke-defaultWidth="1.0"/>
+              <rect x="${x}" y="${y}" width="100" height="100" rx="2" ry="2" fill="${color}" stroke="#ffffff" stroke-width="1.0"/>
               <text x="${x}" y="${y}" fill="#000" text-anchor="middle">
                 <tspan dx="50" dy="50">${node.name}</tspan>
               </text>
