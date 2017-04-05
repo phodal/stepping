@@ -90,9 +90,14 @@ export class AttachLayout {
   drawNode(node: any) {
     let x = node.position.x;
     let y = node.position.y;
+    let color = '#ff8000';
+
+    if(node.type === 'command') {
+      color = '#66b2ff';
+    }
 
     return `<g>
-              <rect x="${x}" y="${y}" width="100" height="100" rx="2" ry="2" fill="#ff8000" stroke="#ffffff" stroke-defaultWidth="1.0"/>
+              <rect x="${x}" y="${y}" width="100" height="100" rx="2" ry="2" fill="${color}" stroke="#ffffff" stroke-defaultWidth="1.0"/>
               <text x="${x}" y="${y}" fill="#000" text-anchor="middle">
                 <tspan dx="50" dy="50">${node.name}</tspan>
               </text>
@@ -135,13 +140,12 @@ export class AttachLayout {
 
     let isEven = (parseInt(index) + 1) % 2 === 0;
 
-    console.log(rightTopPos);
     if (!isEven) {
       position.x = rightTopPos.x - this.defaultWidth * 0.8;
-      position.y = rightTopPos.y + this.defaultHeight * 0.2;
+      position.y = rightTopPos.y - this.defaultHeight * 0.2;
     } else {
       position.x = rightBottomPos.x - this.defaultWidth * 0.8;
-      position.y = rightBottomPos.y + this.defaultHeight * 0.8;
+      position.y = rightBottomPos.y - this.defaultHeight * 0.2;
     }
 
     originNode.position = position;
