@@ -4,6 +4,7 @@ import {IPosition} from '../render/interface/IPosition';
 
 export class DomainEntity extends Entity<StringIdentity> {
   private _position: IPosition;
+  private _data: any;
   name: string;
 
   constructor(name: any) {
@@ -17,5 +18,13 @@ export class DomainEntity extends Entity<StringIdentity> {
 
   set position(value: IPosition) {
     this._position = value;
+  }
+
+  get data(): any {
+    return this._data;
+  }
+
+  set data(value: any) {
+    this._data = value;
   }
 }

@@ -40,6 +40,10 @@ export let GraphUtils = {
     for (let index in aggregate) {
       let currentNode = new AggregateEntity(aggregate[index].name);
       currentNode.type = aggregate[index].type;
+      currentNode.data = {
+        events: aggregate[index].events,
+        commands: aggregate[index].commands,
+      };
 
       nodes.push(currentNode);
       edges.push([rootNode, currentNode]);
@@ -52,8 +56,8 @@ export let GraphUtils = {
 
   toEventModelNode(rootNode, node) {
     let result = {
-      "nodes": [{}],
-      "edges": [{}]
+      'nodes': [{}],
+      'edges': [{}]
     };
 
     let nodes: object[] = [];

@@ -5,6 +5,7 @@ import {IPosition} from '../render/interface/IPosition';
 export class AggregateEntity extends Entity<StringIdentity> {
   private _position: IPosition;
   private _type: string;
+  private _data: any;
   name: string;
 
   constructor(name: any) {
@@ -26,5 +27,13 @@ export class AggregateEntity extends Entity<StringIdentity> {
 
   set type(value: string) {
     this._type = value;
+  }
+
+  get data(): any {
+    return this._data;
+  }
+
+  set data(value: any) {
+    this._data = value;
   }
 }
