@@ -15,31 +15,30 @@ function parseInput(file) {
   function processGrammar(raw, callback) {
     let dslAdapter = new DSLAdapter();
     let dslResults = dslAdapter.parseDSL(raw);
-    let nodes:object[] = [];
+    let nodes: object[] = [];
 
     let forceLayoutAdapter = new ForceLayoutAdapter();
 
-    for(let index in dslResults) {
+    for (let index in dslResults) {
       let domain = dslResults[index];
 
       let node = GraphUtils.dslToNodes(domain, 'domain');
       nodes.push(node);
     }
 
-    if(JSON.stringify(nodes) === '{}'){
+    if (JSON.stringify(nodes) === '{}') {
       console.log('Not Results');
       return callback('<svg width="1024" height="1024" viewBox="-1024 -1024 2048 2048" xmlns="http://www.w3.org/2000/svg"></svg>');
     }
 
     forceLayoutAdapter.draw(nodes[0], function (res, nodeInfos) {
-      let childNodeResults = "";
+      let childNodeResults = '';
 
-      for(let index in nodeInfos) {
+      for (let index in nodeInfos) {
         let layout = new AttachLayout();
         let parentNode = nodeInfos[parseInt(index)];
         let childNodes = layout.calculateNodes(parentNode, [{id: 0, name: '库存已增加'}, {id: 1, name: '库存已删除'}]);
-        let childNodeResult = layout.draw(childNodes);
-        childNodeResults += childNodeResult;
+        childNodeResults += layout.draw(childNodes);
       }
 
       let result = `<svg width="1024" height="1024" viewBox="-1024 -1024 2048 2048" xmlns="http://www.w3.org/2000/svg"> ${res} ${childNodeResults} </svg>`;

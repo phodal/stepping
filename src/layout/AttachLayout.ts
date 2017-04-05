@@ -80,7 +80,7 @@ export class AttachLayout {
   }
 
   draw(nodes) {
-    let results = "";
+    let results = '';
     for (let index in nodes) {
       results += this.drawNode(nodes[index]);
     }
