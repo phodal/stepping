@@ -31,8 +31,10 @@ export class ForceLayoutAdapter {
         that.nodes.push({
           id: node.id,
           name: node.data.name,
-          width: p.x * 400,
-          height: p.y * 200
+          x: p.x * 400,
+          y: p.y * 200,
+          width: 400,
+          height: 240,
         });
         that.results += that.drawNode(node, p).toString();
       },
