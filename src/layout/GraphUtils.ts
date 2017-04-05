@@ -13,8 +13,7 @@ export let GraphUtils = {
 
     if (nodeType === 'domain') {
       let type = 'aggregates';
-      let rootNodeName = dsl.name;
-      result = this.toAggregateModelNode(rootNodeName, dsl[type]);
+      result = this.toAggregateModelNode(dsl[type]);
     } else {
       result = {
         'nodes': [],
@@ -25,7 +24,7 @@ export let GraphUtils = {
     return result;
   },
 
-  toAggregateModelNode(rootNodeName, aggregate) {
+  toAggregateModelNode(aggregate) {
     let result = {
       'nodes': [{}],
       'edges': [{}]
@@ -33,9 +32,7 @@ export let GraphUtils = {
 
     let nodes: object[] = [];
     let edges: object[] = [];
-
-    let rootNode = new DomainEntity(rootNodeName);
-    nodes.push(rootNode);
+    let firstNode = {};
 
     for (let index in aggregate) {
       let currentNode = new AggregateEntity(aggregate[index].name);
@@ -46,7 +43,16 @@ export let GraphUtils = {
       };
 
       nodes.push(currentNode);
-      edges.push([rootNode, currentNode]);
+
+      if (parseInt(index) === 0) {
+        firstNode = currentNode;
+      } else {
+        edges.push([firstNode, currentNode]);
+      }
+    }
+
+    if (aggregate.length === 1) {
+      edges.push([firstNode, firstNode]);
     }
 
     result.nodes = nodes;
