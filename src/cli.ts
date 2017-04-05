@@ -45,11 +45,11 @@ function parseInput(file) {
           let childData = firstNode['nodes'][index].data;
 
           if (childData && childData.events) {
-            childNodes = layout.calculateNodes(parentNode, childData.events);
+            childNodes = layout.calculateEventsNodes(parentNode, childData.events);
             childNodeResults += layout.draw(childNodes);
           }
           if (childData && childData.commands) {
-            childNodes = layout.calculateNodes(parentNode, childData.commands);
+            childNodes = layout.calculateEventsNodes(parentNode, childData.commands);
             childNodeResults += layout.draw(childNodes);
           }
 

@@ -3,7 +3,7 @@ export class AttachLayout {
 
   }
 
-  calculateNodes(originParentNode, nodes) {
+  calculateEventsNodes(originParentNode, nodes) {
     let newNodes: any[] = [];
 
     for (let index in nodes) {
@@ -21,7 +21,7 @@ export class AttachLayout {
   }
 
 
-  calculateClosedNode(parentNode: any, node: any, index: string) {
+  calculateClosedNode(parentNode: any, node: any, index) {
     let width = 100;
     let height = 100;
 

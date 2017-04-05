@@ -6,7 +6,7 @@ import {
 test('should enable get first node position', t => {
   let layout = new AttachLayout();
   let parentNode = {position: {x: 0, y: 0}, width: 400, height: 300};
-  let nodes = layout.calculateNodes(parentNode, [{id: 0, name: '库存已增加'}]);
+  let nodes = layout.calculateEventsNodes(parentNode, [{id: 0, name: '库存已增加'}]);
 
   t.deepEqual(nodes, [{id: 0, name: '库存已增加', position: {x: 380, y: 280}}])
 });
@@ -14,7 +14,7 @@ test('should enable get first node position', t => {
 test('should enable get two node position', t => {
   let layout = new AttachLayout();
   let parentNode = {position: {x: 0, y: 0}, width: 400, height: 300};
-  let nodes = layout.calculateNodes(parentNode, [{id: 0, name: '库存已增加'}, {id: 1, name: '库存已删除'}]);
+  let nodes = layout.calculateEventsNodes(parentNode, [{id: 0, name: '库存已增加'}, {id: 1, name: '库存已删除'}]);
 
   t.deepEqual(nodes, [
     {id: 0, name: '库存已增加', position: {x: 380, y: 280}},
@@ -24,7 +24,7 @@ test('should enable get two node position', t => {
 test('should enable get three node position', t => {
   let layout = new AttachLayout();
   let parentNode = {position: {x: 0, y: 0}, width: 400, height: 300};
-  let nodes = layout.calculateNodes(parentNode, [{id: 0, name: '库存已增加'}, {id: 1, name: '库存已删除'}, {
+  let nodes = layout.calculateEventsNodes(parentNode, [{id: 0, name: '库存已增加'}, {id: 1, name: '库存已删除'}, {
     id: 2,
     name: '库存已修改'
   }]);
@@ -38,7 +38,7 @@ test('should enable get three node position', t => {
 test('should enable four three node position', t => {
   let layout = new AttachLayout();
   let parentNode = {position: {x: 0, y: 0}, width: 400, height: 300};
-  let nodes = layout.calculateNodes(parentNode, [{id: 0, name: '库存已增加'}, {id: 1, name: '库存已删除'}, {
+  let nodes = layout.calculateEventsNodes(parentNode, [{id: 0, name: '库存已增加'}, {id: 1, name: '库存已删除'}, {
     id: 2,
     name: '库存已修改'
   }, {id: 3, name: '库存已修改2'}]);
@@ -53,7 +53,7 @@ test('should enable four three node position', t => {
 test('should enable to render nodes', t => {
   let layout = new AttachLayout();
   let parentNode = {position: {x: 0, y: 0}, width: 400, height: 300};
-  let nodes = layout.calculateNodes(parentNode, [{id: 0, name: '库存已增加'}, {id: 1, name: '库存已删除'}]);
+  let nodes = layout.calculateEventsNodes(parentNode, [{id: 0, name: '库存已增加'}, {id: 1, name: '库存已删除'}]);
   let results = layout.draw(nodes);
 
   t.deepEqual(results, `<g>
