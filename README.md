@@ -67,23 +67,13 @@ create demo app with Django & Angular 2
 aggregate-detail: 商品
   model: product
     field: 
-      id: int
-      name: string
-      number: string
-      manufacturers: string
-    getter:
-      name
-    setter:
-      name
-    method:                  
-      - get_name_by_id
-      - get_manufacturer_by_id
+     - id: int (long, md5)
+     - name: string (64)
+     - number: string (64)
+     - manufacturers: string (128)
 
   display:
     router: id
-    field:
-      name: string
-      number: string                
 ```
 
 Todo
