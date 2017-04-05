@@ -16,7 +16,7 @@ export class ForceLayoutAdapter {
   draw(jsonNode, callback) {
     this.graph = new ESGraph();
     this.graph.loadJSON(jsonNode);
-    this.layout = new Layout.ForceDirected(this.graph, 1000.0, 200.0, 0.5);
+    this.layout = new Layout.ForceDirected(this.graph, 300.0, 200.0, 0.5);
     let that = this;
 
     let renderer = new ESRenderer(this.layout,
@@ -31,11 +31,11 @@ export class ForceLayoutAdapter {
         that.nodes.push({
           id: node.id,
           name: node.data.name,
-          width: 400,
-          height: 240,
+          width: 300,
+          height: 180,
           position: {
-            x: p.x * 400,
-            y: p.y * 200
+            x: p.x * 300,
+            y: p.y * 180
           }
         });
         that.results += that.drawNode(node, p).toString();
@@ -53,13 +53,13 @@ export class ForceLayoutAdapter {
   }
 
   drawNode(node: any, p: any) {
-    let x = p.x * 400;
-    let y = p.y * 200;
+    let x = p.x * 300;
+    let y = p.y * 180;
 
     return `<g>
-              <rect x="${x}" y="${y}" width="400" height="240" rx="2" ry="2" fill="#ffff00"/>
+              <rect x="${x}" y="${y}" width="300" height="180" rx="2" ry="2" fill="#ffff00"/>
               <text x="${x}" y="${y}" fill="#000" text-anchor="middle">
-                <tspan dx="200" dy="120">${node.data.name}</tspan>
+                <tspan dx="150" dy="90">${node.data.name}</tspan>
               </text>
             </g>`
   }
