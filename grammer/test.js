@@ -13,7 +13,7 @@ var esDsl = {
     parser.yy.data = [];
 
     var result = parser.parse(input);
-    console.log(result);
+    console.log(result.data);
     return result;
   }
 };
