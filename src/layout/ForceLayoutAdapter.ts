@@ -4,7 +4,8 @@ import {ESRenderer} from './ESRenderer';
 
 export class ForceLayoutAdapter {
   renderer: any;
-  results: string = "";
+  results: string = '';
+  nodes: object[] = [];
   private graph: ESGraph;
   private layout: Layout.ForceDirected;
 
@@ -20,16 +21,23 @@ export class ForceLayoutAdapter {
 
     let renderer = new ESRenderer(this.layout,
       function clear() {
-        that.results = "";
+        that.results = '';
+        that.nodes = [];
       },
       function drawEdge(edge, p1, p2) {
         that.drawEdge(edge, p1, p2);
       },
       function drawNode(node, p) {
+        that.nodes.push({
+          id: node.id,
+          name: node.data.name,
+          width: p.x * 400,
+          height: p.y * 200
+        });
         that.results += that.drawNode(node, p).toString();
       },
       function done() {
-        callback(that.results);
+        callback(that.results, that.nodes);
       }
     );
 
