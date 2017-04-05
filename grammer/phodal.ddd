@@ -21,8 +21,7 @@ domain: 订单子域
 
 aggregate-detail: 商品
   model: product
-    field:
-      id: int
-      name: string
-      number: string
-      manufacturers: string
+   - id: int (long, md5)
+   - name: string (64)
+   - number: string (64)
+   - manufacturers: string (128)
