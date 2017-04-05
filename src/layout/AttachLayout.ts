@@ -153,6 +153,28 @@ export class AttachLayout {
   }
 
   calculateCommandClosedNode(parentNode: any, node: any, index: string) {
-    return {};
+    let parentPos = {
+      x: parentNode.position.x,
+      y: parentNode.position.y
+    };
+
+    let originNode = node;
+    let position = {
+      x: 0,
+      y: 0
+    };
+
+    let isEven = (parseInt(index) + 1) % 2 === 0;
+
+    if (!isEven) {
+      position.x = parentPos.x - this.defaultWidth * 0.8;
+      position.y = parentPos.y + this.defaultHeight * 0.8;
+    } else {
+      position.x = parentPos.x - this.defaultWidth * 0.8;
+      position.y = parentPos.y + this.defaultHeight * 0.8;
+    }
+
+    originNode.position = position;
+    return originNode;
   }
 }

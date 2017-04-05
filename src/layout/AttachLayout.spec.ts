@@ -77,6 +77,21 @@ test('should enable get first command node position', t => {
   t.deepEqual(nodes, [{id: 0, name: '库存已增加', position: {x: -80, y: 280}}])
 });
 
+test('should enable get three command node position', t => {
+  let layout = new AttachLayout();
+  let parentNode = {position: {x: 0, y: 0}, width: 400, height: 300};
+  let nodes = layout.calculateCommandNodes(parentNode, [{id: 0, name: '库存已增加'}, {id: 1, name: '库存已增加'}, {
+    id: 2,
+    name: '库存已增加'
+  }]);
+
+  t.deepEqual(nodes, [{id: 0, name: '库存已增加', position: {x: -80, y: 280}}, {
+    id: 1,
+    name: '库存已增加',
+    position: {x: -80, y: -20}
+  }, {id: 2, name: '库存已增加', position: {x: -160, y: 360}}])
+});
+
 
 test('should enable to render nodes', t => {
   let layout = new AttachLayout();
