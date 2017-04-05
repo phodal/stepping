@@ -37,6 +37,8 @@ export let GraphUtils = {
 
     for (let index in aggregate) {
       let currentNode = new AggregateEntity(aggregate[index].name);
+      currentNode.type = aggregate[index].type;
+
       nodes.push(currentNode);
       edges.push([rootNode, currentNode]);
     }

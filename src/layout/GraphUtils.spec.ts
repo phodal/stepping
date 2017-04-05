@@ -44,6 +44,8 @@ test('should convert aggregate DSL to aggregate model format', t => {
   let result = GraphUtils.toAggregateModelNode('库存子域', dslExample['aggregates']);
 
   t.deepEqual(result.nodes[0]['name'], '库存子域');
+
   t.deepEqual(result.nodes[1]['name'], '库存');
+  t.deepEqual(result.nodes[1]['type'], 'aggregate');
   t.deepEqual(result.nodes[2]['name'], '订单');
 });
