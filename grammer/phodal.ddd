@@ -19,7 +19,7 @@ domain: 订单子域
     command: 提交订单
     command: 提交投诉
 
-aggregate-detail: 商品
+detail: 商品
   model: product
    - id: int (long, md5)
    - name: string (64)

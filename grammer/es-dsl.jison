@@ -17,9 +17,9 @@ kw  (
 \s+                   /* skip whitespace */
 "domain"              return 'domain';
 [^-:]+                return 'ACTOR';
+"-"                   return 'ITEM';
 :[^\r\n]+             return 'MESSAGE';
 "aggregate"           return 'DDD_TYPE';
-"aggregate-detail"    return 'DDD_TYPE';
 "model"               return 'DDD_TYPE';
 "field"               return 'DDD_TYPE';
 "entity"              return 'DDD_TYPE';
@@ -56,8 +56,11 @@ statement
   ;
 
 signal
-	: type actor message { $$ = yy.parser.yy.store($1, $2, $3) }
-	| actor message      { $$ = yy.parser.yy.store($$, $1, $2) }
+	: item actor message   { $$ = yy.parser.yy.store($1, $2, $3) }
+	| ddd_type message     { $$ = yy.parser.yy.store($$, $1, $2) }
+	| actor message        { $$ = yy.parser.yy.store($$, $1, $2) }
+	| item message         { $$ = yy.parser.yy.store($$, $1, $2) }
+	| message              { console.log($1) }
 	;
 
 message
@@ -70,6 +73,10 @@ actor
 
 ddd_type
   : DDD_TYPE { $$=$1 }
+  ;
+
+item
+  : ITEM { $$=$1 }
   ;
 
 %%
