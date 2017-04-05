@@ -16,11 +16,12 @@ kw  (
 [\r\n]+               return 'NL';
 \s+                   /* skip whitespace */
 "domain"              return 'domain';
-"-"                   return 'CHILD';
-"+"                   return 'CHILD';
 [^-:]+                return 'ACTOR';
 :[^\r\n]+             return 'MESSAGE';
 "aggregate"           return 'DDD_TYPE';
+"aggregate-detail"    return 'DDD_TYPE';
+"model"               return 'DDD_TYPE';
+"field"               return 'DDD_TYPE';
 "entity"              return 'DDD_TYPE';
 "model"               return 'DDD_TYPE';
 "event"               return 'DDD_TYPE';
@@ -65,10 +66,6 @@ message
 
 actor
 	: ACTOR { $$=$1; }
-	;
-
-type
-	: CHILD   { $$ = yy.parser.yy.TYPE.CHILD; }
 	;
 
 ddd_type

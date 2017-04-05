@@ -14,7 +14,7 @@ var esDsl = {
 
     var result = parser.parse(input);
     console.log(result);
-    return parse;
+    return result;
   }
 };
 

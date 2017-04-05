@@ -5,10 +5,6 @@ function Diagram() {
 Diagram.data = [];
 Diagram.currentDomain = {};
 
-Diagram.TYPE = {
-  CHILD: 'ADD',
-};
-
 Diagram.store = function (actor, type, value) {
   if (type === 'aggregate') {
     Diagram.currentDomain.aggregates.push({
