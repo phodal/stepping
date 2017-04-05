@@ -49,7 +49,7 @@ function parseInput(file) {
             childNodeResults += layout.draw(childNodes);
           }
           if (childData && childData.commands) {
-            childNodes = layout.calculateEventsNodes(parentNode, childData.commands);
+            childNodes = layout.calculateCommandNodes(parentNode, childData.commands);
             childNodeResults += layout.draw(childNodes);
           }
 
