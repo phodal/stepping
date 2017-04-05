@@ -12,7 +12,7 @@ export let GraphUtils = {
     if (nodeType === 'domain') {
       let type = 'aggregates';
       let rootNodeName = dsl.name;
-      result = this.domainChildToNode(rootNodeName, dsl[type]);
+      result = this.toAggregateModelNode(rootNodeName, dsl[type]);
     } else if (nodeType === 'aggregate') {
       let rootNodeName = dsl.name;
       result = this.aggregateChildToNode(rootNodeName, dsl);
