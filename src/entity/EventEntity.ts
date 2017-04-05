@@ -4,6 +4,7 @@ import {IModel} from '../model/IModel';
 import {StringIdentity} from './Identity';
 
 export class EventEntity extends Entity<StringIdentity> implements IEventModel {
+  private _type: string;
   name: string;
   relatedNodes: IEventModel[];
   nearNode: IEventModel[];
@@ -33,5 +34,13 @@ export class EventEntity extends Entity<StringIdentity> implements IEventModel {
 
   updateRelatedChild(model: IModel) {
     return;
+  }
+
+  get type(): string {
+    return this._type;
+  }
+
+  set type(value: string) {
+    this._type = value;
   }
 }

@@ -9,6 +9,9 @@ export * from './store/LocalStorageRepository'
 
 export * from './entity/Entity'
 export * from './entity/EventEntity'
+export * from './entity/AggregateEntity'
+export * from './entity/CommandEntity'
+export * from './entity/DomainEntity'
 export * from './entity/EventPositionEntity'
 
 export * from './observer/EventPublisher'
