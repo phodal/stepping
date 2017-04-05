@@ -31,14 +31,29 @@ function parseInput(file) {
       return callback('<svg width="1024" height="1024" viewBox="-1024 -1024 2048 2048" xmlns="http://www.w3.org/2000/svg"></svg>');
     }
 
-    forceLayoutAdapter.draw(nodes[0], function (res, nodeInfos) {
+    let firstNode = nodes[0];
+    forceLayoutAdapter.draw(firstNode, function (res, nodeInfos) {
       let childNodeResults = '';
 
       for (let index in nodeInfos) {
         let layout = new AttachLayout();
         let parentNode = nodeInfos[parseInt(index)];
-        let childNodes = layout.calculateNodes(parentNode, [{id: 0, name: '库存已增加'}, {id: 1, name: '库存已删除'}]);
-        childNodeResults += layout.draw(childNodes);
+
+        let childNodes: any = '';
+
+        if (firstNode['nodes'][index].id = parentNode.id) {
+          let childData = firstNode['nodes'][index].data;
+
+          if (childData && childData.events) {
+            childNodes = layout.calculateNodes(parentNode, childData.events);
+            childNodeResults += layout.draw(childNodes);
+          }
+          if (childData && childData.commands) {
+            childNodes = layout.calculateNodes(parentNode, childData.commands);
+            childNodeResults += layout.draw(childNodes);
+          }
+
+        }
       }
 
       let result = `<svg width="1024" height="1024" viewBox="-1024 -1024 2048 2048" xmlns="http://www.w3.org/2000/svg"> ${res} ${childNodeResults} </svg>`;

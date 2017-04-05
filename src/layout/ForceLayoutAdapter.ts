@@ -31,10 +31,12 @@ export class ForceLayoutAdapter {
         that.nodes.push({
           id: node.id,
           name: node.data.name,
-          x: p.x * 400,
-          y: p.y * 200,
           width: 400,
           height: 240,
+          position: {
+            x: p.x * 400,
+            y: p.y * 200
+          }
         });
         that.results += that.drawNode(node, p).toString();
       },

@@ -50,13 +50,13 @@ export class AttachLayout {
 
   calculateNode(parentNode, node, index) {
     let rightTopPos = {
-      x: parentNode.x + parentNode.width,
-      y: parentNode.y + parentNode.height
+      x: parentNode.position.x + parentNode.width,
+      y: parentNode.position.y + parentNode.height
     };
 
     let rightBottomPos = {
-      x: parentNode.x + parentNode.width,
-      y: parentNode.y
+      x: parentNode.position.x + parentNode.width,
+      y: parentNode.position.y
     };
 
     let originNode = node;
