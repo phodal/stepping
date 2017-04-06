@@ -16,6 +16,7 @@ kw  (
 [\r\n]+               return 'NL';
 \s+                   /* skip whitespace */
 "domain"              return 'domain';
+"detail"              return 'detail';
 [^-:]+                return 'ACTOR';
 "-"                   return 'ITEM';
 :[^\r\n]+             return 'MESSAGE';
@@ -51,8 +52,9 @@ line
 	;
 
 statement
-	: 'domain'     message { yy.parser.yy.createDomain($2) }
-  | signal               { $$ = yy.parser.yy.signal($$, $1) }
+	: 'domain'        message { yy.parser.yy.createDomain($2) }
+	| 'detail'        message { $$ = yy.parser.yy.createAggregateDetail($2) }
+  | signal                  { $$ = yy.parser.yy.signal($$, $1) }
   ;
 
 signal

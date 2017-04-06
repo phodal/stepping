@@ -4,6 +4,7 @@ function Diagram() {
 
 Diagram.data = [];
 Diagram.currentDomain = {};
+Diagram.currentAggregate = {};
 
 Diagram.store = function (actor, type, value) {
   if (type === 'aggregate') {
@@ -53,6 +54,14 @@ Diagram.createDomain = function (input) {
     type: 'domain',
     aggregates: []
   };
+};
+
+Diagram.createAggregateDetail = function (input) {
+  Diagram.currentAggregate = {
+    name: input,
+    model: null
+  };
+  return input;
 };
 
 Diagram.getResult = function () {
