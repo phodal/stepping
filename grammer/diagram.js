@@ -5,6 +5,11 @@ function Diagram() {
 Diagram.data = [];
 Diagram.currentDomain = {};
 Diagram.currentAggregate = {};
+Diagram.currentModel = {};
+
+Diagram.storeModel = function (symbol, field, fieldType) {
+  return [symbol, field, fieldType]
+};
 
 Diagram.store = function (actor, type, value) {
   if (type === 'aggregate') {
@@ -61,6 +66,15 @@ Diagram.createAggregateDetail = function (input) {
     name: input,
     model: null
   };
+  return input;
+};
+
+Diagram.createModel = function (input) {
+  if (Diagram.currentModel.name !== undefined) {
+    this.data.push(Diagram.currentModel);
+  }
+
+  Diagram.currentModel = [];
   return input;
 };
 

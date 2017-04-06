@@ -17,6 +17,7 @@ kw  (
 \s+                   /* skip whitespace */
 "domain"              return 'domain';
 "detail"              return 'detail';
+"model"               return 'model';
 [^-:]+                return 'ACTOR';
 "-"                   return 'ITEM';
 :[^\r\n]+             return 'MESSAGE';
@@ -54,11 +55,12 @@ line
 statement
 	: 'domain'        message { yy.parser.yy.createDomain($2) }
 	| 'detail'        message { $$ = yy.parser.yy.createAggregateDetail($2) }
+	| 'model'         message { $$ = yy.parser.yy.createModel($2) }
   | signal                  { $$ = yy.parser.yy.signal($$, $1) }
   ;
 
 signal
-	: item actor message   { $$ = yy.parser.yy.store($1, $2, $3) }
+	: item actor message   { $$ = yy.parser.yy.storeModel($1, $2, $3) }
 	| ddd_type message     { $$ = yy.parser.yy.store($$, $1, $2) }
 	| actor message        { $$ = yy.parser.yy.store($$, $1, $2) }
 	| item message         { $$ = yy.parser.yy.store($$, $1, $2) }
