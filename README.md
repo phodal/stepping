@@ -66,14 +66,10 @@ create demo app with Django & Angular 2
 
 aggregate-detail: 商品
   model: product
-    field: 
-     - id: int (long, md5)
-     - name: string (64)
-     - number: string (64)
-     - manufacturers: string (128)
-
-  display:
-    router: id
+   - id: int (long, md5)
+   - name: string (64)
+   - number: string (64)
+   - manufacturers: string (128)
 ```
 
 Todo
