@@ -14,6 +14,7 @@ var esDsl = {
 
     var result = parser.parse(input);
     console.log(result.data);
+    console.log(JSON.stringify(result.aggregate));
     return result;
   }
 };

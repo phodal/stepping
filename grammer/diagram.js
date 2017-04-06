@@ -3,12 +3,29 @@ function Diagram() {
 }
 
 Diagram.data = [];
+Diagram.aggregate = [];
 Diagram.currentDomain = {};
 Diagram.currentAggregate = {};
 Diagram.currentModel = {};
 
-Diagram.storeModel = function (symbol, field, fieldType) {
-  return [symbol, field, fieldType]
+Diagram.storeModel = function (symbol, field, fieldTypeString) {
+  var filedTypeRegex = /\(([A-Za-z1-9 ,]+)\)/;
+  var result = {};
+  if(filedTypeRegex.test(fieldTypeString)) {
+    var fieldString = filedTypeRegex.exec(fieldTypeString)[1];
+    var fields = fieldString.split(",");
+    result = {
+      name: field,
+      options: fields
+    };
+  } else {
+    result = {
+      name: field
+    };
+  }
+
+  Diagram.currentModel.model.push(result);
+  return [symbol, field, fieldTypeString]
 };
 
 Diagram.store = function (actor, type, value) {
@@ -62,24 +79,34 @@ Diagram.createDomain = function (input) {
 };
 
 Diagram.createAggregateDetail = function (input) {
+  if(Diagram.currentAggregate.name !== undefined) {
+    this.aggregate.push(Diagram.currentAggregate);
+  }
+
   Diagram.currentAggregate = {
     name: input,
-    model: null
+    model: []
   };
   return input;
 };
 
 Diagram.createModel = function (input) {
   if (Diagram.currentModel.name !== undefined) {
-    this.data.push(Diagram.currentModel);
+    Diagram.currentAggregate.model.push(Diagram.currentModel);
   }
 
-  Diagram.currentModel = [];
+  Diagram.currentModel = {
+    name: input,
+    model: []
+  };
   return input;
 };
 
 Diagram.getResult = function () {
   this.data.push(Diagram.currentDomain);
+
+  Diagram.currentAggregate.model.push(Diagram.currentModel);
+  this.aggregate.push(Diagram.currentAggregate);
   return this.data;
 };
 
