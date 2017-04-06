@@ -1,13 +1,6 @@
 # Stepping - write a dsl, run on any framework.
 
 Stepping a tools for code design, event storming, domain model generate. 
- 
-Features:
-
- - create ``architecture`` image by a DSL
- - create Event Storming model by DSL
- - generate Django & Angular 2 code by DSL
- - create API & mock API by DSL
 
 Usage
 ---
@@ -72,8 +65,9 @@ aggregate-detail: 商品
    - manufacturers: string (128)
 ```
 
-Todo
+Thanks
 ---
+
 
 DSL Design
 
@@ -82,16 +76,6 @@ DSL Design
 DSL to aggregate event
 
 ![Architecture](./graphics/domain-event.png)
-
-Tasks:
-
- - support to 3rd interface
- - auto layout with sub-domain
- - generate Django model
- - generate Angular Code
-
-Thanks
----
 
 TypeScript DDD Base: [https://github.com/yaakaito/typescript-dddbase](https://github.com/yaakaito/typescript-dddbase)
 
