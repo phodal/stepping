@@ -57,7 +57,7 @@ export class ForceLayoutAdapter {
     let y = p.y * 180;
 
     return `<g>
-              <rect x="${x}" y="${y}" width="300" height="180" rx="2" ry="2" fill="#ffff00"/>
+              <rect x="${x}" y="${y}" width="300" height="180" rx="5" ry="5" fill="#ffff00"/>
               <text x="${x}" y="${y}" fill="#000" style="font-size: 24px;" text-anchor="middle">
                 <tspan dx="150" dy="90">${node.data.name}</tspan>
               </text>

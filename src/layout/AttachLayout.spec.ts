@@ -57,12 +57,12 @@ test('should enable to render nodes', t => {
   let results = layout.draw(nodes);
 
   t.deepEqual(results, `<g>
-              <rect x=\"380\" y=\"280\" width=\"100\" height=\"100\" rx=\"2\" ry=\"2\" fill=\"#ff8000\" stroke=\"#ffffff\" stroke-width=\"1.0\"/>
+              <rect x=\"380\" y=\"280\" width=\"100\" height=\"100\" rx=\"5\" ry=\"5\" fill=\"#ff8000\" stroke=\"#ffffff\" stroke-width=\"1.0\"/>
               <text x=\"380\" y=\"280\" fill=\"#fff\" text-anchor=\"middle\">
                 <tspan dx=\"50\" dy=\"50\">库存已增加</tspan>
               </text>
             </g><g>
-              <rect x=\"380\" y=\"-20\" width=\"100\" height=\"100\" rx=\"2\" ry=\"2\" fill=\"#ff8000\" stroke=\"#ffffff\" stroke-width=\"1.0\"/>
+              <rect x=\"380\" y=\"-20\" width=\"100\" height=\"100\" rx=\"5\" ry=\"5\" fill=\"#ff8000\" stroke=\"#ffffff\" stroke-width=\"1.0\"/>
               <text x=\"380\" y=\"-20\" fill=\"#fff\" text-anchor=\"middle\">
                 <tspan dx=\"50\" dy=\"50\">库存已删除</tspan>
               </text>
@@ -100,7 +100,7 @@ test('should enable to render nodes', t => {
   let results = layout.draw(nodes);
 
   t.deepEqual(results, `<g>
-              <rect x=\"-80\" y=\"280\" width=\"100\" height=\"100\" rx=\"2\" ry=\"2\" fill=\"#ff8000\" stroke=\"#ffffff\" stroke-width=\"1.0\"/>
+              <rect x=\"-80\" y=\"280\" width=\"100\" height=\"100\" rx=\"5\" ry=\"5\" fill=\"#ff8000\" stroke=\"#ffffff\" stroke-width=\"1.0\"/>
               <text x=\"-80\" y=\"280\" fill=\"#fff\" text-anchor=\"middle\">
                 <tspan dx=\"50\" dy=\"50\">库存已增加</tspan>
               </text>
