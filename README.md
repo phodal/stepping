@@ -57,7 +57,7 @@ create demo app with Django & Angular 2
 ```
 ...
 
-aggregate-detail: 商品
+detail: 商品
   model: product
    - id: int (long, md5)
    - name: string (64)
