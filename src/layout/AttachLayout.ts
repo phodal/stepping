@@ -11,10 +11,10 @@ export class AttachLayout {
 
     for (let index in nodes) {
       let originNode: any;
-      if (parseInt(index) <= 1) {
+      if (parseInt(index, 10) <= 1) {
         originNode = this.calculateNode(originParentNode, nodes[index], index);
       } else {
-        let parentNode = newNodes[parseInt(index) - 2];
+        let parentNode = newNodes[parseInt(index, 10) - 2];
         originNode = this.calculateClosedNode(parentNode, nodes[index], index);
       }
       newNodes.push(originNode);
@@ -34,7 +34,7 @@ export class AttachLayout {
       y: 0
     };
 
-    let isEven = (parseInt(index) + 1) % 2 === 0;
+    let isEven = (parseInt(index, 10) + 1) % 2 === 0;
 
     if (!isEven) {
       position.x = parentX + this.defaultWidth * 0.8;
@@ -65,7 +65,7 @@ export class AttachLayout {
       y: 0
     };
 
-    let isEven = (parseInt(index) + 1) % 2 === 0;
+    let isEven = (parseInt(index, 10) + 1) % 2 === 0;
 
     if (!isEven) {
       position.x = rightTopPos.x - 20;
@@ -109,10 +109,10 @@ export class AttachLayout {
 
     for (let index in nodes) {
       let originNode: any;
-      if (parseInt(index) <= 1) {
+      if (parseInt(index, 10) <= 1) {
         originNode = this.calculateCommandNode(originParentNode, nodes[index], index);
       } else {
-        let parentNode = newNodes[parseInt(index) - 2];
+        let parentNode = newNodes[parseInt(index, 10) - 2];
         originNode = this.calculateCommandClosedNode(parentNode, nodes[index], index);
       }
       newNodes.push(originNode);
@@ -138,7 +138,7 @@ export class AttachLayout {
       y: 0
     };
 
-    let isEven = (parseInt(index) + 1) % 2 === 0;
+    let isEven = (parseInt(index, 10) + 1) % 2 === 0;
 
     if (!isEven) {
       position.x = rightTopPos.x - this.defaultWidth * 0.8;
@@ -164,7 +164,7 @@ export class AttachLayout {
       y: 0
     };
 
-    let isEven = (parseInt(index) + 1) % 2 === 0;
+    let isEven = (parseInt(index, 10) + 1) % 2 === 0;
 
     if (!isEven) {
       position.x = parentPos.x - this.defaultWidth * 0.8;

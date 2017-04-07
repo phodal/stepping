@@ -38,11 +38,6 @@ export class ESGraph {
   nextEdgeId: number = 0;
   eventListeners: any[] = [];
 
-
-  constructor() {
-
-  }
-
   addNode(node: any) {
     if (!(node.id in this.nodeSet)) {
       this.nodes.push(node);
@@ -105,11 +100,11 @@ export class ESGraph {
     for (let i = 0; i < arguments.length; i++) {
       let e = arguments[i];
       let node1 = this.nodeSet[e[0].id];
-      if (node1 == undefined) {
+      if (node1 === undefined) {
         throw new TypeError('invalid node name: ' + e[0]);
       }
       let node2 = this.nodeSet[e[1].id];
-      if (node2 == undefined) {
+      if (node2 === undefined) {
         throw new TypeError('invalid node name: ' + e[1]);
       }
       let attr = e[2];
@@ -182,7 +177,7 @@ export class ESGraph {
         }
 
         // Clean up empty edge arrays
-        if (this.adjacency[x][y].length == 0) {
+        if (this.adjacency[x][y].length === 0) {
           delete this.adjacency[x][y];
         }
       }

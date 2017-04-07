@@ -1,5 +1,4 @@
 import {AggregateEntity} from '../entity/AggregateEntity';
-import {DomainEntity} from '../entity/DomainEntity';
 import {EventEntity} from '../entity/EventEntity';
 import {CommandEntity} from '../entity/CommandEntity';
 
@@ -39,12 +38,12 @@ export let GraphUtils = {
       currentNode.type = aggregate[index].type;
       currentNode.data = {
         events: aggregate[index].events,
-        commands: aggregate[index].commands,
+        commands: aggregate[index].commands
       };
 
       nodes.push(currentNode);
 
-      if (parseInt(index) === 0) {
+      if (parseInt(index, 10) === 0) {
         firstNode = currentNode;
       } else {
         edges.push([firstNode, currentNode]);
@@ -94,4 +93,3 @@ export let GraphUtils = {
     return result;
   }
 };
-
