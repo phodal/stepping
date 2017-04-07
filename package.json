@@ -1,6 +1,6 @@
 {
   "name": "stepping",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "Stepping - a tools for code design, event storming, domain model generate.",
   "main": "build/main/index.js",
   "bin": "build/main/cli.js",
