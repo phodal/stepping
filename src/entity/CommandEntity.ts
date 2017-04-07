@@ -3,9 +3,9 @@ import {StringIdentity} from './Identity';
 import {IPosition} from '../render/interface/IPosition';
 
 export class CommandEntity extends Entity<StringIdentity> {
+  name: string;
   private _position: IPosition;
   private _type: string;
-  name: string;
 
   constructor(name: any) {
     super(name);

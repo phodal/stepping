@@ -3,10 +3,10 @@ import {StringIdentity} from './Identity';
 import {IPosition} from '../render/interface/IPosition';
 
 export class AggregateEntity extends Entity<StringIdentity> {
+  name: string;
   private _position: IPosition;
   private _type: string;
   private _data: any;
-  name: string;
 
   constructor(name: any) {
     super(name);

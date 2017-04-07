@@ -92,7 +92,6 @@ test('should enable get three command node position', t => {
   }, {id: 2, name: '库存已增加', position: {x: -160, y: 360}}])
 });
 
-
 test('should enable to render nodes', t => {
   let layout = new AttachLayout();
   let parentNode = {position: {x: 0, y: 0}, width: 400, height: 300};

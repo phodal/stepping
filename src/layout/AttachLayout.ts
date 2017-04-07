@@ -2,10 +2,6 @@ export class AttachLayout {
   defaultWidth: number = 100;
   defaultHeight: number = 100;
 
-  constructor() {
-
-  }
-
   calculateEventsNodes(originParentNode, nodes) {
     let newNodes: any[] = [];
 
@@ -22,7 +18,6 @@ export class AttachLayout {
 
     return newNodes
   }
-
 
   calculateClosedNode(parentNode: any, node: any, index) {
     let parentX = parentNode.position.x;
@@ -92,7 +87,7 @@ export class AttachLayout {
     let y = node.position.y;
     let color = '#ff8000';
 
-    if(node.type === 'command') {
+    if (node.type === 'command') {
       color = '#66b2ff';
     }
 

@@ -201,7 +201,7 @@ export class ESGraph {
       let from = nodes[e.from];
       let to = nodes[e.to];
 
-      //id?
+      // id?
       let id;
       id = (e.directed)
         ? (id = e.type + '-' + from.id + '-' + to.id)
@@ -232,15 +232,6 @@ export class ESGraph {
     }, this);
   };
 
-  private isEmpty(obj: any) {
-    for (let k in obj) {
-      if (obj.hasOwnProperty(k)) {
-        return false;
-      }
-    }
-    return true;
-  }
-
   addGraphListener(esRenderer: ESRenderer) {
     this.eventListeners.push(esRenderer);
   };
@@ -258,4 +249,12 @@ export class ESGraph {
     }
   }
 
+  private isEmpty(obj: any) {
+    for (let k in obj) {
+      if (obj.hasOwnProperty(k)) {
+        return false;
+      }
+    }
+    return true;
+  }
 }

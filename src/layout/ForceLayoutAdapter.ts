@@ -9,10 +9,6 @@ export class ForceLayoutAdapter {
   private graph: ESGraph;
   private layout: Layout.ForceDirected;
 
-  constructor() {
-
-  }
-
   draw(jsonNode, callback) {
     this.graph = new ESGraph();
     this.graph.loadJSON(jsonNode);

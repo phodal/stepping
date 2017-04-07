@@ -1,10 +1,6 @@
 import {esDsl} from 'esDsl'
 
 export class DSLAdapter {
-  constructor() {
-
-  }
-
   parse(input) {
     return esDsl.parse(input);
   }
