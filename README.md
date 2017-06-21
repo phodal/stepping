@@ -14,7 +14,7 @@ yarn global add stepping
 or 
 
 ```
-npm install -g 
+npm install -g stepping
 ```
 
 2.Run
